@@ -1,0 +1,1073 @@
+/**
+ * 🎨 策略监控器样式
+ * 专门为实时监控功能设计
+ */
+
+/* 功能选项卡 */
+.function-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border-color, #333);
+}
+
+.tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary, #999);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary, #fff);
+    background: var(--bg-tertiary, #2a2a2a);
+}
+
+.tab-btn.active {
+    color: var(--primary-color, #00d4aa);
+    border-bottom-color: var(--primary-color, #00d4aa);
+}
+
+.tab-btn .icon {
+    font-size: 16px;
+}
+
+/* 选项卡内容 */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* 🔥 优化：全屏监控器容器 */
+.strategy-monitor {
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 0;
+    padding: 16px;
+    margin: 0;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* 🔥 优化：紧凑的监控头部 */
+.monitor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-color, #333);
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-left h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: var(--text-primary, #fff);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.header-left .icon {
+    font-size: 24px;
+}
+
+/* 连接状态 */
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: var(--bg-tertiary, #2a2a2a);
+    font-size: 14px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #666;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.connected,
+.status-dot.subscribed,
+.status-dot.reconnected {
+    background: #00d4aa;
+}
+
+.status-dot.disconnected {
+    background: #ff6b6b;
+    animation: none;
+}
+
+.status-dot.error,
+.status-dot.failed {
+    background: #ff4757;
+    animation: blink 1s infinite;
+}
+
+.status-text {
+    color: var(--text-secondary, #ccc);
+    font-weight: 500;
+}
+
+/* 头部右侧 */
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 监控统计 */
+.monitor-stats {
+    display: flex;
+    gap: 16px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary-color, #00d4aa);
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: var(--text-secondary, #999);
+    margin-top: 2px;
+}
+
+/* 监控操作 */
+.monitor-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* 策略容器 */
+.strategies-container {
+    min-height: 400px;
+}
+
+.strategies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+/* 空状态 */
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--text-secondary, #999);
+}
+
+.empty-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+.empty-state h4 {
+    margin: 0 0 8px 0;
+    color: var(--text-primary, #fff);
+    font-weight: 500;
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* 🔥 优化：超紧凑的监控卡片 */
+.monitor-card {
+    position: relative;
+    background: var(--bg-tertiary, #2a2a2a);
+    border: 1px solid var(--border-color, #333);
+    border-radius: 8px;
+    padding: 16px 16px 10px 16px;
+    transition: all 0.3s ease;
+}
+
+.monitor-card:hover {
+    border-color: var(--primary-color, #00d4aa);
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.1);
+}
+
+/* 数据更新动画 */
+.monitor-card.data-updated {
+    animation: cardGlow 1s ease-in-out;
+    border-color: var(--primary-color, #00d4aa);
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0.3;
+    }
+}
+
+@keyframes cardGlow {
+    0% {
+        box-shadow: 0 4px 12px rgba(0, 212, 170, 0);
+    }
+
+    50% {
+        box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 4px 12px rgba(0, 212, 170, 0);
+    }
+}
+
+/* 🔥 优化：紧凑的卡片头部 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-color, #333);
+    min-height: 50px;
+}
+
+.card-title {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    margin-right: 12px;
+}
+
+.card-title h4 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+    line-height: 1.1;
+}
+
+/* 🔥 优化：紧凑的卡片操作区域 */
+.card-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+    min-width: 200px;
+    flex-shrink: 0;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 200px;
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    background: var(--bg-tertiary, #2a2a2a);
+    color: var(--text-secondary, #ccc);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    position: relative;
+}
+
+.btn-action:hover {
+    background: var(--bg-quaternary, #3a3a3a);
+    color: var(--text-primary, #fff);
+    transform: translateY(-1px);
+}
+
+.btn-action:active {
+    transform: translateY(0);
+}
+
+.btn-action:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* 特定操作按钮样式 */
+.btn-action.start {
+    background: #28a745;
+    color: white;
+}
+
+.btn-action.start:hover {
+    background: #218838;
+}
+
+.btn-action.pause {
+    background: #ffc107;
+    color: #212529;
+}
+
+.btn-action.pause:hover {
+    background: #e0a800;
+}
+
+.btn-action.stop {
+    background: #fd7e14;
+    color: white;
+}
+
+.btn-action.stop:hover {
+    background: #e8690b;
+}
+
+.btn-action.delete {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-action.delete:hover {
+    background: #c82333;
+}
+
+.btn-action.details {
+    background: #17a2b8;
+    color: white;
+}
+
+.btn-action.details:hover {
+    background: #138496;
+}
+
+.btn-action.edit {
+    background: #6f42c1;
+    color: white;
+}
+
+.btn-action.edit:hover {
+    background: #5a359c;
+}
+
+.btn-action.edit-config {
+    background: #6f42c1;
+    color: white;
+}
+
+.btn-action.edit-config:hover {
+    background: #5a359c;
+}
+
+.btn-action.view-config {
+    background: #17a2b8;
+    color: white;
+}
+
+.btn-action.view-config:hover {
+    background: #138496;
+}
+
+.btn-action.manual-stop-loss {
+    background: #fd7e14;
+    color: white;
+}
+
+.btn-action.manual-stop-loss:hover {
+    background: #e8690b;
+}
+
+/* 操作按钮工具提示 */
+.btn-action[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-primary, #000);
+    color: var(--text-primary, #fff);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 1000;
+    opacity: 0;
+    animation: tooltipFadeIn 0.2s ease forwards;
+}
+
+@keyframes tooltipFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* 🔥 优化：紧凑的策略详细信息 */
+.strategy-details {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-color, #333);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 0;
+    font-size: 12px;
+}
+
+.detail-item:last-child {
+    padding-bottom: 0;
+}
+
+.detail-item .label {
+    color: var(--text-secondary, #999);
+    font-weight: 500;
+}
+
+.detail-item .value {
+    color: var(--text-primary, #fff);
+    font-weight: 500;
+}
+
+.detail-item .value.mono {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 12px;
+}
+
+
+
+/* 状态徽章 */
+.status-badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-top: 2px;
+}
+
+.status-badge.success {
+    background: rgba(40, 167, 69, 0.2);
+    color: #28a745;
+}
+
+.status-badge.warning {
+    background: rgba(255, 193, 7, 0.2);
+    color: #ffc107;
+}
+
+.status-badge.danger,
+.status-badge.error {
+    background: rgba(220, 53, 69, 0.2);
+    color: #dc3545;
+}
+
+.status-badge.secondary {
+    background: rgba(108, 117, 125, 0.2);
+    color: #6c757d;
+}
+
+/* 🔥 优化：紧凑的最后更新时间 */
+.last-update-time {
+    font-size: 10px;
+    color: var(--text-secondary, #999);
+    margin-top: 2px;
+    text-align: right;
+    white-space: nowrap;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 🔥 优化：紧凑的指标网格 */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.metric-item.primary {
+    padding: 8px;
+    background: rgba(0, 212, 170, 0.05);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 212, 170, 0.1);
+}
+
+.metric-item .label {
+    font-size: 12px;
+    color: var(--text-secondary, #999);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.metric-item .value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+}
+
+.metric-item.primary .value {
+    font-size: 16px;
+}
+
+/* 盈亏颜色 */
+.value.positive,
+.percentage.positive {
+    color: #00d4aa !important;
+}
+
+.value.negative,
+.percentage.negative {
+    color: #ff6b6b !important;
+}
+
+.percentage {
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* 🔥 新增：活跃BIN百分比样式 */
+.bin-percentage {
+    display: inline;
+    font-size: 10px;
+    color: var(--accent-primary, #00d4aa);
+    margin-left: 4px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* 🔥 优化：紧凑的止损信息 */
+.stop-loss-info {
+    padding: 8px;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.stop-loss-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+}
+
+.stop-loss-status .label {
+    font-size: 12px;
+    color: var(--text-secondary, #999);
+}
+
+.stop-loss-status .action {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.action.hold {
+    background: rgba(108, 117, 125, 0.2);
+    color: #6c757d;
+}
+
+.action.sell {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff6b6b;
+}
+
+.action.buy {
+    background: rgba(0, 212, 170, 0.2);
+    color: #00d4aa;
+}
+
+.confidence-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.confidence-info .label {
+    font-size: 12px;
+    color: var(--text-secondary, #999);
+}
+
+.confidence-info .value {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-primary, #fff);
+}
+
+/* 🔥 新增：手续费信息垂直显示 */
+.fee-info-vertical {
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fee-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3px;
+}
+
+.fee-row:last-child {
+    margin-bottom: 0;
+}
+
+.fee-label {
+    font-size: 11px;
+    color: var(--text-secondary, #999);
+    white-space: nowrap;
+}
+
+.fee-value {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-primary, #fff);
+    text-align: right;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .monitor-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .header-right {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .strategies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 12px;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    /* 🔥 移动端卡片头部优化 */
+    .card-header {
+        min-height: 70px;
+        /* 移动端减少高度 */
+    }
+
+    /* 🔥 移动端卡片底部内边距优化 */
+    .monitor-card {
+        padding: 14px 14px 8px 14px;
+    }
+
+    .card-title {
+        margin-right: 12px;
+        /* 减少边距 */
+    }
+
+    .card-title h4 {
+        font-size: 14px;
+        /* 略小的标题 */
+    }
+
+    .card-actions {
+        min-width: 180px;
+        /* 移动端减少宽度 */
+    }
+
+    .action-buttons {
+        max-width: 180px;
+        gap: 3px;
+        /* 进一步减少间距 */
+    }
+
+    .btn-action {
+        width: 26px;
+        /* 移动端更小的按钮 */
+        height: 26px;
+        font-size: 11px;
+    }
+
+    .last-update-time {
+        font-size: 10px;
+        max-width: 180px;
+    }
+
+    /* 状态徽章在移动端的调整 */
+    .status-badge {
+        font-size: 11px;
+        padding: 3px 8px;
+    }
+
+    /* 策略详情在移动端简化显示 */
+    .strategy-details {
+        display: none;
+    }
+
+    .strategy-details.expanded {
+        display: block;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+    .strategies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 10px;
+    }
+
+    .card-header {
+        min-height: 85px;
+    }
+
+    /* 🔥 超小屏幕卡片底部内边距优化 */
+    .monitor-card {
+        padding: 12px 12px 6px 12px;
+    }
+
+    .card-actions {
+        min-width: 160px;
+    }
+
+    .action-buttons {
+        max-width: 160px;
+        gap: 2px;
+    }
+
+    .btn-action {
+        width: 24px;
+        height: 24px;
+        font-size: 10px;
+    }
+
+    .last-update-time {
+        font-size: 9px;
+        max-width: 160px;
+    }
+}
+
+/* 按钮样式增强 */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
+.btn-primary {
+    background: var(--primary-color, #00d4aa);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-color-hover, #00b894);
+}
+
+.btn-secondary {
+    background: var(--bg-tertiary, #2a2a2a);
+    color: var(--text-secondary, #ccc);
+    border: 1px solid var(--border-color, #333);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-quaternary, #333);
+    border-color: var(--primary-color, #00d4aa);
+}
+
+/* 🔥 优化：紧凑的历史数据区域样式 */
+.historical-data-section {
+    margin-top: 12px;
+    margin-bottom: 0;
+    padding: 12px;
+    background: var(--bg-tertiary, #2a2a2a);
+    border-radius: 6px;
+    border: 1px solid var(--border-color, #444);
+}
+
+.section-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* 🔥 新增：小标题样式 */
+.section-title.small-title {
+    font-size: 10px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+/* 紧凑的历史价格变化样式 */
+.historical-price-changes {
+    margin-bottom: 12px;
+}
+
+.price-changes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+}
+
+.price-change-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4px 6px;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 4px;
+    border: 1px solid var(--border-color, #333);
+}
+
+.price-change-item .timeframe {
+    font-size: 10px;
+    color: var(--text-secondary, #999);
+    margin-bottom: 2px;
+}
+
+.price-change-item .change-value {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+}
+
+.price-change-item .change-value.positive {
+    color: var(--success-color, #00d4aa);
+}
+
+.price-change-item .change-value.negative {
+    color: var(--danger-color, #ff6b6b);
+}
+
+/* 🔥 超紧凑的历史收益率样式 */
+.historical-yield-rates {
+    border-top: 1px solid var(--border-color, #333);
+    padding-top: 8px;
+    padding-bottom: 0;
+}
+
+.yield-rate-summary {
+    margin-bottom: 8px;
+}
+
+.total-return {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 6px;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 3px;
+    border: 1px solid var(--border-color, #333);
+}
+
+.total-return .label {
+    font-size: 10px;
+    color: var(--text-secondary, #999);
+}
+
+.total-return .value {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+}
+
+.total-return .value.positive {
+    color: var(--success-color, #00d4aa);
+}
+
+.total-return .value.negative {
+    color: var(--danger-color, #ff6b6b);
+}
+
+.efficiency-title {
+    font-size: 9px;
+    color: var(--text-secondary, #999);
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.efficiency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    margin-bottom: 0;
+}
+
+.efficiency-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2px 3px;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 2px;
+    border: 1px solid var(--border-color, #333);
+}
+
+.efficiency-item .timeframe {
+    font-size: 8px;
+    color: var(--text-secondary, #999);
+    margin-bottom: 1px;
+}
+
+.efficiency-item .rate {
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--accent-primary, #00d4aa);
+}
+
+/* 🆕 基准收益率样式 */
+.benchmark-yield-rates {
+    margin-bottom: 12px;
+    border-top: 1px solid var(--border-color, #333);
+    padding-top: 8px;
+}
+
+.benchmark-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    margin-bottom: 0;
+}
+
+.benchmark-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3px 6px;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 3px;
+    border: 1px solid var(--border-color, #333);
+}
+
+.benchmark-item .label {
+    font-size: 9px;
+    color: var(--text-secondary, #999);
+    font-weight: 500;
+}
+
+.benchmark-item .value {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--warning-color, #ffb020);
+}
+
+/* 🔥 新增：动态重建开关状态样式 */
+.dynamic-switch-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+    padding: 2px 6px;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 4px;
+    border: 1px solid var(--border-color, #333);
+    font-size: 10px;
+}
+
+.dynamic-switch-status .switch-label {
+    color: var(--text-secondary, #999);
+    font-weight: 500;
+}
+
+.dynamic-switch-status .switch-value {
+    font-weight: 600;
+    padding: 1px 4px;
+    border-radius: 2px;
+    font-size: 9px;
+}
+
+.dynamic-switch-status .switch-value.switch-enabled {
+    color: var(--success-color, #00d4aa);
+    background: rgba(0, 212, 170, 0.1);
+}
+
+.dynamic-switch-status .switch-value.switch-disabled {
+    color: var(--error-color, #ff4757);
+    background: rgba(255, 71, 87, 0.1);
+}

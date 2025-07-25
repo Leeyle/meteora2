@@ -1,0 +1,55 @@
+{
+  "id": "simple-y_1753257162409_nmlvl7",
+  "type": "simple-y",
+  "name": "MULN",
+  "config": {
+    "poolAddress": "3k2dF4wdP9MDBZM4Ma8FZZL5DxtddJgVkmrXXp6TeYXC",
+    "positionAmount": 1,
+    "binRange": 69,
+    "monitoringInterval": 12,
+    "outOfRangeTimeout": 600,
+    "yieldExtractionThreshold": "0.01",
+    "yieldExtractionTimeLock": 2,
+    "maxPriceForRecreation": 0.000001,
+    "minPriceForRecreation": 0.0000035,
+    "slippageBps": 1000,
+    "benchmarkYieldThreshold5Min": 0.4,
+    "minActiveBinPositionThreshold": 10,
+    "enableSmartStopLoss": true,
+    "stopLoss": {
+      "activeBinSafetyThreshold": 5,
+      "observationPeriodMinutes": 15,
+      "lossThresholdPercentage": 4
+    },
+    "positionRecreation": {
+      "enableMarketOpportunityRecreation": true,
+      "marketOpportunity": {
+        "positionThreshold": 90,
+        "profitThreshold": 3
+      },
+      "enableLossRecoveryRecreation": true,
+      "lossRecovery": {
+        "markPositionThreshold": 35,
+        "markLossThreshold": 2,
+        "triggerPositionThreshold": 90,
+        "triggerProfitThreshold": 2
+      },
+      "enableDynamicProfitRecreation": true,
+      "dynamicProfitRecreation": {
+        "positionThreshold": 90,
+        "benchmarkTier1Max": 1,
+        "benchmarkTier2Max": 3,
+        "benchmarkTier3Max": 5,
+        "benchmarkTier4Max": 50,
+        "profitThresholdTier1": 1,
+        "profitThresholdTier2": 3,
+        "profitThresholdTier3": 5,
+        "profitThresholdTier4": 8
+      }
+    }
+  },
+  "status": "stopped",
+  "createdAt": "2025-07-23T07:52:42.409Z",
+  "startedAt": "2025-07-23T07:52:42.413Z",
+  "stoppedAt": "2025-07-23T08:05:53.238Z"
+}

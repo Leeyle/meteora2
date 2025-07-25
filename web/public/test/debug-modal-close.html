@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>调试模态框关闭</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #1a1b2e;
+            color: white;
+            padding: 2rem;
+        }
+
+        .debug-panel {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔧 模态框关闭调试</h1>
+
+        <div class="debug-panel">
+            <h3>测试步骤</h3>
+            <ol>
+                <li>点击"初始化"按钮</li>
+                <li>点击"显示模态框"按钮</li>
+                <li>尝试点击"取消"或"X"按钮</li>
+                <li>查看控制台日志</li>
+            </ol>
+
+            <button class="btn btn-primary" onclick="init()">🚀 初始化</button>
+            <button class="btn btn-success" onclick="show()" id="show-btn" disabled>📝 显示模态框</button>
+            <button class="btn btn-warning" onclick="testClose()">🔒 测试关闭</button>
+        </div>
+
+        <div class="debug-panel">
+            <h3>状态</h3>
+            <div id="status">等待初始化...</div>
+        </div>
+
+        <div id="strategy-container"></div>
+    </div>
+
+    <script src="../public/js/components/strategy/strategy-forms-simple.js"></script>
+    <script src="../public/js/components/strategy/simple-y-manager.js"></script>
+
+    <script>
+        let manager = null;
+
+        function updateStatus(msg) {
+            document.getElementById('status').innerHTML += '<br>' + new Date().toLocaleTimeString() + ': ' + msg;
+            console.log(msg);
+        }
+
+        async function init() {
+            try {
+                updateStatus('开始初始化...');
+                manager = new SimpleYStrategyManager('strategy-container');
+                await manager.init();
+                document.getElementById('show-btn').disabled = false;
+                updateStatus('✅ 初始化成功');
+            } catch (e) {
+                updateStatus('❌ 初始化失败: ' + e.message);
+            }
+        }
+
+        function show() {
+            try {
+                updateStatus('显示模态框...');
+                manager.showCreateStrategyForm();
+                updateStatus('✅ 模态框显示命令发送');
+
+                // 检查是否正确显示
+                setTimeout(() => {
+                    const modal = document.getElementById('create-simple-y-modal');
+                    if (modal) {
+                        updateStatus(`模态框存在，display: ${modal.style.display}`);
+
+                        // 检查全局关闭函数
+                        if (window.closeSimpleYModal) {
+                            updateStatus('✅ 全局关闭函数已绑定');
+                        } else {
+                            updateStatus('❌ 全局关闭函数未绑定');
+                        }
+
+                        // 检查关闭按钮
+                        const closeBtns = modal.querySelectorAll('button[onclick*="closeSimpleYModal"]');
+                        updateStatus(`找到 ${closeBtns.length} 个关闭按钮`);
+                    } else {
+                        updateStatus('❌ 模态框元素不存在');
+                    }
+                }, 500);
+            } catch (e) {
+                updateStatus('❌ 显示失败: ' + e.message);
+            }
+        }
+
+        function testClose() {
+            try {
+                updateStatus('测试关闭功能...');
+                if (window.closeSimpleYModal) {
+                    window.closeSimpleYModal();
+                    updateStatus('✅ 调用全局关闭函数');
+                } else {
+                    updateStatus('❌ 全局关闭函数不存在');
+                }
+            } catch (e) {
+                updateStatus('❌ 关闭测试失败: ' + e.message);
+            }
+        }
+
+        // 监听所有点击事件
+        document.addEventListener('click', function (e) {
+            if (e.target.tagName === 'BUTTON') {
+                updateStatus(`点击按钮: ${e.target.textContent.trim()}, onclick: ${e.target.getAttribute('onclick')}`);
+            }
+        });
+
+        // 监听模态框状态变化
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                if (mutation.type === 'childList') {
+                    const modal = document.getElementById('create-simple-y-modal');
+                    if (modal) {
+                        updateStatus(`模态框状态变化: display=${modal.style.display}, class=${modal.className}`);
+                    }
+                }
+            });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+{
+    "name": "dlmm-liquidity-manager-minimal",
+    "version": "1.0.0",
+    "description": "DLMM流动性管理系统 - 最小运行版本",
+    "main": "simple-server.js",
+    "scripts": {
+        "start": "node simple-server.js",
+        "dev": "node simple-server.js",
+        "install-minimal": "npm install express cors ws",
+        "test": "curl http://localhost:7000/api/health"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "cors": "^2.8.5",
+        "ws": "^8.14.2"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "keywords": [
+        "solana",
+        "dlmm",
+        "liquidity",
+        "api",
+        "minimal"
+    ],
+    "author": "DLMM Team",
+    "license": "MIT"
+}

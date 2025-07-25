@@ -1,0 +1,2126 @@
+/**
+ * 🔗 连锁头寸策略样式
+ * 连锁头寸策略组件的专用样式
+ */
+
+/* ========== 管理器样式 ========== */
+.chain-position-manager {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.manager-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.manager-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.title-icon {
+    font-size: 2rem;
+}
+
+.manager-description {
+    margin: 0.5rem 0 0 0;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.strategy-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-value.positive {
+    color: var(--success-color);
+}
+
+.stat-value.negative {
+    color: var(--error-color);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* ========== 标签页样式 ========== */
+.manager-tabs {
+    margin-bottom: 2rem;
+}
+
+.tab-list {
+    display: flex;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+.tab-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.tab-button.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.tab-icon {
+    font-size: 1.125rem;
+}
+
+/* ========== 内容面板样式 ========== */
+.manager-content {
+    min-height: 600px;
+}
+
+.tab-panel {
+    display: none;
+}
+
+.tab-panel.active {
+    display: block;
+}
+
+/* ========== 表单样式 ========== */
+.chain-position-form {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 12px;
+    color: white;
+}
+
+.form-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0 0 1rem 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+.strategy-icon {
+    font-size: 2rem;
+}
+
+.form-description {
+    margin: 0;
+    font-size: 1.125rem;
+    opacity: 0.9;
+}
+
+.form-section {
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.section-icon {
+    font-size: 1.375rem;
+}
+
+/* ========== 预设模板样式 ========== */
+.presets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.preset-option {
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.preset-option:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.preset-option.selected {
+    border-color: var(--primary-color);
+    background: rgba(59, 130, 246, 0.1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
+.preset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.preset-header h4 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.preset-badge {
+    padding: 0.25rem 0.75rem;
+    background: var(--primary-color);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.preset-description {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* ========== 字段样式 ========== */
+.fields-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.field-group {
+    margin-bottom: 1.5rem;
+}
+
+.field-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.required {
+    color: var(--error-color);
+    margin-left: 0.25rem;
+}
+
+.field-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--input-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.field-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.field-input:disabled {
+    background: var(--bg-disabled);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+}
+
+.field-help {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.field-error {
+    margin: 0.5rem 0 0 0;
+    font-size: 0.75rem;
+    color: var(--error-color);
+    font-weight: 500;
+}
+
+.field-group.has-error .field-input {
+    border-color: var(--error-color);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+/* ========== 复选框样式 ========== */
+.checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+
+.checkbox-input {
+    width: auto !important;
+    margin: 0;
+}
+
+.checkbox-mark {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.checkbox-input:checked+.checkbox-mark {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.checkbox-input:checked+.checkbox-mark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.checkbox-text {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.checkbox-group .checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+/* ========== 智能止损样式 ========== */
+.stop-loss-config {
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.stop-loss-details {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ========== 操作按钮样式 ========== */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.actions-left,
+.actions-right {
+    display: flex;
+    gap: 1rem;
+}
+
+/* ========== 策略列表样式 ========== */
+.strategies-list {
+    margin-bottom: 2rem;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.list-header h3 {
+    margin: 0;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.list-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.strategies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.strategy-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.strategy-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.card-title h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.chain-type-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.chain-type-badge.y_chain {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success-color);
+}
+
+.chain-type-badge.x_chain {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--error-color);
+}
+
+.chain-type-badge.dual_chain {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--primary-color);
+}
+
+.card-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.card-status.success .status-dot {
+    background: var(--success-color);
+}
+
+.card-status.warning .status-dot {
+    background: var(--warning-color);
+}
+
+.card-status.danger .status-dot {
+    background: var(--error-color);
+}
+
+.card-status.secondary .status-dot {
+    background: var(--text-secondary);
+}
+
+.card-content {
+    margin-bottom: 1rem;
+}
+
+.metric-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.metric-item {
+    flex: 1;
+}
+
+.metric-item .label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.metric-item .value {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.metric-item .value.positive {
+    color: var(--success-color);
+}
+
+.metric-item .value.negative {
+    color: var(--error-color);
+}
+
+.position-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.info-label {
+    color: var(--text-secondary);
+}
+
+.info-value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.range-status {
+    padding: 0.125rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.range-status.in-range {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success-color);
+}
+
+.range-status.out-range {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--error-color);
+}
+
+.card-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+/* ========== 空状态样式 ========== */
+.empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: var(--text-secondary);
+}
+
+.empty-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.empty-state h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.empty-state p {
+    margin: 0 0 1.5rem 0;
+    font-size: 1rem;
+}
+
+/* ========== 详情面板样式 ========== */
+.strategy-detail {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.detail-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-header h3 {
+    margin: 0;
+    font-size: 1.375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ========== 显示组件样式 ========== */
+.chain-position-display {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.display-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.strategy-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.meta-item {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.meta-item .label {
+    color: var(--text-secondary);
+}
+
+.meta-item .value {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.pool-address {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.pool-address:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* ========== 状态卡片样式 ========== */
+.status-card {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.status-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+}
+
+.status-content h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.status-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.status-change {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* ========== 盈亏分析样式 ========== */
+.pnl-analysis-section {
+    margin-bottom: 2rem;
+}
+
+.pnl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.pnl-card {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.pnl-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.pnl-header h5 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.pnl-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.pnl-details {
+    margin-top: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* ========== 指标网格样式 ========== */
+.metrics-section {
+    margin-bottom: 2rem;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.metric-card {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.metric-header h5 {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.metric-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.metric-progress {
+    margin-top: 0.75rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--bg-secondary);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+/* ========== 图表样式 ========== */
+.charts-section {
+    margin-bottom: 2rem;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+}
+
+.chart-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.chart-header h5 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.chart-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.chart-container {
+    position: relative;
+    height: 300px;
+}
+
+/* ========== 风险监控样式 ========== */
+.risk-monitor-section {
+    margin-bottom: 2rem;
+}
+
+.risk-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr 300px;
+    gap: 2rem;
+    align-items: start;
+}
+
+.risk-card {
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 2px solid var(--border-color);
+    text-align: center;
+}
+
+.risk-card.low {
+    border-color: var(--success-color);
+    background: rgba(16, 185, 129, 0.05);
+}
+
+.risk-card.medium {
+    border-color: var(--warning-color);
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.risk-card.high {
+    border-color: var(--error-color);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.risk-indicators {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.indicator-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.indicator-label {
+    min-width: 100px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.indicator-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.indicator-value {
+    min-width: 60px;
+    text-align: right;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+/* ========== 操作面板样式 ========== */
+.actions-section {
+    margin-top: 2rem;
+}
+
+.actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.action-group {
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.primary-actions {
+    border-color: var(--primary-color);
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.danger-actions {
+    border-color: var(--error-color);
+    background: rgba(239, 68, 68, 0.05);
+}
+
+.action-group .btn {
+    width: 100%;
+    margin-bottom: 0.75rem;
+}
+
+.action-group .btn:last-child {
+    margin-bottom: 0;
+}
+
+/* ========== 提示消息样式 ========== */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    max-width: 400px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.toast.toast-success {
+    background: var(--success-color);
+}
+
+.toast.toast-error {
+    background: var(--error-color);
+}
+
+.toast.toast-warning {
+    background: var(--warning-color);
+}
+
+.toast.toast-info {
+    background: var(--primary-color);
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 1024px) {
+    .risk-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .manager-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .strategy-stats {
+        align-self: stretch;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 768px) {
+    .fields-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .presets-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .strategies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .pnl-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .actions-left,
+    .actions-right {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .tab-list {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .chain-position-manager {
+        padding: 0 1rem;
+    }
+
+    .manager-header {
+        padding: 1rem;
+    }
+
+    .form-section {
+        padding: 1rem;
+    }
+
+    .strategy-card {
+        padding: 1rem;
+    }
+
+    .status-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .strategy-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .metric-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* ========== 深色主题适配 ========== */
+[data-theme="dark"] .chain-position-form {
+    --card-bg: #1f2937;
+    --bg-secondary: #374151;
+    --border-color: #4b5563;
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+}
+
+[data-theme="dark"] .preset-option:hover {
+    background: #374151;
+}
+
+[data-theme="dark"] .field-input {
+    background: #374151;
+    border-color: #4b5563;
+}
+
+[data-theme="dark"] .field-input:focus {
+    border-color: #3b82f6;
+    background: #1f2937;
+}
+
+[data-theme="dark"] .stop-loss-config {
+    background: #374151;
+    border-color: #4b5563;
+}
+
+[data-theme="dark"] .strategy-card {
+    background: #1f2937;
+    border-color: #4b5563;
+}
+
+[data-theme="dark"] .strategy-card:hover {
+    background: #111827;
+    border-color: #3b82f6;
+}
+
+[data-theme="dark"] .status-card,
+[data-theme="dark"] .pnl-card,
+[data-theme="dark"] .metric-card,
+[data-theme="dark"] .chart-card,
+[data-theme="dark"] .risk-card,
+[data-theme="dark"] .action-group {
+    background: #1f2937;
+    border-color: #4b5563;
+}
+
+[data-theme="dark"] .progress-bar {
+    background: #374151;
+}
+
+[data-theme="dark"] .indicator-bar {
+    background: #374151;
+}
+
+/* 🔥 实时策略卡片样式 */
+.strategy-card.real-time-card {
+    position: relative;
+    border: 2px solid #e1e5e9;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.strategy-card.real-time-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: #3b82f6;
+}
+
+.strategy-card.real-time-card.data-updated {
+    animation: dataUpdate 1s ease-in-out;
+    border-color: #10b981;
+}
+
+@keyframes dataUpdate {
+    0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.3);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+/* 🔥 卡片标题区域 */
+.strategy-card .card-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.strategy-card .stop-loss-badge {
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+.strategy-card .stop-loss-badge.hold {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.strategy-card .stop-loss-badge.alert {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.strategy-card .stop-loss-badge.stop_loss {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.strategy-card .last-update {
+    font-size: 11px;
+    color: #6b7280;
+    margin-left: 8px;
+}
+
+/* 🔥 实时指标样式 */
+.real-time-metrics {
+    padding: 16px;
+}
+
+.metric-row.primary-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.metric-row.secondary-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.metric-item.large {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    border-radius: 8px;
+    padding: 12px;
+    border-left: 4px solid #3b82f6;
+}
+
+.metric-item.large .value {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 4px 0;
+}
+
+.change-indicator {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.change-indicator.positive {
+    color: #10b981;
+}
+
+.change-indicator.negative {
+    color: #ef4444;
+}
+
+.change-indicator.neutral {
+    color: #6b7280;
+}
+
+.pnl-percentage {
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+/* 🔥 Bin位置信息 */
+.position-info.enhanced {
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+}
+
+.bin-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.bin-range {
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.range-status.in-range {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.range-status.out-range {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* 🔥 智能止损状态 */
+.stop-loss-status {
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.stop-loss-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+}
+
+.status-action.hold {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.status-action.alert {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.status-action.stop_loss {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.confidence {
+    font-size: 11px;
+    color: #6b7280;
+    margin-left: 8px;
+}
+
+.risk-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.risk-score.low {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.risk-score.medium {
+    color: #f59e0b;
+    font-weight: 600;
+}
+
+.risk-score.high {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+/* 🔥 实时指示器 */
+.real-time-indicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    color: #10b981;
+    font-weight: 600;
+}
+
+.indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* 🔥 策略详情增强样式 */
+.status-card.enhanced {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.status-card.enhanced.data-updated {
+    animation: detailUpdate 1s ease-in-out;
+}
+
+@keyframes detailUpdate {
+    0% {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    50% {
+        background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    }
+
+    100% {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    }
+}
+
+.status-header {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.status-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.update-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.last-update {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.connection-status {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    opacity: 0.9;
+}
+
+.connection-status.connected .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse 2s infinite;
+}
+
+/* 🔥 状态网格增强 */
+.status-grid.enhanced {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.status-section {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.status-section h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-section.financial {
+    border-left: 4px solid #10b981;
+}
+
+.status-section.market {
+    border-left: 4px solid #3b82f6;
+}
+
+.status-section.stop-loss {
+    border-left: 4px solid #f59e0b;
+}
+
+.status-section.operations {
+    border-left: 4px solid #8b5cf6;
+}
+
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.status-item.large .status-value.large {
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+/* 🔥 智能止损面板 */
+.stop-loss-panel {
+    background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+    border-radius: 8px;
+    padding: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.stop-loss-decision {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.decision-main {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.decision-label {
+    font-weight: 600;
+    color: #374151;
+}
+
+.decision-action {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.decision-action.hold {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.decision-action.alert {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.decision-action.stop_loss {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.decision-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+}
+
+.decision-metrics .metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.decision-metrics .label {
+    font-size: 12px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.decision-metrics .value {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.confidence-high {
+    color: #10b981;
+}
+
+.confidence-medium {
+    color: #f59e0b;
+}
+
+.confidence-low {
+    color: #ef4444;
+}
+
+.urgency-low {
+    color: #10b981;
+}
+
+.urgency-medium {
+    color: #f59e0b;
+}
+
+.urgency-high {
+    color: #f97316;
+}
+
+.urgency-critical {
+    color: #ef4444;
+}
+
+/* 🔥 响应式适配 */
+@media (max-width: 768px) {
+    .metric-row.primary-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .metrics-row {
+        grid-template-columns: 1fr;
+    }
+
+    .decision-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .status-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .update-info {
+        align-items: flex-start;
+    }
+}
+
+/* 🌙 暗色主题支持 */
+[data-theme="dark"] .strategy-card.real-time-card {
+    background: linear-gradient(135deg, var(--bg-card, #1f2937) 0%, var(--bg-tertiary, #374151) 100%);
+    border-color: var(--border-color, #374151);
+    color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .strategy-card.real-time-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
+}
+
+[data-theme="dark"] .strategy-card.real-time-card.data-updated {
+    border-color: #10b981;
+}
+
+/* 🌙 暗色主题 - 卡片内容 */
+[data-theme="dark"] .strategy-card .card-title h4 {
+    color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .strategy-card .last-update {
+    color: var(--text-muted, #9ca3af);
+}
+
+/* 🌙 暗色主题 - 实时指标 */
+[data-theme="dark"] .real-time-metrics {
+    color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .metric-item.large {
+    background: linear-gradient(135deg, var(--bg-tertiary, #374151), var(--bg-secondary, #111827));
+    border-left-color: #3b82f6;
+}
+
+[data-theme="dark"] .metric-item .label {
+    color: var(--text-secondary, #d1d5db);
+}
+
+[data-theme="dark"] .metric-item .value {
+    color: var(--text-primary, #f9fafb);
+}
+
+/* 🌙 暗色主题 - Bin位置信息 */
+[data-theme="dark"] .position-info.enhanced {
+    background: var(--bg-tertiary, #374151);
+    border: 1px solid var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .bin-range {
+    color: var(--text-muted, #9ca3af);
+}
+
+/* 🌙 暗色主题 - 智能止损状态 */
+[data-theme="dark"] .stop-loss-status {
+    background: linear-gradient(135deg, var(--bg-tertiary, #374151), var(--bg-secondary, #111827));
+    border-color: var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .stop-loss-info {
+    color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .status-label {
+    color: var(--text-secondary, #d1d5db);
+}
+
+[data-theme="dark"] .confidence {
+    color: var(--text-muted, #9ca3af);
+}
+
+/* 🌙 暗色主题 - 策略详情增强 */
+[data-theme="dark"] .status-card.enhanced {
+    background: linear-gradient(135deg, var(--bg-card, #1f2937) 0%, var(--bg-tertiary, #374151) 100%);
+    border: 1px solid var(--border-color, #374151);
+}
+
+[data-theme="dark"] .status-card.enhanced.data-updated {
+    animation: detailUpdateDark 1s ease-in-out;
+}
+
+@keyframes detailUpdateDark {
+    0% {
+        background: linear-gradient(135deg, var(--bg-card, #1f2937) 0%, var(--bg-tertiary, #374151) 100%);
+    }
+
+    50% {
+        background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    }
+
+    100% {
+        background: linear-gradient(135deg, var(--bg-card, #1f2937) 0%, var(--bg-tertiary, #374151) 100%);
+    }
+}
+
+[data-theme="dark"] .status-header {
+    background: linear-gradient(135deg, #1e40af, #1d4ed8);
+}
+
+[data-theme="dark"] .update-info .last-update {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .connection-status {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* 🌙 暗色主题 - 状态网格 */
+[data-theme="dark"] .status-section {
+    background: var(--bg-card, #1f2937);
+    border-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .status-section h4 {
+    color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .status-section h5 {
+    color: var(--text-secondary, #d1d5db);
+}
+
+[data-theme="dark"] .status-value {
+    color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .status-change {
+    color: var(--text-secondary, #d1d5db);
+}
+
+/* 🌙 暗色主题 - 智能止损面板 */
+[data-theme="dark"] .stop-loss-panel {
+    background: linear-gradient(135deg, var(--bg-tertiary, #374151), var(--bg-secondary, #111827));
+    border-color: var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .decision-label {
+    color: var(--text-primary, #f9fafb);
+}
+
+[data-theme="dark"] .decision-action.hold {
+    background: rgba(16, 185, 129, 0.2);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+[data-theme="dark"] .decision-action.alert {
+    background: rgba(245, 158, 11, 0.2);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+[data-theme="dark"] .decision-action.stop_loss {
+    background: rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+[data-theme="dark"] .decision-metrics .metric {
+    background: var(--bg-card, #1f2937);
+    border-color: var(--border-color, #374151);
+}
+
+[data-theme="dark"] .decision-metrics .label {
+    color: var(--text-muted, #9ca3af);
+}
+
+[data-theme="dark"] .decision-metrics .value {
+    color: var(--text-primary, #f9fafb);
+}
+
+/* 🌙 暗色主题 - 按钮样式 */
+[data-theme="dark"] .btn.btn-secondary {
+    background: var(--bg-tertiary, #374151);
+    color: var(--text-primary, #f9fafb);
+    border: 1px solid var(--border-color, #4b5563);
+}
+
+[data-theme="dark"] .btn.btn-secondary:hover {
+    background: var(--bg-secondary, #111827);
+    border-color: #3b82f6;
+}
+
+[data-theme="dark"] .btn.btn-success {
+    background: #10b981;
+    border-color: #059669;
+}
+
+[data-theme="dark"] .btn.btn-success:hover {
+    background: #059669;
+}
+
+[data-theme="dark"] .btn.btn-warning {
+    background: #f59e0b;
+    border-color: #d97706;
+}
+
+[data-theme="dark"] .btn.btn-warning:hover {
+    background: #d97706;
+}
+
+[data-theme="dark"] .btn.btn-danger {
+    background: #ef4444;
+    border-color: #dc2626;
+}
+
+[data-theme="dark"] .btn.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* 🌙 暗色主题 - 实时指示器 */
+[data-theme="dark"] .real-time-indicator {
+    color: #10b981;
+}
+
+[data-theme="dark"] .indicator-text {
+    color: var(--text-muted, #9ca3af);
+}
+
+/* 🌙 暗色主题 - 响应式适配增强 */
+@media (max-width: 768px) {
+    [data-theme="dark"] .status-header {
+        background: linear-gradient(135deg, #1e3a8a, #1e40af);
+    }
+
+    [data-theme="dark"] .metric-item.large {
+        background: var(--bg-tertiary, #374151);
+    }
+}
+
+/* 🔥 实时数据更新动画效果 */
+.strategy-card.data-updated {
+    transform: scale(1.02);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+}
+
+.strategy-card .real-time-indicator {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: #10B981;
+    opacity: 0.8;
+}
+
+.strategy-card .real-time-indicator .indicator-dot {
+    width: 8px;
+    height: 8px;
+    background: #10B981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 数据变化指示器动画 */
+.change-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.change-indicator.positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.change-indicator.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+}
+
+.change-indicator .change-arrow {
+    font-size: 14px;
+    animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-3px);
+    }
+
+    60% {
+        transform: translateY(-1px);
+    }
+}
+
+/* 实时数据高亮效果 */
+.real-time-metrics [data-field] {
+    transition: all 0.3s ease;
+}
+
+.strategy-card.data-updated .real-time-metrics [data-field] {
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 4px;
+    padding: 2px 4px;
+}
+
+/* 智能止损状态动画 */
+.stop-loss-status .status-action {
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.stop-loss-status .status-action.hold::before {
+    content: '✅';
+    margin-right: 4px;
+}
+
+.stop-loss-status .status-action.alert::before {
+    content: '⚠️';
+    margin-right: 4px;
+    animation: flash 1s infinite;
+}
+
+.stop-loss-status .status-action.stop_loss::before {
+    content: '🛑';
+    margin-right: 4px;
+    animation: urgent 0.5s infinite;
+}
+
+@keyframes flash {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    25%,
+    75% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes urgent {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* 风险评分颜色动画 */
+.risk-score {
+    transition: all 0.3s ease;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.risk-score.low {
+    background: rgba(16, 185, 129, 0.2);
+    color: #059669;
+}
+
+.risk-score.medium {
+    background: rgba(245, 158, 11, 0.2);
+    color: #D97706;
+}
+
+.risk-score.high {
+    background: rgba(239, 68, 68, 0.2);
+    color: #DC2626;
+    animation: warning-pulse 2s infinite;
+}
+
+@keyframes warning-pulse {
+
+    0%,
+    100% {
+        background: rgba(239, 68, 68, 0.2);
+    }
+
+    50% {
+        background: rgba(239, 68, 68, 0.4);
+    }
+}
+
+/* Bin范围状态动画 */
+.range-status {
+    transition: all 0.3s ease;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.range-status.in-range {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10B981;
+}
+
+.range-status.out-range {
+    background: rgba(239, 68, 68, 0.1);
+    color: #EF4444;
+    animation: out-of-range-warning 3s infinite;
+}
+
+@keyframes out-of-range-warning {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}

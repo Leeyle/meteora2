@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DLMM流动性管理系统 - 现代化的去中心化交易流动性管理平台">
+    <meta name="keywords" content="DLMM, 流动性管理, Solana, DeFi, 去中心化交易">
+    <meta name="author" content="DLMM Team">
+
+    <title>🏗️ DLMM流动性管理系统</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏗️</text></svg>">
+
+    <!-- CSS样式文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/strategy.css">
+    <link rel="stylesheet" href="/css/position.css">
+    <link rel="stylesheet" href="/css/wallet.css">
+    <link rel="stylesheet" href="/css/jupiter.css">
+    <link rel="stylesheet" href="/css/chain-position.css">
+    <link rel="stylesheet" href="/css/strategy-monitor.css">
+    <link rel="stylesheet" href="/css/pool-crawler-monitor.css">
+    <link rel="stylesheet" href="/css/simple-y.css">
+    <link rel="stylesheet" href="/css/chain-position-compact-fix.css">
+    <link rel="stylesheet" href="/css/simple-analytics.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+
+    <!-- 图表库 - 本地版本 -->
+    <script src="/js/libs/chart.min.js"></script>
+
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="/js/app.js" as="script">
+    <link rel="preload" href="/js/api.js" as="script">
+</head>
+
+<body>
+    <!-- 加载指示器 -->
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>正在加载DLMM系统...</p>
+        </div>
+    </div>
+
+    <!-- 主应用容器 -->
+    <div class="app-container" id="app">
+        <!-- 顶部导航栏 -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <h1 class="app-title">
+                        <span class="app-icon">🏗️</span>
+                        DLMM流动性管理系统
+                    </h1>
+                    <div class="connection-status">
+                        <span class="status-dot" id="statusDot"></span>
+                        <span class="status-text" id="statusText">连接中...</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-controls">
+                        <button class="btn btn-icon" id="themeToggle" title="切换主题">
+                            <span class="icon">🌙</span>
+                        </button>
+                        <button class="btn btn-icon" id="refreshBtn" title="刷新数据">
+                            <span class="icon">🔄</span>
+                        </button>
+                        <button class="btn btn-icon" id="settingsBtn" title="系统设置">
+                            <span class="icon">⚙️</span>
+                        </button>
+                        <button class="btn btn-primary" id="emergencyStop" title="紧急停止">
+                            <span class="icon">🛑</span>
+                            紧急停止
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <!-- 侧边导航 -->
+            <nav class="sidebar" id="sidebar">
+                <div class="nav-menu">
+                    <div class="nav-item active" data-page="dashboard">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">仪表盘</span>
+                    </div>
+                    <div class="nav-item" data-page="wallet">
+                        <span class="nav-icon">💼</span>
+                        <span class="nav-text">钱包管理</span>
+                    </div>
+                    <div class="nav-item" data-page="positions">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">头寸管理</span>
+                    </div>
+                    <div class="nav-item" data-page="jupiter">
+                        <span class="nav-icon">🪐</span>
+                        <span class="nav-text">Jupiter交换</span>
+                    </div>
+                    <div class="nav-item" data-page="simple-y">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">简单Y策略</span>
+                    </div>
+                    <div class="nav-item" data-page="chain-position">
+                        <span class="nav-icon">🔗</span>
+                        <span class="nav-text">连锁头寸策略</span>
+                    </div>
+                    <div class="nav-item" data-page="strategies">
+                        <span class="nav-icon">🎯</span>
+                        <span class="nav-text">策略管理</span>
+                    </div>
+                    <div class="nav-item" data-page="monitor">
+                        <span class="nav-icon">🏊</span>
+                        <span class="nav-text">池爬虫监控</span>
+                    </div>
+                    <div class="nav-item" data-page="analytics">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">数据分析</span>
+                    </div>
+                    <div class="nav-item" data-page="settings">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">系统设置</span>
+                    </div>
+                </div>
+
+                <!-- 侧边栏底部 -->
+                <div class="sidebar-footer">
+                    <div class="system-info">
+                        <div class="info-item">
+                            <span class="label">版本:</span>
+                            <span class="value">v1.0.0</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">运行时间:</span>
+                            <span class="value" id="uptime">--</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- 页面内容区域 -->
+            <div class="content-area" id="contentArea">
+                <!-- 仪表盘页面 -->
+                <div id="page-dashboard" class="page-content active">
+                    <div class="page-header">
+                        <h2>系统仪表盘</h2>
+                        <p>DLMM流动性管理总览</p>
+                    </div>
+
+                    <!-- 统计卡片网格 -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">💼</div>
+                            <div class="stat-content">
+                                <h3 id="walletBalance">0.00 SOL</h3>
+                                <p>钱包余额</p>
+                                <div class="stat-change positive">
+                                    <span class="icon">↗️</span>
+                                    <span class="value">+0.5%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📈</div>
+                            <div class="stat-content">
+                                <h3 id="activePositions">0</h3>
+                                <p>活跃头寸</p>
+                                <div class="stat-change neutral">
+                                    <span class="icon">→</span>
+                                    <span class="value">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-content">
+                                <h3 id="runningStrategies">0</h3>
+                                <p>运行策略</p>
+                                <div class="stat-change positive">
+                                    <span class="icon">↗️</span>
+                                    <span class="value">+2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-content">
+                                <h3 id="totalPnl">+$0.00</h3>
+                                <p>总盈亏</p>
+                                <div class="stat-change positive">
+                                    <span class="icon">↗️</span>
+                                    <span class="value">+12.5%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 仪表盘网格 -->
+                    <div class="dashboard-grid">
+                        <!-- 快速操作 -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>快速操作</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="quick-actions">
+                                    <button class="action-btn" data-action="create-wallet">
+                                        <span class="action-icon">💼</span>
+                                        <span class="action-text">创建钱包</span>
+                                    </button>
+                                    <button class="action-btn" data-action="create-position">
+                                        <span class="action-icon">📈</span>
+                                        <span class="action-text">创建头寸</span>
+                                    </button>
+                                    <button class="action-btn" data-action="create-strategy">
+                                        <span class="action-icon">🎯</span>
+                                        <span class="action-text">创建策略</span>
+                                    </button>
+                                    <button class="action-btn" data-action="start-harvest">
+                                        <span class="action-icon">🌾</span>
+                                        <span class="action-text">手续费收集</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 实时活动 -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>实时活动</h3>
+                                <button class="btn btn-sm btn-outline" id="clearActivity">清空</button>
+                            </div>
+                            <div class="card-content">
+                                <div id="recentActivity" class="activity-list">
+                                    <!-- 活动列表将在这里动态加载 -->
+                                    <div class="activity-item">
+                                        <div class="activity-icon">📈</div>
+                                        <div class="activity-content">
+                                            <div class="activity-title">系统启动</div>
+                                            <div class="activity-time">刚刚</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 性能图表 -->
+                        <div class="dashboard-card chart-card">
+                            <div class="card-header">
+                                <h3>收益趋势</h3>
+                                <div class="chart-controls">
+                                    <button class="btn btn-sm" data-period="1h">1小时</button>
+                                    <button class="btn btn-sm active" data-period="24h">24小时</button>
+                                    <button class="btn btn-sm" data-period="7d">7天</button>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <canvas id="profitChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- 系统状态 -->
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <h3>系统状态</h3>
+                            </div>
+                            <div class="card-content">
+                                <div class="system-metrics">
+                                    <div class="metric-item">
+                                        <div class="metric-label">API响应时间</div>
+                                        <div class="metric-value">
+                                            <span id="apiLatency">--</span>ms
+                                        </div>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 65%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-label">WebSocket连接</div>
+                                        <div class="metric-value">
+                                            <span id="wsStatus">已连接</span>
+                                        </div>
+                                        <div class="metric-indicator connected"></div>
+                                    </div>
+                                    <div class="metric-item">
+                                        <div class="metric-label">内存使用</div>
+                                        <div class="metric-value">
+                                            <span id="memoryUsage">--</span>%
+                                        </div>
+                                        <div class="metric-bar">
+                                            <div class="metric-fill" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他页面将在JavaScript中动态创建 -->
+                <div id="page-wallet" class="page-content" data-page="wallet">
+                    <div class="page-header">
+                        <h2>钱包管理</h2>
+                        <p>管理Solana钱包和代币余额</p>
+                    </div>
+                    <div id="walletContent">
+                        <!-- 钱包管理内容将在这里动态加载 -->
+                    </div>
+                </div>
+
+                <div id="page-positions" class="page-content" data-page="positions">
+                    <div class="page-header">
+                        <h2>头寸管理</h2>
+                        <p>管理DLMM流动性头寸</p>
+                    </div>
+                    <div id="positionsContent">
+                        <!-- 头寸管理内容将在这里动态加载 -->
+                    </div>
+                </div>
+
+                <div id="page-jupiter" class="page-content" data-page="jupiter">
+                    <div class="page-header">
+                        <h2>Jupiter交换</h2>
+                        <p>使用Jupiter聚合器进行代币交换</p>
+                    </div>
+                    <div id="jupiterContent">
+                        <!-- Jupiter交换内容将在这里动态加载 -->
+                    </div>
+                </div>
+
+                <div id="page-simple-y" class="page-content" data-page="simple-y">
+                    <div class="page-header">
+                        <h2>简单Y策略</h2>
+                        <p>原始SimpleY流动性管理策略（向后兼容版本）</p>
+                    </div>
+                    <div id="simpleYContent">
+                        <!-- 简单Y策略内容将在这里动态加载 -->
+                    </div>
+                </div>
+
+                <div id="page-chain-position" class="page-content" data-page="chain-position">
+                    <div class="page-header">
+                        <h2>连锁头寸策略</h2>
+                        <p>创建智能连锁头寸策略，支持Y链、X链和双链策略</p>
+                    </div>
+
+                    <!-- 功能选项卡 -->
+                    <div class="function-tabs">
+                        <button class="tab-btn active" data-tab="create">
+                            <span class="icon">➕</span>
+                            创建策略
+                        </button>
+                        <button class="tab-btn" data-tab="monitor">
+                            <span class="icon">📊</span>
+                            实时监控
+                        </button>
+                    </div>
+
+                    <!-- 创建策略内容 -->
+                    <div id="chain-position-create" class="tab-content active">
+                        <div id="chainPositionContent">
+                            <!-- 连锁头寸策略创建内容将在这里动态加载 -->
+                        </div>
+                    </div>
+
+                    <!-- 实时监控内容 -->
+                    <div id="chain-position-monitor" class="tab-content">
+                        <div id="strategyMonitorContainer">
+                            <!-- 策略监控器将在这里初始化 -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page-strategies" class="page-content" data-page="strategies">
+                    <div class="page-header">
+                        <h2>策略管理</h2>
+                        <p>新一代模块化策略管理系统</p>
+                    </div>
+                    <div id="strategiesContent">
+                        <!-- 新策略管理内容将在这里动态加载 -->
+                    </div>
+                </div>
+
+                <div id="page-monitor" class="page-content" data-page="monitor">
+                    <div class="page-header">
+                        <h2>池爬虫监控</h2>
+                        <p>实时监控池发现、过滤和推荐</p>
+                    </div>
+                    <div id="monitorContent">
+                        <!-- 池爬虫监控内容将在这里动态加载 -->
+                    </div>
+                </div>
+
+                <div id="page-analytics" class="page-content" data-page="analytics">
+                    <div class="page-header">
+                        <h2>数据分析</h2>
+                        <p>深度分析交易数据和性能指标</p>
+                    </div>
+                    <div id="analyticsContent">
+                        <!-- 分析内容将在这里动态加载 -->
+                    </div>
+                </div>
+
+                <div id="page-settings" class="page-content" data-page="settings">
+                    <div class="page-header">
+                        <h2>系统设置</h2>
+                        <p>配置系统参数和偏好设置</p>
+                    </div>
+                    <div id="settingsContent">
+                        <!-- 设置内容将在这里动态加载 -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 模态框 -->
+    <div id="modal" class="modal">
+        <div class="modal-backdrop" data-dismiss="modal"></div>
+        <div class="modal-container">
+            <div class="modal-header">
+                <h3 id="modalTitle">标题</h3>
+                <button class="modal-close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- 模态框内容 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 通知容器 -->
+    <div id="notifications" class="notifications-container">
+        <!-- 通知消息将在这里动态添加 -->
+    </div>
+
+    <!-- 工具提示 -->
+    <div id="tooltip" class="tooltip">
+        <div class="tooltip-content"></div>
+        <div class="tooltip-arrow"></div>
+    </div>
+
+    <!-- JavaScript模块 -->
+    <!-- 🌐 动态配置（必须最先加载） -->
+    <script src="/js/config.js"></script>
+    <script type="module" src="/js/utils/formatter.js"></script>
+    <script type="module" src="/js/api.js"></script>
+
+    <!-- 钱包管理模块 -->
+    <script type="module" src="/js/components/wallet/wallet-core.js"></script>
+    <script type="module" src="/js/components/wallet/wallet-ui.js"></script>
+    <script type="module" src="/js/components/wallet/wallet-forms.js"></script>
+    <script type="module" src="/js/components/wallet/wallet-manager.js"></script>
+
+    <!-- 头寸管理模块 -->
+    <script type="module" src="/js/components/position/position-core.js"></script>
+    <script type="module" src="/js/components/position/position-ui.js"></script>
+    <script type="module" src="/js/components/position/position-manager.js"></script>
+
+    <!-- API服务 -->
+    <script src="./js/services/api-service.js"></script>
+
+    <!-- 新策略架构核心组件 -->
+    <!-- 事件总线 -->
+    <script src="./js/core/EventBus.js"></script>
+
+    <!-- 核心系统 -->
+    <script src="./js/core/StrategyRegistry.js"></script>
+    <script src="./js/core/StrategyFactory.js"></script>
+
+    <!-- 表单系统 -->
+    <script src="./js/forms/FormValidator.js"></script>
+    <script src="./js/forms/FormRenderer.js"></script>
+    <script src="./js/forms/DynamicForm.js"></script>
+
+    <!-- 策略基础组件 -->
+    <script src="./js/strategies/base/StrategyConfig.js"></script>
+    <script src="./js/strategies/base/BaseStrategy.js"></script>
+
+    <!-- 简单Y策略组件 - 全新重构版本 -->
+    <script src="./js/components/simple-y-create/SimpleYCreator.js"></script>
+    <script src="./js/components/simple-y-create/SimpleYManager.js"></script>
+
+    <!-- 简单Y策略监控组件 -->
+    <script src="./js/components/simple-y-monitor/EnvironmentAdapter.js"></script>
+    <script src="./js/components/simple-y-monitor/ConnectionManager.js"></script>
+    <script src="./js/components/simple-y-monitor/DataService.js"></script>
+    <script src="./js/components/simple-y-monitor/UIManager.js"></script>
+    <script src="./js/components/simple-y-monitor/ConfigManager.js"></script>
+    <script src="./js/components/simple-y-monitor/StrategyController.js"></script>
+    <script src="./js/components/simple-y-monitor/SimpleYStrategyMonitor.js"></script>
+
+    <!-- 策略创建组件 -->
+    <script src="./js/components/strategy-create/ChainPositionCreator.js"></script>
+
+    <!-- 策略监控组件 - 模块化架构 -->
+    <!-- 环境适配器 -->
+    <script src="./js/components/strategy-monitor/EnvironmentAdapter.js"></script>
+    <!-- 连接管理器 -->
+    <script src="./js/components/strategy-monitor/ConnectionManager.js"></script>
+    <!-- 数据服务 -->
+    <script src="./js/components/strategy-monitor/DataService.js"></script>
+    <!-- UI管理器 -->
+    <script src="./js/components/strategy-monitor/UIManager.js"></script>
+    <!-- 配置管理器 -->
+    <script src="./js/components/strategy-monitor/ConfigManager.js"></script>
+    <!-- 策略控制器 -->
+    <script src="./js/components/strategy-monitor/StrategyController.js"></script>
+    <!-- 主监控器 -->
+    <script src="./js/components/strategy-monitor/StrategyMonitor.js"></script>
+
+    <!-- 统一策略管理器 -->
+    <script src="./js/managers/UnifiedStrategyManager.js"></script>
+
+    <!-- 池爬虫监控组件 -->
+    <script src="/js/components/pool-crawler/PoolCrawlerMonitor.js"></script>
+
+    <!-- Jupiter交换模块 -->
+    <script src="/js/components/jupiter/jupiter-core.js"></script>
+    <script src="/js/components/jupiter/jupiter-ui.js"></script>
+    <script src="/js/components/jupiter/jupiter-manager.js"></script>
+
+    <!-- 🔥 简化数据分析模块 -->
+    <script src="/js/services/strategy-data-storage.js"></script>
+    <script src="/js/components/analytics/simple-analytics.js"></script>
+
+    <!-- 主应用程序 -->
+    <script type="module" src="/js/app.js"></script>
+
+
+
+    <!-- 应用初始化 -->
+    <script>
+        // 移除加载指示器
+        window.addEventListener('load', () => {
+            const loading = document.getElementById('loading');
+            if (loading) {
+                setTimeout(() => {
+                    loading.style.opacity = '0';
+                    setTimeout(() => {
+                        loading.style.display = 'none';
+                    }, 300);
+                }, 500);
+            }
+        });
+    </script>
+</body>
+
+</html>

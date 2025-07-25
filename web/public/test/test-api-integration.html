@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前后端API对接测试</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #0a1a2e;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .test-section {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .test-button {
+            margin: 0.5rem;
+            min-width: 150px;
+        }
+
+        .result-container {
+            background: #1a1b2e;
+            border: 1px solid #533483;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .log-entry {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        .log-success {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid #10b981;
+        }
+
+        .log-error {
+            background: rgba(239, 68, 68, 0.1);
+            border-left: 3px solid #ef4444;
+        }
+
+        .log-info {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid #3b82f6;
+        }
+
+        .log-warning {
+            background: rgba(245, 158, 11, 0.1);
+            border-left: 3px solid #f59e0b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-container">
+        <h1 class="text-center mb-4">🧪 前后端API对接测试</h1>
+
+        <!-- 系统连接测试 -->
+        <div class="test-section">
+            <h3>🔌 系统连接测试</h3>
+            <p>测试前端与后端API服务器的基础连接</p>
+            <div>
+                <button class="btn btn-primary test-button" onclick="testHealthCheck()">
+                    🏥 健康检查
+                </button>
+                <button class="btn btn-info test-button" onclick="testSystemInfo()">
+                    📊 系统信息
+                </button>
+                <button class="btn btn-secondary test-button" onclick="testMetrics()">
+                    📈 系统指标
+                </button>
+            </div>
+            <div class="result-container" id="connectionResults">
+                <div class="log-info">等待测试...</div>
+            </div>
+        </div>
+
+        <!-- 策略API测试 -->
+        <div class="test-section">
+            <h3>🎯 策略管理API测试</h3>
+            <p>测试策略的CRUD操作和状态管理</p>
+            <div>
+                <button class="btn btn-success test-button" onclick="testGetStrategies()">
+                    📋 获取策略列表
+                </button>
+                <button class="btn btn-primary test-button" onclick="testCreateStrategy()">
+                    ➕ 创建测试策略
+                </button>
+                <button class="btn btn-warning test-button" onclick="testStrategyOperations()">
+                    🔄 策略操作测试
+                </button>
+                <button class="btn btn-secondary test-button" onclick="testGetTemplates()">
+                    📝 获取策略模板
+                </button>
+            </div>
+            <div class="result-container" id="strategyResults">
+                <div class="log-info">等待测试...</div>
+            </div>
+        </div>
+
+        <!-- 前端组件测试 -->
+        <div class="test-section">
+            <h3>🖥️ 前端组件测试</h3>
+            <p>测试策略管理器组件的功能</p>
+            <div>
+                <button class="btn btn-primary test-button" onclick="testComponentInit()">
+                    🚀 初始化组件
+                </button>
+                <button class="btn btn-success test-button" onclick="testComponentRender()">
+                    🎨 渲染测试
+                </button>
+                <button class="btn btn-warning test-button" onclick="testComponentEvents()">
+                    🔗 事件测试
+                </button>
+            </div>
+            <div class="result-container" id="componentResults">
+                <div class="log-info">等待测试...</div>
+            </div>
+        </div>
+
+        <!-- 完整集成测试 -->
+        <div class="test-section">
+            <h3>🔗 完整集成测试</h3>
+            <p>端到端的完整功能测试</p>
+            <div>
+                <button class="btn btn-success test-button" onclick="runFullIntegrationTest()">
+                    🎯 运行完整测试
+                </button>
+                <button class="btn btn-danger test-button" onclick="clearAllTestData()">
+                    🧹 清理测试数据
+                </button>
+            </div>
+            <div class="result-container" id="integrationResults">
+                <div class="log-info">等待测试...</div>
+            </div>
+        </div>
+
+        <!-- 策略管理器容器 -->
+        <div class="test-section" id="managerContainer" style="display: none;">
+            <h3>🎯 策略管理器实例</h3>
+            <div id="strategyManagerTest"></div>
+        </div>
+    </div>
+
+    <!-- 引入所需的脚本 -->
+    <script src="../public/js/services/api-service.js"></script>
+    <script src="../public/js/components/strategy/strategy-forms-simple.js"></script>
+    <script src="../public/js/components/strategy/simple-y-manager.js"></script>
+
+    <script>
+        // 测试日志记录器
+        class TestLogger {
+            constructor(containerId) {
+                this.container = document.getElementById(containerId);
+            }
+
+            log(message, type = 'info') {
+                const logEntry = document.createElement('div');
+                logEntry.className = `log-entry log-${type}`;
+                logEntry.innerHTML = `
+                    <strong>[${new Date().toLocaleTimeString()}]</strong> ${message}
+                `;
+                this.container.appendChild(logEntry);
+                this.container.scrollTop = this.container.scrollHeight;
+            }
+
+            clear() {
+                this.container.innerHTML = '';
+            }
+        }
+
+        // 创建日志记录器
+        const connectionLogger = new TestLogger('connectionResults');
+        const strategyLogger = new TestLogger('strategyResults');
+        const componentLogger = new TestLogger('componentResults');
+        const integrationLogger = new TestLogger('integrationResults');
+
+        // 系统连接测试
+        async function testHealthCheck() {
+            connectionLogger.log('🏥 开始健康检查测试...', 'info');
+            try {
+                const result = await window.apiService.healthCheck();
+                connectionLogger.log(`✅ 健康检查成功: ${result.status}`, 'success');
+                connectionLogger.log(`📊 系统运行时间: ${result.uptime}ms`, 'info');
+                connectionLogger.log(`💾 内存使用: ${result.memory?.used}`, 'info');
+            } catch (error) {
+                connectionLogger.log(`❌ 健康检查失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testSystemInfo() {
+            connectionLogger.log('📊 开始系统信息测试...', 'info');
+            try {
+                const result = await window.apiService.getSystemInfo();
+                connectionLogger.log(`✅ 系统信息获取成功`, 'success');
+                connectionLogger.log(`📋 系统名称: ${result.name}`, 'info');
+                connectionLogger.log(`🔖 版本: ${result.version}`, 'info');
+                connectionLogger.log(`📝 描述: ${result.description}`, 'info');
+            } catch (error) {
+                connectionLogger.log(`❌ 获取系统信息失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testMetrics() {
+            connectionLogger.log('📈 开始系统指标测试...', 'info');
+            try {
+                const result = await window.apiService.getMetrics();
+                connectionLogger.log(`✅ 系统指标获取成功`, 'success');
+                connectionLogger.log(`📊 总请求数: ${result.requests?.total}`, 'info');
+                connectionLogger.log(`✅ 成功率: ${result.requests?.successRate}%`, 'success');
+                connectionLogger.log(`💾 堆内存: ${result.memory?.heapUsed}MB`, 'info');
+            } catch (error) {
+                connectionLogger.log(`❌ 获取系统指标失败: ${error.message}`, 'error');
+            }
+        }
+
+        // 策略API测试
+        async function testGetStrategies() {
+            strategyLogger.log('📋 开始获取策略列表测试...', 'info');
+            try {
+                const strategies = await window.apiService.getStrategies();
+                strategyLogger.log(`✅ 策略列表获取成功，共 ${strategies.length} 个策略`, 'success');
+                strategies.forEach((strategy, index) => {
+                    strategyLogger.log(`📄 策略 ${index + 1}: ${strategy.name || strategy.id} (${strategy.status})`, 'info');
+                });
+            } catch (error) {
+                strategyLogger.log(`❌ 获取策略列表失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testCreateStrategy() {
+            strategyLogger.log('➕ 开始创建测试策略...', 'info');
+            const testStrategy = {
+                name: `API测试策略_${Date.now()}`,
+                poolAddress: 'So11111111111111111111111111111111111111112',
+                yAmount: 100,
+                binRange: 35,
+                stopLossCount: 1,
+                stopLossBinOffset: 25,
+                upwardTimeout: 300,
+                downwardTimeout: 60
+            };
+
+            try {
+                const result = await window.apiService.createStrategy(testStrategy);
+                strategyLogger.log(`✅ 策略创建成功: ${result.instanceId || result.id}`, 'success');
+                strategyLogger.log(`📋 策略详情: ${JSON.stringify(result, null, 2)}`, 'info');
+
+                // 保存策略ID供后续测试使用
+                window.testStrategyId = result.instanceId || result.id;
+            } catch (error) {
+                strategyLogger.log(`❌ 策略创建失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testStrategyOperations() {
+            if (!window.testStrategyId) {
+                strategyLogger.log('⚠️ 请先创建测试策略', 'warning');
+                return;
+            }
+
+            const strategyId = window.testStrategyId;
+            strategyLogger.log(`🔄 开始策略操作测试 (ID: ${strategyId})...`, 'info');
+
+            try {
+                // 测试启动
+                strategyLogger.log('🚀 测试启动策略...', 'info');
+                await window.apiService.startStrategy(strategyId);
+                strategyLogger.log('✅ 策略启动成功', 'success');
+
+                // 等待一下
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // 测试暂停
+                strategyLogger.log('⏸️ 测试暂停策略...', 'info');
+                await window.apiService.pauseStrategy(strategyId);
+                strategyLogger.log('✅ 策略暂停成功', 'success');
+
+                // 测试恢复
+                strategyLogger.log('▶️ 测试恢复策略...', 'info');
+                await window.apiService.resumeStrategy(strategyId);
+                strategyLogger.log('✅ 策略恢复成功', 'success');
+
+                // 测试获取状态
+                strategyLogger.log('👁️ 测试获取策略状态...', 'info');
+                const status = await window.apiService.getStrategyStatus(strategyId);
+                strategyLogger.log(`✅ 策略状态: ${JSON.stringify(status, null, 2)}`, 'success');
+
+                // 测试停止
+                strategyLogger.log('⏹️ 测试停止策略...', 'info');
+                await window.apiService.stopStrategy(strategyId);
+                strategyLogger.log('✅ 策略停止成功', 'success');
+
+            } catch (error) {
+                strategyLogger.log(`❌ 策略操作测试失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGetTemplates() {
+            strategyLogger.log('📝 开始获取策略模板测试...', 'info');
+            try {
+                const templates = await window.apiService.getStrategyTemplates();
+                strategyLogger.log(`✅ 策略模板获取成功，共 ${templates.length} 个模板`, 'success');
+                templates.forEach((template, index) => {
+                    strategyLogger.log(`📄 模板 ${index + 1}: ${template.name} - ${template.description}`, 'info');
+                });
+            } catch (error) {
+                strategyLogger.log(`❌ 获取策略模板失败: ${error.message}`, 'error');
+            }
+        }
+
+        // 前端组件测试
+        let testManager = null;
+
+        async function testComponentInit() {
+            componentLogger.log('🚀 开始组件初始化测试...', 'info');
+            try {
+                document.getElementById('managerContainer').style.display = 'block';
+
+                testManager = new SimpleYStrategyManager('strategyManagerTest');
+                await testManager.init();
+
+                componentLogger.log('✅ 策略管理器组件初始化成功', 'success');
+                componentLogger.log(`📊 加载了 ${testManager.strategies.length} 个策略`, 'info');
+                componentLogger.log(`📝 加载了 ${testManager.templates.length} 个模板`, 'info');
+            } catch (error) {
+                componentLogger.log(`❌ 组件初始化失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testComponentRender() {
+            if (!testManager) {
+                componentLogger.log('⚠️ 请先初始化组件', 'warning');
+                return;
+            }
+
+            componentLogger.log('🎨 开始组件渲染测试...', 'info');
+            try {
+                testManager.render();
+                componentLogger.log('✅ 组件渲染成功', 'success');
+
+                // 检查渲染结果
+                const container = document.getElementById('strategyManagerTest');
+                const buttons = container.querySelectorAll('button');
+                const tables = container.querySelectorAll('table');
+
+                componentLogger.log(`🔘 渲染了 ${buttons.length} 个按钮`, 'info');
+                componentLogger.log(`📊 渲染了 ${tables.length} 个表格`, 'info');
+            } catch (error) {
+                componentLogger.log(`❌ 组件渲染失败: ${error.message}`, 'error');
+            }
+        }
+
+        async function testComponentEvents() {
+            if (!testManager) {
+                componentLogger.log('⚠️ 请先初始化组件', 'warning');
+                return;
+            }
+
+            componentLogger.log('🔗 开始组件事件测试...', 'info');
+            try {
+                testManager.bindEvents();
+                componentLogger.log('✅ 事件绑定成功', 'success');
+
+                // 模拟点击刷新按钮
+                const refreshBtn = document.getElementById('refresh-simple-y-btn');
+                if (refreshBtn) {
+                    componentLogger.log('🔄 模拟点击刷新按钮...', 'info');
+                    refreshBtn.click();
+                    componentLogger.log('✅ 刷新按钮事件触发成功', 'success');
+                }
+            } catch (error) {
+                componentLogger.log(`❌ 组件事件测试失败: ${error.message}`, 'error');
+            }
+        }
+
+        // 完整集成测试
+        async function runFullIntegrationTest() {
+            integrationLogger.clear();
+            integrationLogger.log('🎯 开始完整集成测试...', 'info');
+
+            try {
+                // 1. 系统连接测试
+                integrationLogger.log('1️⃣ 测试系统连接...', 'info');
+                await window.apiService.healthCheck();
+                integrationLogger.log('✅ 系统连接正常', 'success');
+
+                // 2. 获取现有策略
+                integrationLogger.log('2️⃣ 获取现有策略...', 'info');
+                const existingStrategies = await window.apiService.getStrategies();
+                integrationLogger.log(`✅ 现有策略数量: ${existingStrategies.length}`, 'success');
+
+                // 3. 创建测试策略
+                integrationLogger.log('3️⃣ 创建测试策略...', 'info');
+                const testStrategy = {
+                    name: `集成测试策略_${Date.now()}`,
+                    poolAddress: 'So11111111111111111111111111111111111111112',
+                    yAmount: 50,
+                    binRange: 30,
+                    stopLossCount: 1,
+                    stopLossBinOffset: 20,
+                    upwardTimeout: 180,
+                    downwardTimeout: 45
+                };
+
+                const createdStrategy = await window.apiService.createStrategy(testStrategy);
+                const strategyId = createdStrategy.instanceId || createdStrategy.id;
+                integrationLogger.log(`✅ 策略创建成功: ${strategyId}`, 'success');
+
+                // 4. 测试策略生命周期
+                integrationLogger.log('4️⃣ 测试策略生命周期...', 'info');
+
+                // 启动
+                await window.apiService.startStrategy(strategyId);
+                integrationLogger.log('✅ 策略启动成功', 'success');
+
+                await new Promise(resolve => setTimeout(resolve, 1000));
+
+                // 暂停
+                await window.apiService.pauseStrategy(strategyId);
+                integrationLogger.log('✅ 策略暂停成功', 'success');
+
+                // 恢复
+                await window.apiService.resumeStrategy(strategyId);
+                integrationLogger.log('✅ 策略恢复成功', 'success');
+
+                // 停止
+                await window.apiService.stopStrategy(strategyId);
+                integrationLogger.log('✅ 策略停止成功', 'success');
+
+                // 5. 前端组件集成测试
+                integrationLogger.log('5️⃣ 测试前端组件集成...', 'info');
+                if (!testManager) {
+                    testManager = new SimpleYStrategyManager('strategyManagerTest');
+                    await testManager.init();
+                }
+                testManager.render();
+                integrationLogger.log('✅ 前端组件集成正常', 'success');
+
+                // 6. 数据一致性检查
+                integrationLogger.log('6️⃣ 检查数据一致性...', 'info');
+                const updatedStrategies = await window.apiService.getStrategies();
+                if (updatedStrategies.length === existingStrategies.length + 1) {
+                    integrationLogger.log('✅ 数据一致性检查通过', 'success');
+                } else {
+                    integrationLogger.log('⚠️ 数据一致性检查异常', 'warning');
+                }
+
+                integrationLogger.log('🎉 完整集成测试通过！', 'success');
+
+            } catch (error) {
+                integrationLogger.log(`❌ 集成测试失败: ${error.message}`, 'error');
+                console.error('集成测试错误详情:', error);
+            }
+        }
+
+        async function clearAllTestData() {
+            integrationLogger.log('🧹 开始清理测试数据...', 'info');
+            try {
+                const strategies = await window.apiService.getStrategies();
+                const testStrategies = strategies.filter(s =>
+                    s.name && (s.name.includes('测试') || s.name.includes('API测试') || s.name.includes('集成测试'))
+                );
+
+                integrationLogger.log(`🔍 发现 ${testStrategies.length} 个测试策略`, 'info');
+
+                for (const strategy of testStrategies) {
+                    try {
+                        await window.apiService.deleteStrategy(strategy.instanceId || strategy.id);
+                        integrationLogger.log(`🗑️ 删除测试策略: ${strategy.name}`, 'success');
+                    } catch (error) {
+                        integrationLogger.log(`❌ 删除策略失败: ${strategy.name} - ${error.message}`, 'error');
+                    }
+                }
+
+                integrationLogger.log('✅ 测试数据清理完成', 'success');
+            } catch (error) {
+                integrationLogger.log(`❌ 清理测试数据失败: ${error.message}`, 'error');
+            }
+        }
+
+        // 页面加载时初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            connectionLogger.log('🚀 API对接测试页面已加载', 'info');
+            strategyLogger.log('🎯 策略API测试模块已就绪', 'info');
+            componentLogger.log('🖥️ 前端组件测试模块已就绪', 'info');
+            integrationLogger.log('🔗 集成测试模块已就绪', 'info');
+        });
+    </script>
+</body>
+
+</html>

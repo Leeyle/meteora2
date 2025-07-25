@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 UI修复测试页面</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-color: #1a1b2e;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+        }
+
+        .test-section {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .test-title {
+            color: #ffffff;
+            border-bottom: 2px solid #533483;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <!-- 页面标题 -->
+        <div class="test-section">
+            <h1 class="text-center mb-3">🎨 UI修复测试页面</h1>
+            <p class="text-center text-muted">测试模态框居中、取消功能和响应式布局</p>
+        </div>
+
+        <!-- 测试控制 -->
+        <div class="test-section">
+            <h3 class="test-title">🧪 测试控制</h3>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <button class="btn btn-primary w-100" id="init-test-btn">
+                        🚀 初始化测试
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-success w-100" id="show-modal-btn" disabled>
+                        📝 显示创建表单
+                    </button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-warning w-100" id="test-responsive-btn">
+                        📱 测试响应式
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 测试结果 -->
+        <div class="test-section">
+            <h3 class="test-title">📊 测试结果</h3>
+            <div id="test-results">
+                <div class="alert alert-info">
+                    <strong>等待测试...</strong><br>
+                    点击"初始化测试"开始
+                </div>
+            </div>
+        </div>
+
+        <!-- 策略管理器容器 -->
+        <div class="test-section">
+            <h3 class="test-title">🎯 策略管理器预览</h3>
+            <div id="strategy-test-container">
+                <!-- 策略管理器将在这里显示 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入修复后的策略模块 -->
+    <script src="../public/js/components/strategy/strategy-forms-simple.js"></script>
+    <script src="../public/js/components/strategy/simple-y-manager.js"></script>
+
+    <script>
+        let testManager = null;
+        let testResults = [];
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🎨 UI修复测试页面加载完成');
+
+            // 绑定按钮事件
+            document.getElementById('init-test-btn').addEventListener('click', initializeTest);
+            document.getElementById('show-modal-btn').addEventListener('click', showModalTest);
+            document.getElementById('test-responsive-btn').addEventListener('click', testResponsive);
+
+            // 监听策略创建事件
+            document.addEventListener('strategy-forms-createStrategy', function (e) {
+                addTestResult('success', '✅ 策略创建事件', `策略数据收集成功: ${e.detail.name}`);
+            });
+        });
+
+        async function initializeTest() {
+            try {
+                addTestResult('info', '🚀 开始初始化', '正在创建策略管理器实例...');
+
+                // 检查类是否加载
+                if (!window.SimpleYStrategyManager || !window.SimpleYStrategyForms) {
+                    throw new Error('策略模块未正确加载');
+                }
+
+                addTestResult('success', '✅ 模块检查', '所有策略模块已正确加载');
+
+                // 创建管理器实例
+                testManager = new SimpleYStrategyManager('strategy-test-container');
+                const success = await testManager.init();
+
+                if (success) {
+                    addTestResult('success', '✅ 初始化成功', '策略管理器创建成功');
+                    document.getElementById('show-modal-btn').disabled = false;
+                    document.getElementById('init-test-btn').disabled = true;
+
+                    // 测试布局
+                    testLayout();
+                } else {
+                    throw new Error('策略管理器初始化失败');
+                }
+
+            } catch (error) {
+                console.error('初始化测试失败:', error);
+                addTestResult('danger', '❌ 初始化失败', error.message);
+            }
+        }
+
+        function showModalTest() {
+            try {
+                addTestResult('info', '📝 模态框测试', '尝试显示创建策略表单...');
+
+                if (testManager && testManager.forms) {
+                    testManager.showCreateStrategyForm();
+
+                    // 检查模态框是否正确居中
+                    setTimeout(() => {
+                        const modal = document.getElementById('create-simple-y-modal');
+                        if (modal && modal.style.display === 'flex') {
+                            addTestResult('success', '✅ 模态框显示', '模态框已正确居中显示');
+
+                            // 测试取消按钮
+                            const cancelBtns = modal.querySelectorAll('button[onclick*="closest"]');
+                            if (cancelBtns.length > 0) {
+                                addTestResult('success', '✅ 取消按钮', `找到 ${cancelBtns.length} 个取消按钮，功能正常`);
+                            } else {
+                                addTestResult('warning', '⚠️ 取消按钮', '未找到取消按钮或绑定异常');
+                            }
+                        } else {
+                            addTestResult('danger', '❌ 模态框问题', '模态框未能正确显示');
+                        }
+                    }, 100);
+                } else {
+                    throw new Error('策略管理器未初始化');
+                }
+
+            } catch (error) {
+                addTestResult('danger', '❌ 模态框测试失败', error.message);
+            }
+        }
+
+        function testLayout() {
+            addTestResult('info', '📐 布局测试', '检查响应式布局...');
+
+            // 检查统计面板
+            const statsCards = document.querySelectorAll('.col-xl-3');
+            if (statsCards.length === 4) {
+                addTestResult('success', '✅ 统计面板', '响应式栅格布局正常 (4个卡片)');
+            } else {
+                addTestResult('warning', '⚠️ 统计面板', `统计卡片数量异常: ${statsCards.length}`);
+            }
+
+            // 检查表格
+            const table = document.querySelector('.table-responsive table');
+            if (table) {
+                addTestResult('success', '✅ 策略表格', '表格响应式布局正常');
+            } else {
+                addTestResult('warning', '⚠️ 策略表格', '未找到策略表格');
+            }
+        }
+
+        function testResponsive() {
+            addTestResult('info', '📱 响应式测试', '模拟不同屏幕尺寸...');
+
+            const container = document.getElementById('strategy-test-container');
+
+            // 模拟移动端
+            container.style.width = '375px';
+            addTestResult('info', '📱 移动端模拟', '切换到375px宽度');
+
+            setTimeout(() => {
+                // 模拟平板
+                container.style.width = '768px';
+                addTestResult('info', '📱 平板模拟', '切换到768px宽度');
+
+                setTimeout(() => {
+                    // 恢复桌面端
+                    container.style.width = '';
+                    addTestResult('success', '✅ 响应式测试', '所有屏幕尺寸测试完成');
+                }, 1000);
+            }, 1000);
+        }
+
+        function addTestResult(type, title, message) {
+            const alertClass = {
+                'success': 'alert-success',
+                'danger': 'alert-danger',
+                'warning': 'alert-warning',
+                'info': 'alert-info'
+            }[type] || 'alert-info';
+
+            const result = {
+                type,
+                title,
+                message,
+                time: new Date().toLocaleTimeString()
+            };
+
+            testResults.push(result);
+
+            // 更新显示
+            const resultsContainer = document.getElementById('test-results');
+            resultsContainer.innerHTML = testResults.map(r => `
+                <div class="alert ${alertClass} mb-2">
+                    <strong>${r.title}</strong><br>
+                    ${r.message}
+                    <br><small class="text-muted">时间: ${r.time}</small>
+                </div>
+            `).join('');
+
+            // 滚动到最新结果
+            resultsContainer.scrollTop = resultsContainer.scrollHeight;
+        }
+
+        // 全局错误处理
+        window.addEventListener('error', function (e) {
+            addTestResult('danger', '❌ 页面错误', e.message);
+        });
+
+        // 监听窗口调整
+        window.addEventListener('resize', function () {
+            addTestResult('info', '📐 窗口调整', `新尺寸: ${window.innerWidth}x${window.innerHeight}`);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 简单Y策略模块测试 - 重写版</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-color: #1a1b2e;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .card {
+            background-color: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+        }
+
+        .card-header {
+            background-color: #0f3460;
+            border-bottom: 1px solid #533483;
+        }
+
+        .btn-primary {
+            background-color: #533483;
+            border-color: #533483;
+        }
+
+        .btn-primary:hover {
+            background-color: #6b46c1;
+            border-color: #6b46c1;
+        }
+
+        .modal-content {
+            background-color: #16213e;
+            border: 1px solid #0f3460;
+        }
+
+        .modal-header {
+            background-color: #0f3460;
+            border-bottom: 1px solid #533483;
+        }
+
+        .form-control,
+        .form-select {
+            background-color: #1a1b2e;
+            border-color: #0f3460;
+            color: #ffffff;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            background-color: #1a1b2e;
+            border-color: #533483;
+            color: #ffffff;
+            box-shadow: 0 0 0 0.2rem rgba(83, 52, 131, 0.25);
+        }
+
+        .form-control::placeholder {
+            color: #9ca3af;
+        }
+
+        .text-muted {
+            color: #9ca3af !important;
+        }
+
+        .badge {
+            font-size: 0.75em;
+        }
+
+        .table-dark {
+            --bs-table-bg: #16213e;
+            --bs-table-striped-bg: #1a1b2e;
+        }
+
+        .loading-placeholder {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 3rem;
+            height: 3rem;
+            border: 0.3rem solid #533483;
+            border-top-color: #6b46c1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .template-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .template-card:hover {
+            background-color: rgba(83, 52, 131, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .alert {
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-4">
+        <!-- 页面标题 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h1 class="mb-3">🎯 简单Y头寸策略模块</h1>
+                        <p class="text-muted mb-0">重写版本 - 严格按照需求文档设计</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 测试按钮 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">🧪 功能测试</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <button class="btn btn-primary w-100" id="init-manager-btn">
+                                    🚀 初始化策略管理器
+                                </button>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <button class="btn btn-success w-100" id="show-create-form-btn" disabled>
+                                    ➕ 显示创建表单
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 状态显示 -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">📊 状态信息</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="status-info">
+                            <div class="alert alert-info">
+                                <strong>等待初始化...</strong><br>
+                                点击"初始化策略管理器"开始测试
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 策略管理器容器 -->
+        <div class="row">
+            <div class="col-12">
+                <div id="strategy-manager-container">
+                    <!-- 策略管理器内容将在这里显示 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入策略模块 -->
+    <script src="../public/js/components/strategy/strategy-forms-simple.js"></script>
+    <script src="../public/js/components/strategy/simple-y-manager.js"></script>
+
+    <script>
+        let simpleYManager = null;
+
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log('🎯 页面加载完成');
+
+            // 检查类是否加载
+            if (window.SimpleYStrategyForms && window.SimpleYStrategyManager) {
+                updateStatus('success', '✅ 模块加载成功', '所有策略模块已正确加载');
+            } else {
+                updateStatus('danger', '❌ 模块加载失败', '请检查文件路径是否正确');
+            }
+
+            // 绑定按钮事件
+            document.getElementById('init-manager-btn').addEventListener('click', initializeManager);
+            document.getElementById('show-create-form-btn').addEventListener('click', showCreateForm);
+        });
+
+        async function initializeManager() {
+            try {
+                updateStatus('info', '🚀 正在初始化...', '策略管理器初始化中');
+
+                // 创建管理器实例
+                simpleYManager = new SimpleYStrategyManager('strategy-manager-container');
+                const success = await simpleYManager.init();
+
+                if (success) {
+                    updateStatus('success', '✅ 初始化成功', '策略管理器已准备就绪');
+                    document.getElementById('show-create-form-btn').disabled = false;
+                    document.getElementById('init-manager-btn').disabled = true;
+                } else {
+                    updateStatus('danger', '❌ 初始化失败', '策略管理器初始化失败');
+                }
+            } catch (error) {
+                console.error('初始化失败:', error);
+                updateStatus('danger', '❌ 初始化错误', error.message);
+            }
+        }
+
+        function showCreateForm() {
+            if (simpleYManager) {
+                simpleYManager.showCreateStrategyForm();
+                updateStatus('info', '📝 表单已显示', '创建策略表单已打开');
+            }
+        }
+
+        function updateStatus(type, title, message) {
+            const statusInfo = document.getElementById('status-info');
+            statusInfo.innerHTML = `
+                <div class="alert alert-${type}">
+                    <strong>${title}</strong><br>
+                    ${message}
+                    <br><small class="text-muted">时间: ${new Date().toLocaleTimeString()}</small>
+                </div>
+            `;
+        }
+
+        // 监听策略创建事件
+        document.addEventListener('strategy-forms-createStrategy', function (e) {
+            console.log('策略创建事件:', e.detail);
+            updateStatus('success', '🎯 策略创建', `策略 "${e.detail.name}" 创建成功！`);
+        });
+
+        // 全局错误处理
+        window.addEventListener('error', function (e) {
+            console.error('页面错误:', e);
+            updateStatus('danger', '❌ 页面错误', e.message);
+        });
+    </script>
+</body>
+
+</html>

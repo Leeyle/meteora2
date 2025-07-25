@@ -1,0 +1,238 @@
+/* 过滤器样式增强 */
+.filters-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 20px;
+    background: #2d3748;
+    border-radius: 8px;
+}
+
+.filter-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #1a202c;
+    border-radius: 6px;
+    border: 1px solid #4a5568;
+}
+
+.filter-section h5 {
+    color: #e2e8f0;
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.filter-item {
+    flex: 1;
+    min-width: 150px;
+}
+
+.filter-item label {
+    display: block;
+    color: #a0aec0;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.filter-item input {
+    width: 100%;
+    padding: 8px 12px;
+    background: #2d3748;
+    border: 1px solid #4a5568;
+    border-radius: 4px;
+    color: #e2e8f0;
+    font-size: 13px;
+    transition: border-color 0.2s;
+}
+
+.filter-item input:focus {
+    outline: none;
+    border-color: #63b3ed;
+}
+
+.filter-item input::placeholder {
+    color: #718096;
+}
+
+.timeframe-filters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timeframe-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.timeframe-group label {
+    color: #a0aec0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.timeframe-group .filter-row {
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.timeframe-group .filter-row span {
+    color: #718096;
+    font-size: 12px;
+    min-width: 15px;
+    text-align: center;
+}
+
+.timeframe-group .filter-row input {
+    flex: 1;
+    min-width: 80px;
+}
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #4a5568;
+}
+
+.filter-actions .btn {
+    flex: 1;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+}
+
+.filter-actions .btn-primary {
+    background: #4299e1;
+    color: white;
+}
+
+.filter-actions .btn-primary:hover {
+    background: #3182ce;
+}
+
+.filter-actions .btn-secondary {
+    background: #4a5568;
+    color: #e2e8f0;
+}
+
+.filter-actions .btn-secondary:hover {
+    background: #2d3748;
+}
+
+/* 表格样式增强 */
+.rank-badge {
+    background: #805ad5;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.meteor-score {
+    color: #f6ad55;
+    font-weight: 600;
+}
+
+.pool-address {
+    font-family: monospace;
+    font-size: 12px;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .filter-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .filter-item {
+        min-width: auto;
+    }
+
+    .timeframe-group .filter-row {
+        flex-direction: row;
+    }
+
+    .filter-actions {
+        flex-direction: column;
+    }
+}
+
+/* 滚动条样式 */
+.filters-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.filters-container::-webkit-scrollbar-track {
+    background: #2d3748;
+}
+
+.filters-container::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+}
+
+.filters-container::-webkit-scrollbar-thumb:hover {
+    background: #718096;
+}
+
+/* 启用状态样式 */
+.filter-status {
+    font-size: 11px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-weight: 500;
+}
+
+.filter-status.enabled {
+    background: #48bb78;
+    color: white;
+}
+
+.filter-status.disabled {
+    background: #718096;
+    color: #e2e8f0;
+}
+
+/* Bin Step 样式 */
+.bin-step {
+    display: inline-block;
+    padding: 2px 8px;
+    background: #4299e1;
+    color: white;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* 不同 Bin Step 值的颜色 */
+.bin-step[data-value="1"] { background: #ed8936; }
+.bin-step[data-value="5"] { background: #38b2ac; }
+.bin-step[data-value="10"] { background: #9f7aea; }
+.bin-step[data-value="20"] { background: #4299e1; }
+.bin-step[data-value="25"] { background: #48bb78; }
+.bin-step[data-value="50"] { background: #f56565; }
+.bin-step[data-value="100"] { background: #ed8936; }
+.bin-step[data-value="200"] { background: #9f7aea; }
+.bin-step[data-value="500"] { background: #38b2ac; }
+.bin-step[data-value="1000"] { background: #4299e1; }

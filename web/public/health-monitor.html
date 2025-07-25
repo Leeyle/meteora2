@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏥 策略健康监控 | DLMM流动性管理系统</title>
+
+    <!-- 样式文件 -->
+    <link rel="stylesheet" href="css/health-monitor.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <style>
+        body {
+            margin: 0;
+            background: #f8fafc;
+            min-height: 100vh;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 0 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .navbar-brand {
+            font-size: 20px;
+            font-weight: 700;
+            color: #374151;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar-nav a {
+            color: #6b7280;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .navbar-nav a:hover,
+        .navbar-nav a.active {
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        /* 主内容区域 */
+        .main-content {
+            min-height: calc(100vh - 64px);
+            padding: 20px 0;
+        }
+
+        /* 消息提示 */
+        .message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            z-index: 1001;
+            max-width: 300px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+        }
+
+        .message.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .message.success {
+            background: #10b981;
+        }
+
+        .message.error {
+            background: #ef4444;
+        }
+
+        .message.warning {
+            background: #f59e0b;
+        }
+
+        .message.info {
+            background: #3b82f6;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="index.html" class="navbar-brand">
+                🏥 DLMM 健康监控
+            </a>
+            <ul class="navbar-nav">
+                <li><a href="index.html">🏠 首页</a></li>
+                <li><a href="strategy-monitor.html">📊 策略监控</a></li>
+                <li><a href="health-monitor.html" class="active">🏥 健康监控</a></li>
+                <li><a href="logs-viewer.html">📄 日志查看</a></li>
+                <li><a href="wallet-manager.html">💰 钱包管理</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 主内容 -->
+    <main class="main-content">
+        <div id="health-monitor-container"></div>
+    </main>
+
+    <!-- 消息提示容器 -->
+    <div id="message-container"></div>
+
+    <!-- JavaScript 依赖 -->
+    <script src="js/services/api-service.js"></script>
+    <script src="js/components/health/health-monitor.js"></script>
+
+    <script>
+        /**
+         * 🏥 健康监控页面
+         */
+        class HealthMonitorPage {
+            constructor() {
+                this.healthMonitor = null;
+                this.init();
+            }
+
+            /**
+             * 🚀 初始化页面
+             */
+            init() {
+                this.setupGlobalErrorHandling();
+                this.initializeHealthMonitor();
+                this.setupGlobalNotifications();
+
+                console.log('🏥 健康监控页面初始化完成');
+            }
+
+            /**
+             * 🏥 初始化健康监控器
+             */
+            initializeHealthMonitor() {
+                try {
+                    this.healthMonitor = new HealthMonitor('health-monitor-container');
+
+                    // 重写显示消息方法，使用全局通知系统
+                    this.healthMonitor.showSuccess = (message) => {
+                        this.showMessage(message, 'success');
+                    };
+
+                    this.healthMonitor.showError = (message) => {
+                        this.showMessage(message, 'error');
+                    };
+
+                    // 添加全局引用，方便调试和其他组件访问
+                    window.healthMonitor = this.healthMonitor;
+
+                } catch (error) {
+                    console.error('❌ 健康监控器初始化失败:', error);
+                    this.showMessage('健康监控器初始化失败: ' + error.message, 'error');
+                }
+            }
+
+            /**
+             * 🌐 设置全局错误处理
+             */
+            setupGlobalErrorHandling() {
+                window.addEventListener('error', (event) => {
+                    console.error('❌ 全局错误:', event.error);
+                    this.showMessage('发生未预期的错误，请检查控制台', 'error');
+                });
+
+                window.addEventListener('unhandledrejection', (event) => {
+                    console.error('❌ 未处理的Promise拒绝:', event.reason);
+                    this.showMessage('异步操作失败，请检查控制台', 'error');
+                });
+            }
+
+            /**
+             * 🔔 设置全局通知系统
+             */
+            setupGlobalNotifications() {
+                // 扩展 APIClient 来显示网络错误
+                if (window.APIClient) {
+                    const originalRequest = APIClient.prototype.request;
+                    APIClient.prototype.request = async function (method, url, data, options) {
+                        try {
+                            return await originalRequest.call(this, method, url, data, options);
+                        } catch (error) {
+                            if (error.message.includes('Network')) {
+                                window.healthMonitorPage?.showMessage('网络连接失败，请检查服务器状态', 'error');
+                            }
+                            throw error;
+                        }
+                    };
+                }
+            }
+
+            /**
+             * 🔔 显示消息通知
+             */
+            showMessage(message, type = 'info', duration = 5000) {
+                const container = document.getElementById('message-container');
+
+                const messageElement = document.createElement('div');
+                messageElement.className = `message ${type}`;
+                messageElement.textContent = message;
+
+                container.appendChild(messageElement);
+
+                // 显示动画
+                setTimeout(() => {
+                    messageElement.classList.add('show');
+                }, 10);
+
+                // 自动隐藏
+                setTimeout(() => {
+                    messageElement.classList.remove('show');
+                    setTimeout(() => {
+                        if (messageElement.parentNode) {
+                            messageElement.parentNode.removeChild(messageElement);
+                        }
+                    }, 300);
+                }, duration);
+            }
+
+            /**
+             * 🧹 页面卸载清理
+             */
+            cleanup() {
+                if (this.healthMonitor) {
+                    this.healthMonitor.destroy();
+                    this.healthMonitor = null;
+                }
+            }
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            window.healthMonitorPage = new HealthMonitorPage();
+        });
+
+        // 页面卸载时清理
+        window.addEventListener('beforeunload', () => {
+            if (window.healthMonitorPage) {
+                window.healthMonitorPage.cleanup();
+            }
+        });
+
+        // 便捷的全局函数
+        window.showMessage = function (message, type = 'info') {
+            if (window.healthMonitorPage) {
+                window.healthMonitorPage.showMessage(message, type);
+            }
+        };
+
+        // 页面可见性变化时的处理
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                // 页面隐藏时暂停自动刷新
+                if (window.healthMonitor && window.healthMonitor.autoRefresh) {
+                    window.healthMonitor.toggleAutoRefresh();
+                    window.healthMonitor._wasAutoRefreshingBeforeHidden = true;
+                }
+            } else {
+                // 页面显示时恢复自动刷新
+                if (window.healthMonitor && window.healthMonitor._wasAutoRefreshingBeforeHidden) {
+                    if (!window.healthMonitor.autoRefresh) {
+                        window.healthMonitor.toggleAutoRefresh();
+                    }
+                    window.healthMonitor._wasAutoRefreshingBeforeHidden = false;
+
+                    // 立即刷新一次数据
+                    window.healthMonitor.loadData();
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

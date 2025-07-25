@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔘 按钮文字测试</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-color: #1a1b2e;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .test-section {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .button-preview {
+            background: #1a1b2e;
+            border: 1px solid #0f3460;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        .strategy-demo {
+            background: #16213e;
+            border: 1px solid #533483;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .strategy-info {
+            flex: 1;
+        }
+
+        .strategy-actions {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">🔘 策略操作按钮文字测试</h1>
+
+        <!-- 测试控制 -->
+        <div class="test-section">
+            <h3 class="mb-3">🎮 测试控制</h3>
+            <button class="btn btn-primary" onclick="initTest()">
+                🚀 初始化策略管理器
+            </button>
+            <button class="btn btn-success" onclick="showButtonPreview()" id="preview-btn" disabled>
+                👀 预览按钮效果
+            </button>
+        </div>
+
+        <!-- 按钮预览 -->
+        <div class="test-section">
+            <h3 class="mb-3">🔘 按钮样式预览</h3>
+
+            <div class="button-preview">
+                <h5 class="text-info mb-3">运行中的策略按钮：</h5>
+                <div class="strategy-actions">
+                    <button class="btn btn-warning btn-sm" style="min-width: 90px;">⏸️ 暂停</button>
+                    <button class="btn btn-secondary btn-sm" style="min-width: 90px;">⏹️ 停止</button>
+                    <button class="btn btn-info btn-sm" style="min-width: 90px;">👁️ 查看</button>
+                    <button class="btn btn-danger btn-sm" style="min-width: 90px;">🗑️ 删除</button>
+                </div>
+            </div>
+
+            <div class="button-preview">
+                <h5 class="text-success mb-3">已停止的策略按钮：</h5>
+                <div class="strategy-actions">
+                    <button class="btn btn-success btn-sm" style="min-width: 90px;">▶️ 启动</button>
+                    <button class="btn btn-info btn-sm" style="min-width: 90px;">👁️ 查看</button>
+                    <button class="btn btn-danger btn-sm" style="min-width: 90px;">🗑️ 删除</button>
+                </div>
+            </div>
+
+            <div class="button-preview">
+                <h5 class="text-warning mb-3">已暂停的策略按钮：</h5>
+                <div class="strategy-actions">
+                    <button class="btn btn-success btn-sm" style="min-width: 90px;">▶️ 恢复</button>
+                    <button class="btn btn-secondary btn-sm" style="min-width: 90px;">⏹️ 停止</button>
+                    <button class="btn btn-info btn-sm" style="min-width: 90px;">👁️ 查看</button>
+                    <button class="btn btn-danger btn-sm" style="min-width: 90px;">🗑️ 删除</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 功能说明 -->
+        <div class="test-section">
+            <h3 class="mb-3">📖 按钮功能说明</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-success">▶️ 启动/恢复</h5>
+                    <p class="text-muted">启动已停止的策略或恢复已暂停的策略</p>
+
+                    <h5 class="text-warning">⏸️ 暂停</h5>
+                    <p class="text-muted">暂停正在运行的策略，可以随时恢复</p>
+                </div>
+                <div class="col-md-6">
+                    <h5 class="text-secondary">⏹️ 停止</h5>
+                    <p class="text-muted">完全停止策略运行，需要重新启动</p>
+
+                    <h5 class="text-info">👁️ 查看</h5>
+                    <p class="text-muted">查看策略的详细信息和运行状态</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="text-danger">🗑️ 删除</h5>
+                    <p class="text-muted">永久删除策略，此操作不可撤销</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 策略管理器演示 -->
+        <div class="test-section">
+            <h3 class="mb-3">🎯 实际效果演示</h3>
+            <div id="strategy-demo-container">
+                <!-- 策略管理器将在这里显示 -->
+            </div>
+        </div>
+
+        <!-- 测试结果 -->
+        <div class="test-section">
+            <h3 class="mb-3">📋 测试结果</h3>
+            <div id="test-results" class="alert alert-info">
+                等待测试开始...
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入策略模块 -->
+    <script src="../public/js/components/strategy/strategy-forms-simple.js"></script>
+    <script src="../public/js/components/strategy/simple-y-manager.js"></script>
+
+    <script>
+        let strategyManager = null;
+
+        function logResult(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.className = `alert alert-${type}`;
+            resultsDiv.innerHTML = `[${timestamp}] ${message}`;
+        }
+
+        async function initTest() {
+            try {
+                logResult('🚀 开始初始化策略管理器...', 'info');
+
+                if (!window.SimpleYStrategyManager || !window.SimpleYStrategyForms) {
+                    throw new Error('策略模块未加载');
+                }
+
+                strategyManager = new SimpleYStrategyManager('strategy-demo-container');
+                const success = await strategyManager.init();
+
+                if (success) {
+                    logResult('✅ 策略管理器初始化成功，按钮已添加文字标签', 'success');
+                    document.getElementById('preview-btn').disabled = false;
+                } else {
+                    throw new Error('初始化失败');
+                }
+
+            } catch (error) {
+                logResult('❌ 初始化失败: ' + error.message, 'danger');
+            }
+        }
+
+        function showButtonPreview() {
+            logResult('👀 按钮预览已显示，请检查上方的按钮样式和下方的实际策略列表', 'success');
+
+            // 检查按钮文字
+            const buttons = document.querySelectorAll('.start-btn, .pause-btn, .stop-btn, .view-btn, .delete-btn');
+            let buttonCount = 0;
+            let textButtons = 0;
+
+            buttons.forEach(btn => {
+                buttonCount++;
+                if (btn.textContent.trim().length > 2) { // 超过单个emoji长度
+                    textButtons++;
+                }
+            });
+
+            if (textButtons > 0) {
+                logResult(`✅ 成功！发现 ${textButtons}/${buttonCount} 个按钮包含文字标签`, 'success');
+            } else {
+                logResult(`⚠️ 未发现包含文字的按钮，可能需要等待渲染完成`, 'warning');
+            }
+        }
+
+        // 页面加载完成
+        document.addEventListener('DOMContentLoaded', function () {
+            logResult('📄 测试页面加载完成，点击"初始化策略管理器"开始测试', 'info');
+        });
+    </script>
+</body>
+
+</html>

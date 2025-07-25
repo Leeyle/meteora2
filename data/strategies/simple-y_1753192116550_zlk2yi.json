@@ -1,0 +1,55 @@
+{
+  "id": "simple-y_1753192116550_zlk2yi",
+  "type": "simple-y",
+  "name": "Chloe",
+  "config": {
+    "poolAddress": "c5eKqsWpRBJAhKgGgCPTD2JknutER3CzyQtGYe9C74c",
+    "positionAmount": 2,
+    "binRange": 69,
+    "monitoringInterval": 30,
+    "outOfRangeTimeout": 600,
+    "yieldExtractionThreshold": "0.01",
+    "yieldExtractionTimeLock": 2,
+    "maxPriceForRecreation": 0.000001,
+    "minPriceForRecreation": 0.0000035,
+    "slippageBps": 1000,
+    "benchmarkYieldThreshold5Min": 0.4,
+    "minActiveBinPositionThreshold": 20,
+    "enableSmartStopLoss": true,
+    "stopLoss": {
+      "activeBinSafetyThreshold": -10,
+      "observationPeriodMinutes": 15,
+      "lossThresholdPercentage": 4
+    },
+    "positionRecreation": {
+      "enableMarketOpportunityRecreation": true,
+      "marketOpportunity": {
+        "positionThreshold": 90,
+        "profitThreshold": 3
+      },
+      "enableLossRecoveryRecreation": true,
+      "lossRecovery": {
+        "markPositionThreshold": 35,
+        "markLossThreshold": 2,
+        "triggerPositionThreshold": 90,
+        "triggerProfitThreshold": 2
+      },
+      "enableDynamicProfitRecreation": true,
+      "dynamicProfitRecreation": {
+        "positionThreshold": 90,
+        "benchmarkTier1Max": 1,
+        "benchmarkTier2Max": 3,
+        "benchmarkTier3Max": 5,
+        "benchmarkTier4Max": 50,
+        "profitThresholdTier1": 1,
+        "profitThresholdTier2": 3,
+        "profitThresholdTier3": 5,
+        "profitThresholdTier4": 8
+      }
+    }
+  },
+  "status": "stopped",
+  "createdAt": "2025-07-22T13:48:36.550Z",
+  "startedAt": "2025-07-22T14:44:29.368Z",
+  "stoppedAt": "2025-07-22T14:51:57.492Z"
+}

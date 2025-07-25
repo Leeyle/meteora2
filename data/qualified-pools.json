@@ -1,0 +1,3734 @@
+{
+  "pools": [
+    {
+      "id": "FtkKrByE4UPSxpG5s9MSCeT7XGExAN5wkeqSojjNtHis",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "FtkKrByE4UPSxpG5s9MSCeT7XGExAN5wkeqSojjNtHis",
+        "tokenPair": "B_M-SOL",
+        "meteorScore": 1055,
+        "liquidity": 26100,
+        "age": "1 hr",
+        "fdv": 468600,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1,
+          "1h": 8.8,
+          "6h": 0.62,
+          "24h": 8.85,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -29.5,
+          "1h": -16.68,
+          "6h": -16.68,
+          "24h": -16.68,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 265.3,
+          "1h": 2300,
+          "6h": 1200,
+          "24h": 2300,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 13300,
+          "1h": 87200,
+          "6h": 62100,
+          "24h": 87200,
+          "7d": 0
+        },
+        "scrapedAt": 1752069487866,
+        "id": "FtkKrByE4UPSxpG5s9MSCeT7XGExAN5wkeqSojjNtHis_1",
+        "tokens": {
+          "tokenA": "B_M",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 351.32
+      },
+      "discoveredAt": 1752069487989,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "6tU7rjYAZjaTGR5asrfRMZbs364M5YzQCfYwqqxdL9XQ",
+      "poolData": {
+        "rank": 3,
+        "poolAddress": "6tU7rjYAZjaTGR5asrfRMZbs364M5YzQCfYwqqxdL9XQ",
+        "tokenPair": "気-SOL",
+        "meteorScore": 370,
+        "liquidity": 15400,
+        "age": "2 d",
+        "fdv": 323100,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.7,
+          "1h": 4.9,
+          "6h": 11.67,
+          "24h": 128.25,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": -24.17,
+          "6h": -55.01,
+          "24h": -81.18,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 110.3,
+          "1h": 757.4,
+          "6h": 1800,
+          "24h": 19700,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 5500,
+          "1h": 25200,
+          "6h": 89600,
+          "24h": 718100,
+          "7d": 0
+        },
+        "scrapedAt": 1752069487871,
+        "id": "6tU7rjYAZjaTGR5asrfRMZbs364M5YzQCfYwqqxdL9XQ_3",
+        "tokens": {
+          "tokenA": "気",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 48,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 164.4
+      },
+      "discoveredAt": 1752069487991,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "EZkGuAjaPg584GaemM2HjZaBT678EoAk8Ky8S6B48dT7",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "EZkGuAjaPg584GaemM2HjZaBT678EoAk8Ky8S6B48dT7",
+        "tokenPair": "B_M-SOL",
+        "meteorScore": 398,
+        "liquidity": 24600,
+        "age": "1 hr",
+        "fdv": 442800,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2,
+          "1h": 16.9,
+          "6h": 3.49,
+          "24h": 27.23,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -34.08,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 499.2,
+          "1h": 4200,
+          "6h": 3500,
+          "24h": 6700,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 10000,
+          "1h": 57300,
+          "6h": 70100,
+          "24h": 92200,
+          "7d": 0
+        },
+        "scrapedAt": 1752069487869,
+        "id": "EZkGuAjaPg584GaemM2HjZaBT678EoAk8Ky8S6B48dT7_2",
+        "tokens": {
+          "tokenA": "B_M",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 157.86
+      },
+      "discoveredAt": 1752069488004,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "4onkJw4hLYPjkcnYgGsgV3eakXJcHLmshUbMugZBfXho",
+      "poolData": {
+        "rank": 4,
+        "poolAddress": "4onkJw4hLYPjkcnYgGsgV3eakXJcHLmshUbMugZBfXho",
+        "tokenPair": "DEGE-SOL",
+        "meteorScore": 306,
+        "liquidity": 68700,
+        "age": "2 d",
+        "fdv": 42600000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0,
+          "1h": 2.8,
+          "6h": 1.89,
+          "24h": 110.38,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -0.07,
+          "1h": -9.37,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 15.4,
+          "1h": 1900,
+          "6h": 1300,
+          "24h": 75800,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 7700,
+          "1h": 298700,
+          "6h": 650500,
+          "24h": 10400000,
+          "7d": 0
+        },
+        "scrapedAt": 1752069487875,
+        "id": "4onkJw4hLYPjkcnYgGsgV3eakXJcHLmshUbMugZBfXho_4",
+        "tokens": {
+          "tokenA": "DEGE",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 48,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 149.41
+      },
+      "discoveredAt": 1752069488006,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "3A7fbJej4Kep2vZHDF7siNvLDoTcUnmR1WC8uQdUb7Ke",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "3A7fbJej4Kep2vZHDF7siNvLDoTcUnmR1WC8uQdUb7Ke",
+        "tokenPair": "TINFOIL-SOL",
+        "meteorScore": 1112,
+        "liquidity": 15300,
+        "age": "3 hrs",
+        "fdv": 283200,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.1,
+          "1h": 9.2,
+          "6h": 5.32,
+          "24h": 27.75,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 164.4,
+          "1h": 1400,
+          "6h": 1800,
+          "24h": 4200,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 8200,
+          "1h": 40200,
+          "6h": 90600,
+          "24h": 121300,
+          "7d": 0
+        },
+        "scrapedAt": 1752069798016,
+        "id": "3A7fbJej4Kep2vZHDF7siNvLDoTcUnmR1WC8uQdUb7Ke_1",
+        "tokens": {
+          "tokenA": "TINFOIL",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 3,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 371.72
+      },
+      "discoveredAt": 1752069798076,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "J2wazmmGnjKm2x6HRw3g8kGhueWwVBYBrxxwTuBAVVQD",
+      "poolData": {
+        "rank": 3,
+        "poolAddress": "J2wazmmGnjKm2x6HRw3g8kGhueWwVBYBrxxwTuBAVVQD",
+        "tokenPair": "MEMECOIN-SOL",
+        "meteorScore": 346,
+        "liquidity": 25900,
+        "age": "5 d",
+        "fdv": 1400000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1,
+          "1h": 2.9,
+          "6h": 2.1,
+          "24h": 17.18,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -11.49,
+          "1h": -19.9,
+          "6h": -39.05,
+          "24h": -31.8,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 249.5,
+          "1h": 748,
+          "6h": 545.3,
+          "24h": 4500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 12500,
+          "1h": 23700,
+          "6h": 27300,
+          "24h": 171800,
+          "7d": 0
+        },
+        "scrapedAt": 1752069798018,
+        "id": "J2wazmmGnjKm2x6HRw3g8kGhueWwVBYBrxxwTuBAVVQD_3",
+        "tokens": {
+          "tokenA": "MEMECOIN",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 120,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 139.18
+      },
+      "discoveredAt": 1752069798085,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "2NNvQq69gUpa8woZma2nnwKWeN5HH39BaoVEDWU89yaU",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "2NNvQq69gUpa8woZma2nnwKWeN5HH39BaoVEDWU89yaU",
+        "tokenPair": "SCAM-SOL",
+        "meteorScore": 4651,
+        "liquidity": 12000,
+        "age": "11 min",
+        "fdv": 360100,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 4.4,
+          "1h": 9.7,
+          "6h": 0.18,
+          "24h": 9.67,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -9.14,
+          "1h": -8.71,
+          "6h": -8.71,
+          "24h": -8.71,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 530.6,
+          "1h": 1200,
+          "6h": 730.4,
+          "24h": 1200,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 10600,
+          "1h": 20400,
+          "6h": 14600,
+          "24h": 20400,
+          "7d": 0
+        },
+        "scrapedAt": 1752075327660,
+        "id": "2NNvQq69gUpa8woZma2nnwKWeN5HH39BaoVEDWU89yaU_1",
+        "tokens": {
+          "tokenA": "SCAM",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1428.06
+      },
+      "discoveredAt": 1752075327704,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "3D6UWiVSK1s189qzHN5KgZLnrdBPNpAc17HnQbfN6SVt",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "3D6UWiVSK1s189qzHN5KgZLnrdBPNpAc17HnQbfN6SVt",
+        "tokenPair": "MECHA-SOL",
+        "meteorScore": 993,
+        "liquidity": 24600,
+        "age": "15 hrs",
+        "fdv": 1200000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.8,
+          "1h": 3.5,
+          "6h": 4.35,
+          "24h": 60.26,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": -38.79,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 188.1,
+          "1h": 869.8,
+          "6h": 1100,
+          "24h": 14800,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 18800,
+          "1h": 38200,
+          "6h": 107000,
+          "24h": 780500,
+          "7d": 0
+        },
+        "scrapedAt": 1752075670520,
+        "id": "3D6UWiVSK1s189qzHN5KgZLnrdBPNpAc17HnQbfN6SVt_1",
+        "tokens": {
+          "tokenA": "MECHA",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 15,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 344.51
+      },
+      "discoveredAt": 1752075670576,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "BzLWuqNLFsawZKyoRcNJLGP4tWNN2LSFCCvo66mrVtQU",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "BzLWuqNLFsawZKyoRcNJLGP4tWNN2LSFCCvo66mrVtQU",
+        "tokenPair": "MECHA-SOL",
+        "meteorScore": 767,
+        "liquidity": 43000,
+        "age": "18 hrs",
+        "fdv": 1200000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.8,
+          "1h": 3.2,
+          "6h": 7.87,
+          "24h": 163.89,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 353.5,
+          "1h": 1400,
+          "6h": 3400,
+          "24h": 70400,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 17700,
+          "1h": 51800,
+          "6h": 169100,
+          "24h": 2100000,
+          "7d": 0
+        },
+        "scrapedAt": 1752075670521,
+        "id": "BzLWuqNLFsawZKyoRcNJLGP4tWNN2LSFCCvo66mrVtQU_2",
+        "tokens": {
+          "tokenA": "MECHA",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 18,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 286.18
+      },
+      "discoveredAt": 1752075670578,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "A9fwXurM9CDmh4b1q6kWY4Qn1YnwNVPRQTr4gfR4UFPG",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "A9fwXurM9CDmh4b1q6kWY4Qn1YnwNVPRQTr4gfR4UFPG",
+        "tokenPair": "LAUNCH-SOL",
+        "meteorScore": 2454,
+        "liquidity": 10900,
+        "age": "2 mo",
+        "fdv": 2100000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.5,
+          "1h": 4,
+          "6h": 1.52,
+          "24h": 3.99,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 165.3,
+          "1h": 433.1,
+          "6h": 165.4,
+          "24h": 433.1,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 16500,
+          "1h": 17000,
+          "6h": 16500,
+          "24h": 17000,
+          "7d": 0
+        },
+        "scrapedAt": 1752082086553,
+        "id": "A9fwXurM9CDmh4b1q6kWY4Qn1YnwNVPRQTr4gfR4UFPG_1",
+        "tokens": {
+          "tokenA": "LAUNCH",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1440,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 757.55
+      },
+      "discoveredAt": 1752082086605,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "EiKL96663Jy7b68ci4gTGLZbmqP2zj9LGaK29oX6uZU1",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "EiKL96663Jy7b68ci4gTGLZbmqP2zj9LGaK29oX6uZU1",
+        "tokenPair": "LORE-SOL",
+        "meteorScore": 659,
+        "liquidity": 37700,
+        "age": "1 d",
+        "fdv": 708500,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.6,
+          "1h": 3.3,
+          "6h": 7.02,
+          "24h": 309.42,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": -32.66,
+          "24h": -57.97,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 214.4,
+          "1h": 1200,
+          "6h": 2600,
+          "24h": 116500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 21400,
+          "1h": 58400,
+          "6h": 264500,
+          "24h": 5100000,
+          "7d": 0
+        },
+        "scrapedAt": 1752084842289,
+        "id": "EiKL96663Jy7b68ci4gTGLZbmqP2zj9LGaK29oX6uZU1_1",
+        "tokens": {
+          "tokenA": "LORE",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 24,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 254.24
+      },
+      "discoveredAt": 1752084842348,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "Gd8529ELqesgy9b4Qb2MHA5CwauqbyTZpTrExtUsMNJe",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "Gd8529ELqesgy9b4Qb2MHA5CwauqbyTZpTrExtUsMNJe",
+        "tokenPair": "LORE-SOL",
+        "meteorScore": 595,
+        "liquidity": 31100,
+        "age": "2 d",
+        "fdv": 698900,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.6,
+          "1h": 3.8,
+          "6h": 8.22,
+          "24h": 71.28,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": -30.14,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 502,
+          "1h": 1200,
+          "6h": 2600,
+          "24h": 22100,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 10000,
+          "1h": 19400,
+          "6h": 51000,
+          "24h": 376800,
+          "7d": 0
+        },
+        "scrapedAt": 1752084842290,
+        "id": "Gd8529ELqesgy9b4Qb2MHA5CwauqbyTZpTrExtUsMNJe_2",
+        "tokens": {
+          "tokenA": "LORE",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 48,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 226.58
+      },
+      "discoveredAt": 1752084842353,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "HMMsxzVHD6H9zopNkW5EydkfKFByP36pxj4YqLyoCtAQ",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "HMMsxzVHD6H9zopNkW5EydkfKFByP36pxj4YqLyoCtAQ",
+        "tokenPair": "ROGER-SOL",
+        "meteorScore": 1257,
+        "liquidity": 10900,
+        "age": "8 hrs",
+        "fdv": 273700,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.6,
+          "1h": 7,
+          "6h": 3.23,
+          "24h": 8.06,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 170.9,
+          "1h": 760.4,
+          "6h": 351.3,
+          "24h": 876.3,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 8500,
+          "1h": 23800,
+          "6h": 17600,
+          "24h": 29400,
+          "7d": 0
+        },
+        "scrapedAt": 1752087525159,
+        "id": "HMMsxzVHD6H9zopNkW5EydkfKFByP36pxj4YqLyoCtAQ_1",
+        "tokens": {
+          "tokenA": "ROGER",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 8,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 409.6
+      },
+      "discoveredAt": 1752087525255,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "5Ceu9mJWFmx5sReaNk36B4UQskerz3JYCBSM9ohQAooj",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "5Ceu9mJWFmx5sReaNk36B4UQskerz3JYCBSM9ohQAooj",
+        "tokenPair": "CLUB-SOL",
+        "meteorScore": 1474,
+        "liquidity": 13500,
+        "age": "5 min",
+        "fdv": 833200,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2,
+          "1h": 4.5,
+          "6h": 0.03,
+          "24h": 4.52,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 323.7,
+          "1h": 609.1,
+          "6h": 323.7,
+          "24h": 609.1,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 6500,
+          "1h": 8400,
+          "6h": 6500,
+          "24h": 8400,
+          "7d": 0
+        },
+        "scrapedAt": 1752088125926,
+        "id": "5Ceu9mJWFmx5sReaNk36B4UQskerz3JYCBSM9ohQAooj_1",
+        "tokens": {
+          "tokenA": "CLUB",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 473.37
+      },
+      "discoveredAt": 1752088126021,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "BqsSQ7os9TcArZh41WLwdt2GQzMtFzWwqcZHcP56wv9T",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "BqsSQ7os9TcArZh41WLwdt2GQzMtFzWwqcZHcP56wv9T",
+        "tokenPair": "STAPLER-SOL",
+        "meteorScore": 1258,
+        "liquidity": 85600,
+        "age": "15 min",
+        "fdv": 1000000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.9,
+          "1h": 7,
+          "6h": 0.14,
+          "24h": 6.97,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -10.93,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1600,
+          "1h": 6000,
+          "6h": 3000,
+          "24h": 6000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 32000,
+          "1h": 82200,
+          "6h": 59900,
+          "24h": 82200,
+          "7d": 0
+        },
+        "scrapedAt": 1752091310252,
+        "id": "BqsSQ7os9TcArZh41WLwdt2GQzMtFzWwqcZHcP56wv9T_2",
+        "tokens": {
+          "tokenA": "STAPLER",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 413.42
+      },
+      "discoveredAt": 1752091310312,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "Gsr78eCr2H6Y7eHt5qkj4gRTcaQqzy564Y74bK77fMgB",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "Gsr78eCr2H6Y7eHt5qkj4gRTcaQqzy564Y74bK77fMgB",
+        "tokenPair": "STAPLER-SOL",
+        "meteorScore": 6479,
+        "liquidity": 100100,
+        "age": "9 min",
+        "fdv": 1200000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2,
+          "1h": 3.4,
+          "6h": 0.05,
+          "24h": 3.4,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -5.98,
+          "1h": -9.26,
+          "6h": -9.26,
+          "24h": -9.26,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 2000,
+          "1h": 3400,
+          "6h": 2200,
+          "24h": 3400,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 98800,
+          "1h": 135400,
+          "6h": 107500,
+          "24h": 135400,
+          "7d": 0
+        },
+        "scrapedAt": 1752091627350,
+        "id": "Gsr78eCr2H6Y7eHt5qkj4gRTcaQqzy564Y74bK77fMgB_1",
+        "tokens": {
+          "tokenA": "STAPLER",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1979.63
+      },
+      "discoveredAt": 1752091627409,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "C8H1p4NgFubK9qxBJvLvEnwnJVm81piTWZDKdmwDKANT",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "C8H1p4NgFubK9qxBJvLvEnwnJVm81piTWZDKdmwDKANT",
+        "tokenPair": "STAPLER-SOL",
+        "meteorScore": 2238,
+        "liquidity": 13900,
+        "age": "37 min",
+        "fdv": 794300,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1,
+          "1h": 8.7,
+          "6h": 0.33,
+          "24h": 8.7,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 141,
+          "1h": 1200,
+          "6h": 457.1,
+          "24h": 1200,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 14100,
+          "1h": 50600,
+          "6h": 45700,
+          "24h": 50600,
+          "7d": 0
+        },
+        "scrapedAt": 1752093037016,
+        "id": "C8H1p4NgFubK9qxBJvLvEnwnJVm81piTWZDKdmwDKANT_1",
+        "tokens": {
+          "tokenA": "STAPLER",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 704.91
+      },
+      "discoveredAt": 1752093037091,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "8gAMmJxc8Pm8A6HwU7aJtHa8rNMtUiVbTidGsAyf11iU",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "8gAMmJxc8Pm8A6HwU7aJtHa8rNMtUiVbTidGsAyf11iU",
+        "tokenPair": "CHILLHOUSE-SOL",
+        "meteorScore": 2991,
+        "liquidity": 990100,
+        "age": "2 mo",
+        "fdv": 20100000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.1,
+          "1h": 3.4,
+          "6h": 3.62,
+          "24h": 6.66,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -15.4,
+          "1h": -2.93,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 10700,
+          "1h": 33800,
+          "6h": 35800,
+          "24h": 66000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 536800,
+          "1h": 1200000,
+          "6h": 1800000,
+          "24h": 2400000,
+          "7d": 0
+        },
+        "scrapedAt": 1752102881701,
+        "id": "8gAMmJxc8Pm8A6HwU7aJtHa8rNMtUiVbTidGsAyf11iU_1",
+        "tokens": {
+          "tokenA": "CHILLHOUSE",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1440,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 929.33
+      },
+      "discoveredAt": 1752102881765,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "n5dvqpbGLuA41jXkLQC3TgeQPCxzwUzUuMgWKoNo1XG",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "n5dvqpbGLuA41jXkLQC3TgeQPCxzwUzUuMgWKoNo1XG",
+        "tokenPair": "STKY-SOL",
+        "meteorScore": 1080,
+        "liquidity": 21500,
+        "age": "13 min",
+        "fdv": 251300,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.8,
+          "1h": 6.2,
+          "6h": 0.1,
+          "24h": 6.17,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -30.45,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 392.6,
+          "1h": 1300,
+          "6h": 658.5,
+          "24h": 1300,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 7900,
+          "1h": 19100,
+          "6h": 13200,
+          "24h": 19100,
+          "7d": 0
+        },
+        "scrapedAt": 1752105479394,
+        "id": "n5dvqpbGLuA41jXkLQC3TgeQPCxzwUzUuMgWKoNo1XG_1",
+        "tokens": {
+          "tokenA": "STKY",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 356.8
+      },
+      "discoveredAt": 1752105479446,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "CwLX6csgHUxEcjDXqVzrMxJjkRkmVLBRZZ9m6neMhAq5",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "CwLX6csgHUxEcjDXqVzrMxJjkRkmVLBRZZ9m6neMhAq5",
+        "tokenPair": "MRBEAST-SOL",
+        "meteorScore": 843,
+        "liquidity": 11800,
+        "age": "5 hrs",
+        "fdv": 2500000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.6,
+          "1h": 12.4,
+          "6h": 3.74,
+          "24h": 14.97,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 69.3,
+          "1h": 1500,
+          "6h": 528.4,
+          "24h": 1800,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 6900,
+          "1h": 73800,
+          "6h": 52800,
+          "24h": 90200,
+          "7d": 0
+        },
+        "scrapedAt": 1752112706373,
+        "id": "CwLX6csgHUxEcjDXqVzrMxJjkRkmVLBRZZ9m6neMhAq5_1",
+        "tokens": {
+          "tokenA": "MRBEAST",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 5,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 287.84
+      },
+      "discoveredAt": 1752112706422,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "3XVT2svWsfGz6dX954oKgkVv9NKgEyhxi6Q87krBMAwU",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "3XVT2svWsfGz6dX954oKgkVv9NKgEyhxi6Q87krBMAwU",
+        "tokenPair": "개죽이-SOL",
+        "meteorScore": 2106,
+        "liquidity": 24300,
+        "age": "9 min",
+        "fdv": 350500,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.9,
+          "1h": 3.3,
+          "6h": 0.04,
+          "24h": 3.33,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -21.35,
+          "1h": -24.45,
+          "6h": -24.45,
+          "24h": -24.45,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 219.4,
+          "1h": 807.7,
+          "6h": 351.6,
+          "24h": 807.7,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 21900,
+          "1h": 46400,
+          "6h": 35200,
+          "24h": 46400,
+          "7d": 0
+        },
+        "scrapedAt": 1752139177252,
+        "id": "3XVT2svWsfGz6dX954oKgkVv9NKgEyhxi6Q87krBMAwU_1",
+        "tokens": {
+          "tokenA": "개죽이",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 664.92
+      },
+      "discoveredAt": 1752139177299,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "87L1mnvnecXaBkUdCRPogPrXsAGxte9rww8mN3XpYCcg",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "87L1mnvnecXaBkUdCRPogPrXsAGxte9rww8mN3XpYCcg",
+        "tokenPair": "개죽이-SOL",
+        "meteorScore": 2229,
+        "liquidity": 10000,
+        "age": "27 min",
+        "fdv": 241300,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.9,
+          "1h": 20.4,
+          "6h": 0.78,
+          "24h": 20.38,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -29.82,
+          "1h": -31.64,
+          "6h": -31.64,
+          "24h": -31.64,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 392,
+          "1h": 2000,
+          "6h": 1100,
+          "24h": 2000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 7800,
+          "1h": 26700,
+          "6h": 21300,
+          "24h": 26700,
+          "7d": 0
+        },
+        "scrapedAt": 1752139484402,
+        "id": "87L1mnvnecXaBkUdCRPogPrXsAGxte9rww8mN3XpYCcg_1",
+        "tokens": {
+          "tokenA": "개죽이",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 703.58
+      },
+      "discoveredAt": 1752139484441,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "H9YsN1V4j4Pk2eaiR6pLQa5MfHmsDUm39ny37LPmGYfq",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "H9YsN1V4j4Pk2eaiR6pLQa5MfHmsDUm39ny37LPmGYfq",
+        "tokenPair": "LOOPY-SOL",
+        "meteorScore": 2020,
+        "liquidity": 10200,
+        "age": "28 min",
+        "fdv": 1400000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3,
+          "1h": 31.4,
+          "6h": 0.89,
+          "24h": 31.43,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -6.29,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 301.2,
+          "1h": 3200,
+          "6h": 1200,
+          "24h": 3200,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 15100,
+          "1h": 91800,
+          "6h": 60300,
+          "24h": 91800,
+          "7d": 0
+        },
+        "scrapedAt": 1752145267825,
+        "id": "H9YsN1V4j4Pk2eaiR6pLQa5MfHmsDUm39ny37LPmGYfq_1",
+        "tokens": {
+          "tokenA": "LOOPY",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 644.12
+      },
+      "discoveredAt": 1752145267893,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "77YBcgWH554XvGAwRBtzJst7TvkrZCtAgqEoHYikDBFT",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "77YBcgWH554XvGAwRBtzJst7TvkrZCtAgqEoHYikDBFT",
+        "tokenPair": "BAOBAO-SOL",
+        "meteorScore": 854,
+        "liquidity": 83000,
+        "age": "17 d",
+        "fdv": 1900000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.6,
+          "1h": 1,
+          "6h": 1.16,
+          "24h": 5.3,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -0.94,
+          "1h": -11.82,
+          "6h": -11.06,
+          "24h": -25.11,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 489.5,
+          "1h": 841.6,
+          "6h": 966.5,
+          "24h": 4400,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 24500,
+          "1h": 36400,
+          "6h": 48300,
+          "24h": 211900,
+          "7d": 0
+        },
+        "scrapedAt": 1752154056459,
+        "id": "77YBcgWH554XvGAwRBtzJst7TvkrZCtAgqEoHYikDBFT_1",
+        "tokens": {
+          "tokenA": "BAOBAO",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 408,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 286.95
+      },
+      "discoveredAt": 1752154056529,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "8vwT7m1dmpH2zMp51bG4Bh9pnRxdbycZFCMuwnsFYnhd",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "8vwT7m1dmpH2zMp51bG4Bh9pnRxdbycZFCMuwnsFYnhd",
+        "tokenPair": "SOLO-SOL",
+        "meteorScore": 1031,
+        "liquidity": 39500,
+        "age": "9 min",
+        "fdv": 388400,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.3,
+          "1h": 4.7,
+          "6h": 0.07,
+          "24h": 4.66,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 496.2,
+          "1h": 1800,
+          "6h": 994.9,
+          "24h": 1800,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 9900,
+          "1h": 25400,
+          "6h": 19900,
+          "24h": 25400,
+          "7d": 0
+        },
+        "scrapedAt": 1752154511218,
+        "id": "8vwT7m1dmpH2zMp51bG4Bh9pnRxdbycZFCMuwnsFYnhd_1",
+        "tokens": {
+          "tokenA": "SOLO",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 342.86
+      },
+      "discoveredAt": 1752154511281,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "6MmXmdaRjdoxF3w6rVxxPE6Ug7y27LRhDhBhwJWHa9c5",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "6MmXmdaRjdoxF3w6rVxxPE6Ug7y27LRhDhBhwJWHa9c5",
+        "tokenPair": "SOLO-SOL",
+        "meteorScore": 2430,
+        "liquidity": 30400,
+        "age": "11 min",
+        "fdv": 329000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.3,
+          "1h": 3.3,
+          "6h": 0.05,
+          "24h": 3.35,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -30.77,
+          "1h": -13.94,
+          "6h": -13.94,
+          "24h": -13.94,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 407.4,
+          "1h": 1000,
+          "6h": 519.6,
+          "24h": 1000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 20400,
+          "1h": 37600,
+          "6h": 26000,
+          "24h": 37600,
+          "7d": 0
+        },
+        "scrapedAt": 1752155225275,
+        "id": "6MmXmdaRjdoxF3w6rVxxPE6Ug7y27LRhDhBhwJWHa9c5_1",
+        "tokens": {
+          "tokenA": "SOLO",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 762.26
+      },
+      "discoveredAt": 1752155225327,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "CWGGRX7rE3QhsP9zHEdw7DB8NLAkbXL1J9tUVueT6vvZ",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "CWGGRX7rE3QhsP9zHEdw7DB8NLAkbXL1J9tUVueT6vvZ",
+        "tokenPair": "LOOPY-SOL",
+        "meteorScore": 819,
+        "liquidity": 12700,
+        "age": "4 hrs",
+        "fdv": 2600000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.2,
+          "1h": 6.5,
+          "6h": 11.6,
+          "24h": 42.63,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -3.72,
+          "1h": -0.28,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 155.3,
+          "1h": 827.5,
+          "6h": 2200,
+          "24h": 5400,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 15500,
+          "1h": 66800,
+          "6h": 217100,
+          "24h": 360000,
+          "7d": 0
+        },
+        "scrapedAt": 1752163032882,
+        "id": "CWGGRX7rE3QhsP9zHEdw7DB8NLAkbXL1J9tUVueT6vvZ_1",
+        "tokens": {
+          "tokenA": "LOOPY",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 4,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 287.41
+      },
+      "discoveredAt": 1752163032948,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "J9rUdnBkZfxUVdpxHmvAYH1za99E3tVEgS3cxqjMyRMK",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "J9rUdnBkZfxUVdpxHmvAYH1za99E3tVEgS3cxqjMyRMK",
+        "tokenPair": "EPSTEINBOT-SOL",
+        "meteorScore": 4862,
+        "liquidity": 26200,
+        "age": "11 min",
+        "fdv": 398800,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.1,
+          "1h": 5.8,
+          "6h": 0.1,
+          "24h": 5.77,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -0.26,
+          "1h": -4.08,
+          "6h": -4.08,
+          "24h": -4.08,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 559.3,
+          "1h": 1500,
+          "6h": 875.8,
+          "24h": 1500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 28000,
+          "1h": 56300,
+          "6h": 43800,
+          "24h": 56300,
+          "7d": 0
+        },
+        "scrapedAt": 1752164931484,
+        "id": "J9rUdnBkZfxUVdpxHmvAYH1za99E3tVEgS3cxqjMyRMK_1",
+        "tokens": {
+          "tokenA": "EPSTEINBOT",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1492.47
+      },
+      "discoveredAt": 1752164931538,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "DC4dSZp5iyjwjiYxQYayjdzwoZp4fDNanE7XAFGXMpaW",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "DC4dSZp5iyjwjiYxQYayjdzwoZp4fDNanE7XAFGXMpaW",
+        "tokenPair": "BUCK-SOL",
+        "meteorScore": 873,
+        "liquidity": 103600,
+        "age": "21 min",
+        "fdv": 484400,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.5,
+          "1h": 3.5,
+          "6h": 0.09,
+          "24h": 3.46,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -22.84,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 567,
+          "1h": 3600,
+          "6h": 1600,
+          "24h": 3600,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 28400,
+          "1h": 108200,
+          "6h": 79900,
+          "24h": 108200,
+          "7d": 0
+        },
+        "scrapedAt": 1752168854389,
+        "id": "DC4dSZp5iyjwjiYxQYayjdzwoZp4fDNanE7XAFGXMpaW_2",
+        "tokens": {
+          "tokenA": "BUCK",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 297.7
+      },
+      "discoveredAt": 1752168854451,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "CDPgiSFX1Jog57wuc7hTpbRqFbgjkWbWTHQ4FZict5CD",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "CDPgiSFX1Jog57wuc7hTpbRqFbgjkWbWTHQ4FZict5CD",
+        "tokenPair": "PANICANS-SOL",
+        "meteorScore": 1684,
+        "liquidity": 21700,
+        "age": "6 min",
+        "fdv": 901300,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.7,
+          "1h": 5.9,
+          "6h": 0.04,
+          "24h": 5.9,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 620,
+          "1h": 1300,
+          "6h": 624.4,
+          "24h": 1300,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 12400,
+          "1h": 17600,
+          "6h": 12500,
+          "24h": 17600,
+          "7d": 0
+        },
+        "scrapedAt": 1752168864620,
+        "id": "CDPgiSFX1Jog57wuc7hTpbRqFbgjkWbWTHQ4FZict5CD_2",
+        "tokens": {
+          "tokenA": "PANICANS",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 537.89
+      },
+      "discoveredAt": 1752168864672,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "77c4sFQ22u4Z3hU9A6RQvAqy5ZX1oAi5S3TXxLh56W31",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "77c4sFQ22u4Z3hU9A6RQvAqy5ZX1oAi5S3TXxLh56W31",
+        "tokenPair": "UP-SOL",
+        "meteorScore": 3815,
+        "liquidity": 11600,
+        "age": "7 min",
+        "fdv": 1600000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2,
+          "1h": 8.1,
+          "6h": 0.03,
+          "24h": 8.1,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 234.8,
+          "1h": 937.5,
+          "6h": 243.5,
+          "24h": 937.5,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 23500,
+          "1h": 43000,
+          "6h": 24300,
+          "24h": 43000,
+          "7d": 0
+        },
+        "scrapedAt": 1752171840514,
+        "id": "77c4sFQ22u4Z3hU9A6RQvAqy5ZX1oAi5S3TXxLh56W31_2",
+        "tokens": {
+          "tokenA": "UP",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1177.51
+      },
+      "discoveredAt": 1752171840567,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "Ad3NN1FJTFkUPAvfxVNmcQg93gvt4Y5bBe5R4Jmo5EzG",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "Ad3NN1FJTFkUPAvfxVNmcQg93gvt4Y5bBe5R4Jmo5EzG",
+        "tokenPair": "UP-SOL",
+        "meteorScore": 800,
+        "liquidity": 26100,
+        "age": "1 hr",
+        "fdv": 1500000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1,
+          "1h": 23.9,
+          "6h": 2.55,
+          "24h": 24.52,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 272.8,
+          "1h": 6200,
+          "6h": 3200,
+          "24h": 6400,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 5500,
+          "1h": 86100,
+          "6h": 63300,
+          "24h": 88300,
+          "7d": 0
+        },
+        "scrapedAt": 1752172924065,
+        "id": "Ad3NN1FJTFkUPAvfxVNmcQg93gvt4Y5bBe5R4Jmo5EzG_2",
+        "tokens": {
+          "tokenA": "UP",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 277.97
+      },
+      "discoveredAt": 1752172924112,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "7RMe1B4UChByNHDrzb1kn465GVzyCNbaSLoCKW6kWQGW",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "7RMe1B4UChByNHDrzb1kn465GVzyCNbaSLoCKW6kWQGW",
+        "tokenPair": "KOLSCAN-SOL",
+        "meteorScore": 11062,
+        "liquidity": 22200,
+        "age": "7 mo",
+        "fdv": 17700000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.2,
+          "1h": 6.7,
+          "6h": 3.18,
+          "24h": 6.67,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 706.3,
+          "1h": 1500,
+          "6h": 706.3,
+          "24h": 1500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 70600,
+          "1h": 80000,
+          "6h": 70600,
+          "24h": 80000,
+          "7d": 0
+        },
+        "scrapedAt": 1752177974077,
+        "id": "7RMe1B4UChByNHDrzb1kn465GVzyCNbaSLoCKW6kWQGW_1",
+        "tokens": {
+          "tokenA": "KOLSCAN",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 5040,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 3342.71
+      },
+      "discoveredAt": 1752177974158,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "A4Ux15CK91bohVHSxKgLsRYLs2xkWnyLDnUEfnrqGdEY",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "A4Ux15CK91bohVHSxKgLsRYLs2xkWnyLDnUEfnrqGdEY",
+        "tokenPair": "KOLSCAN-SOL",
+        "meteorScore": 7771,
+        "liquidity": 78100,
+        "age": "7 mo",
+        "fdv": 17700000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.3,
+          "1h": 3.2,
+          "6h": 3.25,
+          "24h": 3.25,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 2500,
+          "1h": 2500,
+          "6h": 2500,
+          "24h": 2500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 126900,
+          "1h": 72700,
+          "6h": 126900,
+          "24h": 72700,
+          "7d": 0
+        },
+        "scrapedAt": 1752177974080,
+        "id": "A4Ux15CK91bohVHSxKgLsRYLs2xkWnyLDnUEfnrqGdEY_2",
+        "tokens": {
+          "tokenA": "KOLSCAN",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 5040,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 2356.35
+      },
+      "discoveredAt": 1752177974163,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "CFa5cJL1GKqGJjQ7abaxMTwiaQrZvyqreWtNC7ReiDpk",
+      "poolData": {
+        "rank": 3,
+        "poolAddress": "CFa5cJL1GKqGJjQ7abaxMTwiaQrZvyqreWtNC7ReiDpk",
+        "tokenPair": "KOLSCAN-SOL",
+        "meteorScore": 915,
+        "liquidity": 54200,
+        "age": "11 min",
+        "fdv": 5200000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.5,
+          "1h": 5.3,
+          "6h": 0.1,
+          "24h": 5.3,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -10.77,
+          "1h": -32.65,
+          "6h": -32.65,
+          "24h": -32.65,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 839.9,
+          "1h": 2900,
+          "6h": 1900,
+          "24h": 2900,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 16800,
+          "1h": 51400,
+          "6h": 39000,
+          "24h": 51400,
+          "7d": 0
+        },
+        "scrapedAt": 1752181367966,
+        "id": "CFa5cJL1GKqGJjQ7abaxMTwiaQrZvyqreWtNC7ReiDpk_3",
+        "tokens": {
+          "tokenA": "KOLSCAN",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 309.19
+      },
+      "discoveredAt": 1752181368013,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "3HhUgPUXMqacYEDeUCAjfxeQSv1gp83seJYjDAPw96vR",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "3HhUgPUXMqacYEDeUCAjfxeQSv1gp83seJYjDAPw96vR",
+        "tokenPair": "◎DOG-SOL",
+        "meteorScore": 7090,
+        "liquidity": 18300,
+        "age": "27 min",
+        "fdv": 148100,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 5,
+          "1h": 41.4,
+          "6h": 1.88,
+          "24h": 41.37,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -39.59,
+          "1h": -48.15,
+          "6h": -48.15,
+          "24h": -48.15,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 907.9,
+          "1h": 7600,
+          "6h": 4700,
+          "24h": 7600,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 18200,
+          "1h": 120700,
+          "6h": 93600,
+          "24h": 120700,
+          "7d": 0
+        },
+        "scrapedAt": 1752263700973,
+        "id": "3HhUgPUXMqacYEDeUCAjfxeQSv1gp83seJYjDAPw96vR_1",
+        "tokens": {
+          "tokenA": "◎DOG",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 2168.12
+      },
+      "discoveredAt": 1752263701061,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "6Jkhj9nwFzZDzVoMahv8AU87v1Boa9uiHZ2PtmPEdNSm",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "6Jkhj9nwFzZDzVoMahv8AU87v1Boa9uiHZ2PtmPEdNSm",
+        "tokenPair": "◎-SOL",
+        "meteorScore": 1101,
+        "liquidity": 12200,
+        "age": "18 min",
+        "fdv": 418600,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.2,
+          "1h": 14.3,
+          "6h": 0.4,
+          "24h": 14.25,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -2.36,
+          "1h": -8.94,
+          "6h": -8.94,
+          "24h": -8.94,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 271.8,
+          "1h": 1700,
+          "6h": 1000,
+          "24h": 1700,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 5400,
+          "1h": 28300,
+          "6h": 20300,
+          "24h": 28300,
+          "7d": 0
+        },
+        "scrapedAt": 1752264946099,
+        "id": "6Jkhj9nwFzZDzVoMahv8AU87v1Boa9uiHZ2PtmPEdNSm_1",
+        "tokens": {
+          "tokenA": "◎",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 364.27
+      },
+      "discoveredAt": 1752264946142,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "DKPQAFL5v4eWnnNC6aQrHeLphcKzQGKue8Gtbnhk6piz",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "DKPQAFL5v4eWnnNC6aQrHeLphcKzQGKue8Gtbnhk6piz",
+        "tokenPair": "SPL-SOL",
+        "meteorScore": 2293,
+        "liquidity": 31500,
+        "age": "31 min",
+        "fdv": 482300,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.2,
+          "1h": 21.6,
+          "6h": 1,
+          "24h": 21.61,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -27.61,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 995.7,
+          "1h": 6800,
+          "6h": 3700,
+          "24h": 6800,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 19900,
+          "1h": 96000,
+          "6h": 74500,
+          "24h": 96000,
+          "7d": 0
+        },
+        "scrapedAt": 1752269014951,
+        "id": "DKPQAFL5v4eWnnNC6aQrHeLphcKzQGKue8Gtbnhk6piz_1",
+        "tokens": {
+          "tokenA": "SPL",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 725.62
+      },
+      "discoveredAt": 1752269015028,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "GZr7jJ7gjjx8TyUT9sSoKCzXvsQ5p7LXhe244vtkwyvb",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "GZr7jJ7gjjx8TyUT9sSoKCzXvsQ5p7LXhe244vtkwyvb",
+        "tokenPair": "MING MUANG-SOL",
+        "meteorScore": 2060,
+        "liquidity": 38000,
+        "age": "5 hrs",
+        "fdv": 457600,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.5,
+          "1h": 10.4,
+          "6h": 21.32,
+          "24h": 71.42,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": -23.72,
+          "6h": -6.15,
+          "24h": -6.15,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 572.6,
+          "1h": 4000,
+          "6h": 10600,
+          "24h": 27100,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 28600,
+          "1h": 140900,
+          "6h": 529800,
+          "24h": 809900,
+          "7d": 0
+        },
+        "scrapedAt": 1752269717899,
+        "id": "GZr7jJ7gjjx8TyUT9sSoKCzXvsQ5p7LXhe244vtkwyvb_1",
+        "tokens": {
+          "tokenA": "MING MUANG",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 5,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 667.6
+      },
+      "discoveredAt": 1752269717955,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "8RfgNAPGwgqWAHUxMVkhP5mrxwex1B3Hcvwwk6CAgUwn",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "8RfgNAPGwgqWAHUxMVkhP5mrxwex1B3Hcvwwk6CAgUwn",
+        "tokenPair": "DOLLO-SOL",
+        "meteorScore": 1225,
+        "liquidity": 12100,
+        "age": "26 min",
+        "fdv": 194000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.2,
+          "1h": 28,
+          "6h": 1.25,
+          "24h": 28.03,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -15.88,
+          "1h": -39.09,
+          "6h": -39.09,
+          "24h": -39.09,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 262.6,
+          "1h": 3400,
+          "6h": 2100,
+          "24h": 3400,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 5300,
+          "1h": 55000,
+          "6h": 42900,
+          "24h": 55000,
+          "7d": 0
+        },
+        "scrapedAt": 1752271249777,
+        "id": "8RfgNAPGwgqWAHUxMVkhP5mrxwex1B3Hcvwwk6CAgUwn_1",
+        "tokens": {
+          "tokenA": "DOLLO",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 404.75
+      },
+      "discoveredAt": 1752271249824,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "HQ38zdQU3s5BxS4hcVdY6HFhJQa8YBthY9iPcFU2jFmD",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "HQ38zdQU3s5BxS4hcVdY6HFhJQa8YBthY9iPcFU2jFmD",
+        "tokenPair": "QQ-SOL",
+        "meteorScore": 3379,
+        "liquidity": 26200,
+        "age": "1 hr",
+        "fdv": 370200,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.3,
+          "1h": 20,
+          "6h": 1.45,
+          "24h": 20.04,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -19.48,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 870.5,
+          "1h": 5300,
+          "6h": 2800,
+          "24h": 5300,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 17400,
+          "1h": 78700,
+          "6h": 55300,
+          "24h": 78700,
+          "7d": 0
+        },
+        "scrapedAt": 1752317586183,
+        "id": "HQ38zdQU3s5BxS4hcVdY6HFhJQa8YBthY9iPcFU2jFmD_1",
+        "tokens": {
+          "tokenA": "QQ",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1050.68
+      },
+      "discoveredAt": 1752317586242,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "7KXH5LJ5u9JwTYZ63UgEtvsxTxxKgkrGSenXxr8xbr9W",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "7KXH5LJ5u9JwTYZ63UgEtvsxTxxKgkrGSenXxr8xbr9W",
+        "tokenPair": "扑街-SOL",
+        "meteorScore": 6529,
+        "liquidity": 20800,
+        "age": "12 min",
+        "fdv": 259500,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 5.5,
+          "1h": 18,
+          "6h": 0.28,
+          "24h": 17.98,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -44.41,
+          "1h": -24.59,
+          "6h": -24.59,
+          "24h": -24.59,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1200,
+          "1h": 3700,
+          "6h": 1800,
+          "24h": 3700,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 23000,
+          "1h": 55400,
+          "6h": 36100,
+          "24h": 55400,
+          "7d": 0
+        },
+        "scrapedAt": 1752317893547,
+        "id": "7KXH5LJ5u9JwTYZ63UgEtvsxTxxKgkrGSenXxr8xbr9W_1",
+        "tokens": {
+          "tokenA": "扑街",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1994.68
+      },
+      "discoveredAt": 1752317893591,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "2kmFzsrMG2pCnmsoXhXawMaSwzccz7JMgmFtsCHWhEyJ",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "2kmFzsrMG2pCnmsoXhXawMaSwzccz7JMgmFtsCHWhEyJ",
+        "tokenPair": "R/R-SOL",
+        "meteorScore": 1903,
+        "liquidity": 31600,
+        "age": "12 hrs",
+        "fdv": 440400,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.7,
+          "1h": 4.4,
+          "6h": 7.8,
+          "24h": 38.85,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -33.47,
+          "1h": -44.89,
+          "6h": -66.79,
+          "24h": -55.31,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 524.7,
+          "1h": 1400,
+          "6h": 2500,
+          "24h": 12300,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 26200,
+          "1h": 49500,
+          "6h": 123200,
+          "24h": 427200,
+          "7d": 0
+        },
+        "scrapedAt": 1752320967988,
+        "id": "2kmFzsrMG2pCnmsoXhXawMaSwzccz7JMgmFtsCHWhEyJ_1",
+        "tokens": {
+          "tokenA": "R/R",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 12,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 613.12
+      },
+      "discoveredAt": 1752320968038,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "9GBKuoFKJFYWdxG6v6bwgzP3stHSDrKkdqCUb5eCqdRC",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "9GBKuoFKJFYWdxG6v6bwgzP3stHSDrKkdqCUb5eCqdRC",
+        "tokenPair": "MACROHARD-SOL",
+        "meteorScore": 1417,
+        "liquidity": 44000,
+        "age": "26 min",
+        "fdv": 2200000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3,
+          "1h": 22.8,
+          "6h": 0.86,
+          "24h": 22.79,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1300,
+          "1h": 10000,
+          "6h": 5300,
+          "24h": 10000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 26300,
+          "1h": 158500,
+          "6h": 107000,
+          "24h": 158500,
+          "7d": 0
+        },
+        "scrapedAt": 1752448928160,
+        "id": "9GBKuoFKJFYWdxG6v6bwgzP3stHSDrKkdqCUb5eCqdRC_1",
+        "tokens": {
+          "tokenA": "MACROHARD",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 463.92
+      },
+      "discoveredAt": 1752448928226,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "ERWVkCWdaF5JXngmGpMHdV4vyHxdQZFDDqdc3X5bYzow",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "ERWVkCWdaF5JXngmGpMHdV4vyHxdQZFDDqdc3X5bYzow",
+        "tokenPair": "MACROHARD-SOL",
+        "meteorScore": 1952,
+        "liquidity": 105600,
+        "age": "44 min",
+        "fdv": 1800000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1,
+          "1h": 12.8,
+          "6h": 0.81,
+          "24h": 12.82,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -12.78,
+          "1h": -6.39,
+          "6h": -6.39,
+          "24h": -6.39,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1100,
+          "1h": 13500,
+          "6h": 7000,
+          "24h": 13500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 54200,
+          "1h": 457200,
+          "6h": 349100,
+          "24h": 457200,
+          "7d": 0
+        },
+        "scrapedAt": 1752451017770,
+        "id": "ERWVkCWdaF5JXngmGpMHdV4vyHxdQZFDDqdc3X5bYzow_2",
+        "tokens": {
+          "tokenA": "MACROHARD",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 624.48
+      },
+      "discoveredAt": 1752451017811,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "CdBm8v7R8GA7FjpRG12ixL4Ta5BGveScnmVut9gsGMBW",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "CdBm8v7R8GA7FjpRG12ixL4Ta5BGveScnmVut9gsGMBW",
+        "tokenPair": "TRILLION-SOL",
+        "meteorScore": 1408,
+        "liquidity": 17700,
+        "age": "8 min",
+        "fdv": 1400000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.3,
+          "1h": 3.2,
+          "6h": 0.03,
+          "24h": 3.22,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 231.4,
+          "1h": 570.6,
+          "6h": 243,
+          "24h": 570.6,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 11600,
+          "1h": 19000,
+          "6h": 12200,
+          "24h": 19000,
+          "7d": 0
+        },
+        "scrapedAt": 1752463144755,
+        "id": "CdBm8v7R8GA7FjpRG12ixL4Ta5BGveScnmVut9gsGMBW_1",
+        "tokens": {
+          "tokenA": "TRILLION",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 454.34
+      },
+      "discoveredAt": 1752463144799,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "EZ14d5svEcJPMkquZHdcidhMcTU5iaDNmuqiYAefPxdk",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "EZ14d5svEcJPMkquZHdcidhMcTU5iaDNmuqiYAefPxdk",
+        "tokenPair": "WKC-SOL",
+        "meteorScore": 1353,
+        "liquidity": 39900,
+        "age": "11 min",
+        "fdv": 2500000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.1,
+          "1h": 6.2,
+          "6h": 0.09,
+          "24h": 6.19,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 828.7,
+          "1h": 2500,
+          "6h": 1200,
+          "24h": 2500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 41400,
+          "1h": 72700,
+          "6h": 62500,
+          "24h": 72700,
+          "7d": 0
+        },
+        "scrapedAt": 1752466483035,
+        "id": "EZ14d5svEcJPMkquZHdcidhMcTU5iaDNmuqiYAefPxdk_2",
+        "tokens": {
+          "tokenA": "WKC",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 440.63
+      },
+      "discoveredAt": 1752466483083,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "DPCTtcpT34vTi3ZzyyenvueCYfFu3pbwFjQvJYwv4Hfx",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "DPCTtcpT34vTi3ZzyyenvueCYfFu3pbwFjQvJYwv4Hfx",
+        "tokenPair": "ALT-SOL",
+        "meteorScore": 1109,
+        "liquidity": 43600,
+        "age": "5 d",
+        "fdv": 36700000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.6,
+          "1h": 19.7,
+          "6h": 6.9,
+          "24h": 36.02,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -23.59,
+          "1h": -79.5,
+          "6h": -78.22,
+          "24h": -73.35,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 254.5,
+          "1h": 8600,
+          "6h": 3000,
+          "24h": 15700,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 25400,
+          "1h": 349000,
+          "6h": 301300,
+          "24h": 1000000,
+          "7d": 0
+        },
+        "scrapedAt": 1752466752356,
+        "id": "DPCTtcpT34vTi3ZzyyenvueCYfFu3pbwFjQvJYwv4Hfx_2",
+        "tokens": {
+          "tokenA": "ALT",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 120,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 373.99
+      },
+      "discoveredAt": 1752466752403,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "HQThF7vp2SzKGTrFbBLvog5EG3wuNtppPnhmcpu7ahg1",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "HQThF7vp2SzKGTrFbBLvog5EG3wuNtppPnhmcpu7ahg1",
+        "tokenPair": "WKC-SOL",
+        "meteorScore": 1633,
+        "liquidity": 19500,
+        "age": "1 hr",
+        "fdv": 1800000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.8,
+          "1h": 10,
+          "6h": 1.2,
+          "24h": 9.99,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -28.3,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 549.4,
+          "1h": 1900,
+          "6h": 1800,
+          "24h": 1900,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 11000,
+          "1h": 27500,
+          "6h": 35300,
+          "24h": 27500,
+          "7d": 0
+        },
+        "scrapedAt": 1752467658032,
+        "id": "HQThF7vp2SzKGTrFbBLvog5EG3wuNtppPnhmcpu7ahg1_2",
+        "tokens": {
+          "tokenA": "WKC",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 523.61
+      },
+      "discoveredAt": 1752467658156,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "9KUSnaqA7oWRfhHLut63aFCSdmybyFgnQBeJm9yudZXZ",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "9KUSnaqA7oWRfhHLut63aFCSdmybyFgnQBeJm9yudZXZ",
+        "tokenPair": "ANI-SOL",
+        "meteorScore": 952,
+        "liquidity": 167800,
+        "age": "32 min",
+        "fdv": 1200000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.5,
+          "1h": 3.5,
+          "6h": 0.16,
+          "24h": 3.47,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -7.66,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 806,
+          "1h": 5800,
+          "6h": 3100,
+          "24h": 5800,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 40300,
+          "1h": 184700,
+          "6h": 153800,
+          "24h": 184700,
+          "7d": 0
+        },
+        "scrapedAt": 1752491608742,
+        "id": "9KUSnaqA7oWRfhHLut63aFCSdmybyFgnQBeJm9yudZXZ_1",
+        "tokens": {
+          "tokenA": "ANI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 322.5
+      },
+      "discoveredAt": 1752491608786,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "E6ei9jyNXuFt1e5VSGEXfNmyVhjXwaBcY9Yrp2Jtvzqj",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "E6ei9jyNXuFt1e5VSGEXfNmyVhjXwaBcY9Yrp2Jtvzqj",
+        "tokenPair": "ANI-SOL",
+        "meteorScore": 1435,
+        "liquidity": 30500,
+        "age": "41 min",
+        "fdv": 787700,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.5,
+          "1h": 31.5,
+          "6h": 2.21,
+          "24h": 31.5,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -35.88,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 446.3,
+          "1h": 9600,
+          "6h": 6000,
+          "24h": 9600,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 8900,
+          "1h": 138600,
+          "6h": 119700,
+          "24h": 138600,
+          "7d": 0
+        },
+        "scrapedAt": 1752491987413,
+        "id": "E6ei9jyNXuFt1e5VSGEXfNmyVhjXwaBcY9Yrp2Jtvzqj_2",
+        "tokens": {
+          "tokenA": "ANI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 470.45
+      },
+      "discoveredAt": 1752491987486,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "DkLoZwN4FBxWc8kVhKAcdS93XfhXvZ8G6ibcBCifQDM1",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "DkLoZwN4FBxWc8kVhKAcdS93XfhXvZ8G6ibcBCifQDM1",
+        "tokenPair": "DERPY-SOL",
+        "meteorScore": 5792,
+        "liquidity": 24200,
+        "age": "6 min",
+        "fdv": 1300000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.6,
+          "1h": 3.4,
+          "6h": 0.04,
+          "24h": 3.43,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 641.1,
+          "1h": 831.2,
+          "6h": 641.1,
+          "24h": 831.2,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 32100,
+          "1h": 35400,
+          "6h": 32100,
+          "24h": 35400,
+          "7d": 0
+        },
+        "scrapedAt": 1752502918869,
+        "id": "DkLoZwN4FBxWc8kVhKAcdS93XfhXvZ8G6ibcBCifQDM1_1",
+        "tokens": {
+          "tokenA": "DERPY",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1770.51
+      },
+      "discoveredAt": 1752502918913,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "7m7DLG3pm8hC5LqqT2nxzeg79q46xksyDyqhBGj7qpKF",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "7m7DLG3pm8hC5LqqT2nxzeg79q46xksyDyqhBGj7qpKF",
+        "tokenPair": "DERPY-SOL",
+        "meteorScore": 3728,
+        "liquidity": 50200,
+        "age": "14 min",
+        "fdv": 1400000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.6,
+          "1h": 9.9,
+          "6h": 0.21,
+          "24h": 9.88,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1800,
+          "1h": 5000,
+          "6h": 2800,
+          "24h": 5000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 36000,
+          "1h": 70200,
+          "6h": 55900,
+          "24h": 70200,
+          "7d": 0
+        },
+        "scrapedAt": 1752502918870,
+        "id": "7m7DLG3pm8hC5LqqT2nxzeg79q46xksyDyqhBGj7qpKF_2",
+        "tokens": {
+          "tokenA": "DERPY",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1154.15
+      },
+      "discoveredAt": 1752502918916,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "DsxVmjQCX48mML2Z41GegsKT7VbnfqKw5WDTRYPvYiyC",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "DsxVmjQCX48mML2Z41GegsKT7VbnfqKw5WDTRYPvYiyC",
+        "tokenPair": "PFI-SOL",
+        "meteorScore": 6144,
+        "liquidity": 14900,
+        "age": "4 min",
+        "fdv": 459300,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 5.5,
+          "1h": 17.5,
+          "6h": 0.08,
+          "24h": 17.45,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -52.02,
+          "1h": -52.02,
+          "6h": -52.02,
+          "24h": -52.02,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1200,
+          "1h": 2600,
+          "6h": 1200,
+          "24h": 2600,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 24600,
+          "1h": 37900,
+          "6h": 24600,
+          "24h": 37900,
+          "7d": 0
+        },
+        "scrapedAt": 1752513990461,
+        "id": "DsxVmjQCX48mML2Z41GegsKT7VbnfqKw5WDTRYPvYiyC_1",
+        "tokens": {
+          "tokenA": "PFI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1878.32
+      },
+      "discoveredAt": 1752513990506,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "5EGjZf2igDPUsdXWAcFkabuTdx7FwyzzjwXsys8DGe7p",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "5EGjZf2igDPUsdXWAcFkabuTdx7FwyzzjwXsys8DGe7p",
+        "tokenPair": "PUMP-SOL",
+        "meteorScore": 3669,
+        "liquidity": 11200,
+        "age": "1 hr",
+        "fdv": 285200000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0,
+          "1h": 3626.6,
+          "6h": 0.02,
+          "24h": 3764.41,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -3.61,
+          "1h": -75.03,
+          "6h": -84.87,
+          "24h": -84.87,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 0,
+          "1h": 407000,
+          "6h": 11.3,
+          "24h": 422500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 23.2,
+          "1h": 164700000,
+          "6h": 5700,
+          "24h": 172700000,
+          "7d": 0
+        },
+        "scrapedAt": 1752517067242,
+        "id": "5EGjZf2igDPUsdXWAcFkabuTdx7FwyzzjwXsys8DGe7p_2",
+        "tokens": {
+          "tokenA": "PUMP",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1158.34
+      },
+      "discoveredAt": 1752517067287,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "2xjyTjhCRuNMKADgT3w5UybrdKhm2aAUohENiWQgv2Wm",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "2xjyTjhCRuNMKADgT3w5UybrdKhm2aAUohENiWQgv2Wm",
+        "tokenPair": "ANI-SOL",
+        "meteorScore": 858,
+        "liquidity": 369200,
+        "age": "43 min",
+        "fdv": 7700000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 0.4,
+          "1h": 3.8,
+          "6h": 0.11,
+          "24h": 3.78,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -6.3,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1500,
+          "1h": 14000,
+          "6h": 3600,
+          "24h": 14000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 153500,
+          "1h": 578100,
+          "6h": 363800,
+          "24h": 578100,
+          "7d": 0
+        },
+        "scrapedAt": 1752517374845,
+        "id": "2xjyTjhCRuNMKADgT3w5UybrdKhm2aAUohENiWQgv2Wm_2",
+        "tokens": {
+          "tokenA": "ANI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 296.36
+      },
+      "discoveredAt": 1752517374890,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "FU5SQ74qkawjsHVGE2EdQtDLu9pXWwBjf3z1JJe5gSjz",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "FU5SQ74qkawjsHVGE2EdQtDLu9pXWwBjf3z1JJe5gSjz",
+        "tokenPair": "ANI-SOL",
+        "meteorScore": 4114,
+        "liquidity": 13100,
+        "age": "25 min",
+        "fdv": 12400000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2.4,
+          "1h": 59.1,
+          "6h": 0.55,
+          "24h": 59.1,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 316.7,
+          "1h": 7700,
+          "6h": 1100,
+          "24h": 7700,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 79200,
+          "1h": 513100,
+          "6h": 267600,
+          "24h": 513100,
+          "7d": 0
+        },
+        "scrapedAt": 1752518297911,
+        "id": "FU5SQ74qkawjsHVGE2EdQtDLu9pXWwBjf3z1JJe5gSjz_2",
+        "tokens": {
+          "tokenA": "ANI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1279.59
+      },
+      "discoveredAt": 1752518297956,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "8jGrCVDJRRACBisNZKPjn26pBVPwUe5Fa6yz664BNvdJ",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "8jGrCVDJRRACBisNZKPjn26pBVPwUe5Fa6yz664BNvdJ",
+        "tokenPair": "CHAD-SOL",
+        "meteorScore": 1575,
+        "liquidity": 12400,
+        "age": "41 min",
+        "fdv": 415600,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.5,
+          "1h": 9.9,
+          "6h": 0.78,
+          "24h": 9.91,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -34.38,
+          "1h": -19.96,
+          "6h": -19.96,
+          "24h": -19.96,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 429.5,
+          "1h": 1200,
+          "6h": 845.9,
+          "24h": 1200,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 8600,
+          "1h": 21900,
+          "6h": 16900,
+          "24h": 21900,
+          "7d": 0
+        },
+        "scrapedAt": 1752519528835,
+        "id": "8jGrCVDJRRACBisNZKPjn26pBVPwUe5Fa6yz664BNvdJ_1",
+        "tokens": {
+          "tokenA": "CHAD",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 505.41
+      },
+      "discoveredAt": 1752519528880,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "2EURQn5ysdkMu2V3wRFzKDiLQjKd3v7cnF1oALh9dsmB",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "2EURQn5ysdkMu2V3wRFzKDiLQjKd3v7cnF1oALh9dsmB",
+        "tokenPair": "BAD RUDY-SOL",
+        "meteorScore": 2229,
+        "liquidity": 27900,
+        "age": "8 hrs",
+        "fdv": 755100,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 3.8,
+          "1h": 23.4,
+          "6h": 12.95,
+          "24h": 28.86,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -36.66,
+          "1h": -14.76,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1100,
+          "1h": 6500,
+          "6h": 3600,
+          "24h": 8000,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 21100,
+          "1h": 90000,
+          "6h": 72200,
+          "24h": 112000,
+          "7d": 0
+        },
+        "scrapedAt": 1752519836483,
+        "id": "2EURQn5ysdkMu2V3wRFzKDiLQjKd3v7cnF1oALh9dsmB_1",
+        "tokens": {
+          "tokenA": "BAD RUDY",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 8,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 707.72
+      },
+      "discoveredAt": 1752519836528,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "a549VfnysmtAkgViZPZ8iN2kjgTFT1CrTzGgsoELbHr",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "a549VfnysmtAkgViZPZ8iN2kjgTFT1CrTzGgsoELbHr",
+        "tokenPair": "RUDI-SOL",
+        "meteorScore": 3719,
+        "liquidity": 11000,
+        "age": "19 min",
+        "fdv": 670900,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 5.3,
+          "1h": 42.1,
+          "6h": 1.29,
+          "24h": 42.15,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -31.7,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 582,
+          "1h": 4600,
+          "6h": 2800,
+          "24h": 4600,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 11600,
+          "1h": 68500,
+          "6h": 55400,
+          "24h": 68500,
+          "7d": 0
+        },
+        "scrapedAt": 1752521067410,
+        "id": "a549VfnysmtAkgViZPZ8iN2kjgTFT1CrTzGgsoELbHr_1",
+        "tokens": {
+          "tokenA": "RUDI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1155.83
+      },
+      "discoveredAt": 1752521067454,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "DcB3Dc5CGsjAXxTJ984ixssijEnoEY4RA8KXCeXTLpoZ",
+      "poolData": {
+        "rank": 2,
+        "poolAddress": "DcB3Dc5CGsjAXxTJ984ixssijEnoEY4RA8KXCeXTLpoZ",
+        "tokenPair": "RUDI-SOL",
+        "meteorScore": 1151,
+        "liquidity": 12900,
+        "age": "36 min",
+        "fdv": 742200,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 1.3,
+          "1h": 57.6,
+          "6h": 1.43,
+          "24h": 57.64,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": 0,
+          "1h": 0,
+          "6h": 0,
+          "24h": 0,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 162.1,
+          "1h": 7500,
+          "6h": 1900,
+          "24h": 7500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 8100,
+          "1h": 119700,
+          "6h": 95900,
+          "24h": 119700,
+          "7d": 0
+        },
+        "scrapedAt": 1752521990686,
+        "id": "DcB3Dc5CGsjAXxTJ984ixssijEnoEY4RA8KXCeXTLpoZ_2",
+        "tokens": {
+          "tokenA": "RUDI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 0,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 389.2
+      },
+      "discoveredAt": 1752521990728,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    },
+    {
+      "id": "DiqACKQgAhDwEyFyJAi9sWqutUevFvqoS9mi1kgt97mb",
+      "poolData": {
+        "rank": 1,
+        "poolAddress": "DiqACKQgAhDwEyFyJAi9sWqutUevFvqoS9mi1kgt97mb",
+        "tokenPair": "RUDI-SOL",
+        "meteorScore": 3872,
+        "liquidity": 68200,
+        "age": "1 hr",
+        "fdv": 1100000,
+        "size": 0,
+        "in": 0,
+        "out": 0,
+        "apr": {
+          "5m": 2,
+          "1h": 8.1,
+          "6h": 0.55,
+          "24h": 8.07,
+          "7d": 0
+        },
+        "priceChange": {
+          "5m": -35.39,
+          "1h": -3.77,
+          "6h": -3.77,
+          "24h": -3.77,
+          "7d": 0
+        },
+        "fees": {
+          "5m": 1400,
+          "1h": 5500,
+          "6h": 3000,
+          "24h": 5500,
+          "7d": 0
+        },
+        "volume": {
+          "5m": 69100,
+          "1h": 181500,
+          "6h": 148300,
+          "24h": 181500,
+          "7d": 0
+        },
+        "scrapedAt": 1752525956733,
+        "id": "DiqACKQgAhDwEyFyJAi9sWqutUevFvqoS9mi1kgt97mb_1",
+        "tokens": {
+          "tokenA": "RUDI",
+          "tokenB": "SOL"
+        },
+        "ageInHours": 1,
+        "isQualified": true,
+        "matchedFilters": [
+          "meteorScore"
+        ],
+        "score": 1198.17
+      },
+      "discoveredAt": 1752525956779,
+      "notified": false,
+      "rating": 0,
+      "notes": "",
+      "status": "new"
+    }
+  ],
+  "config": {
+    "maxRecords": 500,
+    "autoCleanupDays": 30,
+    "backupEnabled": true
+  },
+  "metadata": {
+    "totalRecords": 62,
+    "lastSaved": 1752525956779,
+    "version": "1.0"
+  }
+}

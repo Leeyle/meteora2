@@ -1,0 +1,325 @@
+/* 🌙 DLMM流动性管理系统 - 主题样式文件 */
+/* 支持深色/浅色主题切换 */
+
+/* ✅ 深色主题支持 - 参考原始设计 */
+[data-theme="dark"] {
+    /* === 深色主题背景色系 === */
+    --bg-primary: #1f2937;
+    /* 深色主背景 */
+    --bg-secondary: #111827;
+    /* 深色次要背景 */
+    --bg-tertiary: #374151;
+    /* 深色第三背景 */
+    --bg-card: #1f2937;
+    /* 深色卡片背景 */
+    --bg-overlay: rgba(0, 0, 0, 0.8);
+    /* 深色遮罩背景 */
+
+    /* === 深色主题文字色系 === */
+    --text-primary: #f9fafb;
+    /* 深色主文字 */
+    --text-secondary: #d1d5db;
+    /* 深色次要文字 */
+    --text-muted: #9ca3af;
+    /* 深色辅助文字 */
+    --text-inverse: #1f2937;
+    /* 深色反色文字 */
+
+    /* === 深色主题边框色系 === */
+    --border-color: #374151;
+    --border-color-light: #4b5563;
+    --border-color-dark: #1f2937;
+
+    /* === 深色主题阴影调整 === */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+
+    /* === 深色主题状态颜色调整 === */
+    --success-light: rgba(16, 185, 129, 0.1);
+    --warning-light: rgba(245, 158, 11, 0.1);
+    --error-light: rgba(239, 68, 68, 0.1);
+    --info-light: rgba(59, 130, 246, 0.1);
+    --primary-light: rgba(59, 130, 246, 0.1);
+}
+
+/* === 主题切换按钮样式 === */
+#themeToggle {
+    position: relative;
+    overflow: hidden;
+}
+
+#themeToggle .icon {
+    transition: transform var(--transition-normal);
+}
+
+[data-theme="dark"] #themeToggle .icon {
+    transform: rotate(180deg);
+}
+
+[data-theme="dark"] #themeToggle .icon::before {
+    content: "☀️";
+}
+
+[data-theme="light"] #themeToggle .icon::before {
+    content: "🌙";
+}
+
+/* === 主题切换动画 === */
+* {
+    transition: background-color var(--transition-normal),
+        color var(--transition-normal),
+        border-color var(--transition-normal);
+}
+
+/* === 系统偏好设置支持 === */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        /* 如果用户没有手动设置主题，跟随系统偏好 */
+        --bg-primary: #1f2937;
+        --bg-secondary: #111827;
+        --bg-tertiary: #374151;
+        --bg-card: #1f2937;
+        --bg-overlay: rgba(0, 0, 0, 0.8);
+
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --text-inverse: #1f2937;
+
+        --border-color: #374151;
+        --border-color-light: #4b5563;
+        --border-color-dark: #1f2937;
+    }
+}
+
+/* === 主题特定的组件调整 === */
+
+/* 深色主题下的统计卡片渐变 */
+[data-theme="dark"] .stat-card::before {
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0.8;
+}
+
+/* 深色主题下的加载动画 */
+[data-theme="dark"] .spinner {
+    border-color: var(--border-color);
+    border-top-color: var(--primary-color);
+}
+
+/* 深色主题下的连接状态点 */
+[data-theme="dark"] .status-dot {
+    box-shadow: 0 0 0 2px var(--bg-card);
+}
+
+/* 深色主题下的导航项悬停效果 */
+[data-theme="dark"] .nav-item:hover {
+    background: var(--bg-tertiary);
+}
+
+[data-theme="dark"] .nav-item.active {
+    background: rgba(59, 130, 246, 0.2);
+    border-left: 3px solid var(--primary-color);
+    padding-left: calc(var(--spacing-4) - 3px);
+}
+
+/* 深色主题下的卡片阴影增强 */
+[data-theme="dark"] .dashboard-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .dashboard-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+/* 深色主题下的表单元素 */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* === 高对比度主题支持 === */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --text-secondary: #000000;
+        --shadow-sm: 0 0 0 1px #000000;
+        --shadow-md: 0 0 0 2px #000000;
+        --shadow-lg: 0 0 0 3px #000000;
+    }
+
+    [data-theme="dark"] {
+        --border-color: #ffffff;
+        --text-secondary: #ffffff;
+        --shadow-sm: 0 0 0 1px #ffffff;
+        --shadow-md: 0 0 0 2px #ffffff;
+        --shadow-lg: 0 0 0 3px #ffffff;
+    }
+}
+
+/* === 减少动画支持 === */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* === 主题特定的滚动条样式 === */
+/* 浅色主题滚动条 */
+[data-theme="light"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color-dark);
+}
+
+/* 深色主题滚动条 */
+[data-theme="dark"] ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+    border-radius: var(--border-radius);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--border-color-light);
+}
+
+/* === 主题切换时的特殊效果 === */
+.theme-transition {
+    transition: all var(--transition-normal) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 主题切换时的页面闪烁防护 */
+.theme-switching {
+    pointer-events: none;
+}
+
+.theme-switching * {
+    transition: none !important;
+}
+
+/* === 主题特定的图表样式 === */
+[data-theme="dark"] canvas {
+    filter: brightness(0.9) contrast(1.1);
+}
+
+/* === 主题特定的通知样式 === */
+[data-theme="dark"] .notification {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .notification.success {
+    background: var(--success-light);
+    border-color: var(--success-color);
+}
+
+[data-theme="dark"] .notification.warning {
+    background: var(--warning-light);
+    border-color: var(--warning-color);
+}
+
+[data-theme="dark"] .notification.error {
+    background: var(--error-light);
+    border-color: var(--error-color);
+}
+
+/* === 自动主题切换提示 === */
+.theme-hint {
+    position: fixed;
+    bottom: var(--spacing-4);
+    right: var(--spacing-4);
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-3);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    z-index: var(--z-tooltip);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all var(--transition-normal);
+}
+
+.theme-hint.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* === 主题色彩预览 === */
+.theme-preview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-2);
+    margin: var(--spacing-4) 0;
+}
+
+.theme-preview-item {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--border-color);
+    position: relative;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.theme-preview-item:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
+.theme-preview-item.primary {
+    background: var(--primary-color);
+}
+
+.theme-preview-item.success {
+    background: var(--success-color);
+}
+
+.theme-preview-item.warning {
+    background: var(--warning-color);
+}
+
+.theme-preview-item.error {
+    background: var(--error-color);
+}

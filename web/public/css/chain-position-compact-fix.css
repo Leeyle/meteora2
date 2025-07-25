@@ -1,0 +1,236 @@
+/**
+ * 🔧 连锁头寸策略监控卡片紧凑样式修复
+ * 修复由于简单Y策略CSS影响导致的显示问题
+ */
+
+/* 连锁头寸策略监控器的紧凑卡片样式 */
+#strategyMonitorContainer .monitor-card,
+#chain-position-monitor .monitor-card,
+.strategy-monitor .monitor-card {
+    /* 重置基础样式 */
+    position: relative;
+    background: var(--bg-tertiary, #2a2a2a);
+    border: 1px solid var(--border-color, #333);
+    border-radius: 8px;
+    padding: 12px 16px 8px 16px !important;
+    transition: all 0.3s ease;
+    margin-bottom: 16px;
+    overflow: visible;
+}
+
+#strategyMonitorContainer .monitor-card:hover,
+#chain-position-monitor .monitor-card:hover,
+.strategy-monitor .monitor-card:hover {
+    border-color: var(--primary-color, #00d4aa);
+    box-shadow: 0 4px 20px rgba(0, 212, 170, 0.1);
+    transform: translateY(-1px);
+}
+
+/* 紧凑的卡片头部 */
+#strategyMonitorContainer .monitor-card .card-header,
+#chain-position-monitor .monitor-card .card-header,
+.strategy-monitor .monitor-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px !important;
+    padding-bottom: 6px !important;
+    border-bottom: 1px solid var(--border-color, #333);
+    min-height: 40px !important;
+}
+
+/* 紧凑的卡片标题 */
+#strategyMonitorContainer .monitor-card .card-title,
+#chain-position-monitor .monitor-card .card-title,
+.strategy-monitor .monitor-card .card-title {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    margin-right: 8px;
+}
+
+#strategyMonitorContainer .monitor-card .card-title h4,
+#chain-position-monitor .monitor-card .card-title h4,
+.strategy-monitor .monitor-card .card-title h4 {
+    margin: 0 !important;
+    font-size: 14px !important;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+    line-height: 1.2;
+}
+
+/* 紧凑的操作按钮区域 */
+#strategyMonitorContainer .monitor-card .card-actions,
+#chain-position-monitor .monitor-card .card-actions,
+.strategy-monitor .monitor-card .card-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    min-width: 180px;
+    flex-shrink: 0;
+}
+
+#strategyMonitorContainer .monitor-card .action-buttons,
+#chain-position-monitor .monitor-card .action-buttons,
+.strategy-monitor .monitor-card .action-buttons {
+    display: flex;
+    gap: 3px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    max-width: 180px;
+}
+
+/* 紧凑的操作按钮 */
+#strategyMonitorContainer .monitor-card .btn-action,
+#chain-position-monitor .monitor-card .btn-action,
+.strategy-monitor .monitor-card .btn-action {
+    width: 28px !important;
+    height: 28px !important;
+    padding: 0 !important;
+    border-radius: 4px;
+    border: none;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* 状态徽章 */
+#strategyMonitorContainer .monitor-card .status-badge,
+#chain-position-monitor .monitor-card .status-badge,
+.strategy-monitor .monitor-card .status-badge {
+    display: inline-block;
+    padding: 2px 6px !important;
+    border-radius: 8px;
+    font-size: 10px !important;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    margin-top: 1px;
+}
+
+/* 最后更新时间 */
+#strategyMonitorContainer .monitor-card .last-update-time,
+#chain-position-monitor .monitor-card .last-update-time,
+.strategy-monitor .monitor-card .last-update-time {
+    font-size: 9px !important;
+    color: var(--text-secondary, #999);
+    margin-top: 2px;
+    text-align: right;
+    white-space: nowrap;
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 紧凑的指标网格 */
+#strategyMonitorContainer .monitor-card .metrics-grid,
+#chain-position-monitor .monitor-card .metrics-grid,
+.strategy-monitor .monitor-card .metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px !important;
+    margin-bottom: 8px !important;
+}
+
+#strategyMonitorContainer .monitor-card .metric-item,
+#chain-position-monitor .monitor-card .metric-item,
+.strategy-monitor .monitor-card .metric-item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+#strategyMonitorContainer .monitor-card .metric-item .label,
+#chain-position-monitor .monitor-card .metric-item .label,
+.strategy-monitor .monitor-card .metric-item .label {
+    font-size: 11px !important;
+    color: var(--text-secondary, #999);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+#strategyMonitorContainer .monitor-card .metric-item .value,
+#chain-position-monitor .monitor-card .metric-item .value,
+.strategy-monitor .monitor-card .metric-item .value {
+    font-size: 14px !important;
+    font-weight: 600;
+    color: var(--text-primary, #fff);
+    line-height: 1.1;
+}
+
+/* 紧凑的策略详情 */
+#strategyMonitorContainer .monitor-card .strategy-details,
+#chain-position-monitor .monitor-card .strategy-details,
+.strategy-monitor .monitor-card .strategy-details {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    border-top: 1px solid var(--border-color, #333);
+}
+
+#strategyMonitorContainer .monitor-card .detail-item,
+#chain-position-monitor .monitor-card .detail-item,
+.strategy-monitor .monitor-card .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 0;
+    font-size: 11px !important;
+}
+
+#strategyMonitorContainer .monitor-card .detail-item .label,
+#chain-position-monitor .monitor-card .detail-item .label,
+.strategy-monitor .monitor-card .detail-item .label {
+    color: var(--text-secondary, #999);
+    font-weight: 500;
+}
+
+#strategyMonitorContainer .monitor-card .detail-item .value,
+#chain-position-monitor .monitor-card .detail-item .value,
+.strategy-monitor .monitor-card .detail-item .value {
+    color: var(--text-primary, #fff);
+    font-weight: 500;
+}
+
+/* 止损信息紧凑显示 */
+#strategyMonitorContainer .monitor-card .stop-loss-info,
+#chain-position-monitor .monitor-card .stop-loss-info,
+.strategy-monitor .monitor-card .stop-loss-info {
+    padding: 6px 8px !important;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 4px;
+    margin-bottom: 8px !important;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    #strategyMonitorContainer .monitor-card,
+    #chain-position-monitor .monitor-card,
+    .strategy-monitor .monitor-card {
+        padding: 10px 12px 6px 12px !important;
+    }
+    
+    #strategyMonitorContainer .monitor-card .card-header,
+    #chain-position-monitor .monitor-card .card-header,
+    .strategy-monitor .monitor-card .card-header {
+        min-height: 35px !important;
+    }
+    
+    #strategyMonitorContainer .monitor-card .card-actions,
+    #chain-position-monitor .monitor-card .card-actions,
+    .strategy-monitor .monitor-card .card-actions {
+        min-width: 160px;
+    }
+    
+    #strategyMonitorContainer .monitor-card .btn-action,
+    #chain-position-monitor .monitor-card .btn-action,
+    .strategy-monitor .monitor-card .btn-action {
+        width: 26px !important;
+        height: 26px !important;
+        font-size: 11px;
+    }
+} 

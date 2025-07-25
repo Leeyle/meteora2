@@ -1,0 +1,62 @@
+{
+  "id": "chain_position_1753258066214_iooyco",
+  "type": "chain_position",
+  "name": "MULN",
+  "config": {
+    "poolAddress": "3k2dF4wdP9MDBZM4Ma8FZZL5DxtddJgVkmrXXp6TeYXC",
+    "positionAmount": 5,
+    "monitoringInterval": 15,
+    "outOfRangeTimeout": 600,
+    "yieldExtractionThreshold": 0.02,
+    "yieldExtractionTimeLock": 1,
+    "maxPriceForRecreation": 0.000001,
+    "minPriceForRecreation": 0.0000034,
+    "benchmarkYieldThreshold5Min": 1,
+    "minActiveBinPositionThreshold": 35,
+    "chainPositionType": "DUAL_CHAIN",
+    "enableSmartStopLoss": true,
+    "stopLoss": {
+      "activeBinSafetyThreshold": 30,
+      "observationPeriodMinutes": 5,
+      "lossThresholdPercentage": 2
+    },
+    "positionRecreation": {
+      "enableMarketOpportunityRecreation": true,
+      "enableLossRecoveryRecreation": true,
+      "enableDynamicProfitRecreation": true,
+      "marketOpportunity": {
+        "positionThreshold": 90,
+        "profitThreshold": 1.5
+      },
+      "lossRecovery": {
+        "markPositionThreshold": 40,
+        "markLossThreshold": 0.5,
+        "triggerPositionThreshold": 90,
+        "triggerProfitThreshold": 1
+      },
+      "dynamicProfitRecreation": {
+        "positionThreshold": 90,
+        "benchmarkTier1Max": 0.5,
+        "benchmarkTier2Max": 1.5,
+        "benchmarkTier3Max": 2.5,
+        "benchmarkTier4Max": 50,
+        "profitThresholdTier1": 0.5,
+        "profitThresholdTier2": 1.5,
+        "profitThresholdTier3": 2.5,
+        "profitThresholdTier4": 4
+      }
+    },
+    "stopLossConfig": {
+      "maxLossPercentage": 0.05,
+      "checkInterval": 30,
+      "conditions": [
+        "PRICE_DEVIATION",
+        "TIME_BASED"
+      ]
+    }
+  },
+  "status": "stopped",
+  "createdAt": "2025-07-23T08:07:46.214Z",
+  "startedAt": "2025-07-23T08:24:09.146Z",
+  "stoppedAt": "2025-07-23T08:49:44.775Z"
+}

@@ -1,0 +1,802 @@
+/**
+ * 🪐 Jupiter交换样式
+ * Jupiter代币交换界面的样式定义
+ */
+
+/* ======================
+   Jupiter容器样式
+   ====================== */
+
+.jupiter-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@media (max-width: 1024px) {
+    .jupiter-container {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
+/* ======================
+   Jupiter卡片样式
+   ====================== */
+
+.jupiter-card {
+    background: linear-gradient(135deg, #1a1b23 0%, #2d2e37 100%);
+    border: 1px solid #3a3b47;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.jupiter-card:hover {
+    border-color: #4c82f7;
+    box-shadow: 0 12px 48px rgba(76, 130, 247, 0.15);
+}
+
+.card-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid #3a3b47;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-content {
+    padding: 24px;
+}
+
+/* ======================
+   状态指示器
+   ====================== */
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: #8b8ca7;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* ======================
+   交换表单样式
+   ====================== */
+
+.swap-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.token-input-group {
+    background: #252631;
+    border: 2px solid #3a3b47;
+    border-radius: 12px;
+    padding: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.token-input-group:focus-within {
+    border-color: #4c82f7;
+}
+
+.input-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.input-header label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #8b8ca7;
+}
+
+.balance-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #6b7280;
+}
+
+.max-btn {
+    background: #4c82f7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.max-btn:hover {
+    background: #3b6fd4;
+}
+
+/* ======================
+   代币输入容器
+   ====================== */
+
+.token-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.amount-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.token-amount-input {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: 600;
+    width: 100%;
+    outline: none;
+    padding-right: 120px;
+}
+
+.token-amount-input::placeholder {
+    color: #6b7280;
+}
+
+.output-readonly {
+    color: #10b981 !important;
+}
+
+.input-suffix {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.token-symbol {
+    background: #3a3b47;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* ======================
+   代币选择
+   ====================== */
+
+.token-select-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.token-address-input {
+    background: #1a1b23;
+    border: 1px solid #3a3b47;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 10px 12px;
+    font-size: 14px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.token-address-input:focus {
+    border-color: #4c82f7;
+}
+
+.token-shortcuts {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.token-btn {
+    background: #3a3b47;
+    border: 1px solid #4a4b57;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.token-btn:hover {
+    background: #4c82f7;
+    border-color: #4c82f7;
+    transform: translateY(-1px);
+}
+
+.token-icon {
+    font-size: 14px;
+}
+
+.token-value {
+    margin-top: 8px;
+    text-align: right;
+}
+
+.usd-value {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* ======================
+   交换方向按钮
+   ====================== */
+
+.swap-direction {
+    display: flex;
+    justify-content: center;
+    margin: -10px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.swap-direction-btn {
+    background: #4c82f7;
+    border: 3px solid #252631;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.swap-direction-btn:hover {
+    background: #3b6fd4;
+    transform: rotate(180deg);
+}
+
+/* ======================
+   高级设置
+   ====================== */
+
+.advanced-settings {
+    background: #1a1b23;
+    border: 1px solid #3a3b47;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.settings-toggle {
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #8b8ca7;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.settings-toggle:hover {
+    background: #252631;
+}
+
+.toggle-icon {
+    transition: transform 0.3s ease;
+}
+
+.settings-content {
+    border-top: 1px solid #3a3b47;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.setting-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.setting-row label {
+    color: #8b8ca7;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* ======================
+   滑点控制
+   ====================== */
+
+.slippage-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.slippage-preset {
+    background: #3a3b47;
+    border: 1px solid #4a4b57;
+    border-radius: 6px;
+    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.slippage-preset:hover,
+.slippage-preset.active {
+    background: #4c82f7;
+    border-color: #4c82f7;
+}
+
+.slippage-custom {
+    background: #252631;
+    border: 1px solid #3a3b47;
+    border-radius: 6px;
+    color: #ffffff;
+    padding: 8px 12px;
+    font-size: 12px;
+    width: 80px;
+    outline: none;
+}
+
+.slippage-custom:focus {
+    border-color: #4c82f7;
+}
+
+.priority-select {
+    background: #252631;
+    border: 1px solid #3a3b47;
+    border-radius: 8px;
+    color: #ffffff;
+    padding: 10px 12px;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.priority-select:focus {
+    border-color: #4c82f7;
+}
+
+/* ======================
+   路由信息
+   ====================== */
+
+.route-info {
+    background: #1a1b23;
+    border: 1px solid #3a3b47;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.route-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.route-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.route-badge {
+    background: #10b981;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.route-details {
+    margin-bottom: 16px;
+    color: #8b8ca7;
+    font-size: 12px;
+}
+
+.route-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.metric-label {
+    color: #8b8ca7;
+    font-size: 12px;
+}
+
+.metric-value {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.price-impact.low {
+    color: #10b981;
+}
+
+.price-impact.medium {
+    color: #f59e0b;
+}
+
+.price-impact.high {
+    color: #ef4444;
+}
+
+/* ======================
+   警告消息
+   ====================== */
+
+.warning-message {
+    background: #fef3cd;
+    border: 1px solid #f6e05e;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #92400e;
+    font-size: 12px;
+}
+
+.warning-icon {
+    font-size: 16px;
+}
+
+/* ======================
+   按钮样式
+   ====================== */
+
+.swap-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn {
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-large {
+    padding: 16px 24px;
+    font-size: 16px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4c82f7 0%, #3b6fd4 100%);
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: linear-gradient(135deg, #3b6fd4 0%, #2d5bb7 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 130, 247, 0.4);
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ======================
+   市场信息
+   ====================== */
+
+.market-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.market-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.market-label {
+    color: #8b8ca7;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.market-value {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.congestion-indicator {
+    color: #10b981;
+}
+
+.refresh-indicator {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+/* ======================
+   交换历史
+   ====================== */
+
+.swap-history {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+}
+
+.empty-icon {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.empty-text {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.empty-subtext {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.history-item {
+    background: #252631;
+    border: 1px solid #3a3b47;
+    border-radius: 8px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.history-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.history-tokens {
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.history-time {
+    color: #6b7280;
+    font-size: 10px;
+}
+
+.history-status.success {
+    color: #10b981;
+    font-size: 16px;
+}
+
+.history-status.failed {
+    color: #ef4444;
+    font-size: 16px;
+}
+
+/* ======================
+   小按钮
+   ====================== */
+
+.btn-sm {
+    background: #3a3b47;
+    color: #ffffff;
+    border: 1px solid #4a4b57;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-sm:hover {
+    background: #4c82f7;
+    border-color: #4c82f7;
+}
+
+/* ======================
+   响应式设计
+   ====================== */
+
+@media (max-width: 768px) {
+    .jupiter-container {
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .card-content {
+        padding: 16px;
+    }
+
+    .token-amount-input {
+        font-size: 20px;
+        padding-right: 100px;
+    }
+
+    .market-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .route-metrics {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+}
+
+/* ======================
+   自定义滚动条
+   ====================== */
+
+.swap-history::-webkit-scrollbar {
+    width: 4px;
+}
+
+.swap-history::-webkit-scrollbar-track {
+    background: #252631;
+    border-radius: 2px;
+}
+
+.swap-history::-webkit-scrollbar-thumb {
+    background: #4a4b57;
+    border-radius: 2px;
+}
+
+.swap-history::-webkit-scrollbar-thumb:hover {
+    background: #5a5b67;
+}
+
+/* ======================
+   加载状态
+   ====================== */
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(26, 27, 35, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    z-index: 10;
+}
+
+/* ======================
+   成功/错误状态
+   ====================== */
+
+.success-message {
+    background: #d1fae5;
+    border: 1px solid #10b981;
+    color: #065f46;
+}
+
+.error-message {
+    background: #fee2e2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
+}

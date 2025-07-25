@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 最终UI测试</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        body {
+            background-color: #1a1b2e;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .test-section {
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .test-btn {
+            margin: 0.5rem;
+            min-width: 150px;
+        }
+
+        .preview-container {
+            border: 2px dashed #533483;
+            border-radius: 8px;
+            padding: 1rem;
+            background: rgba(83, 52, 131, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test-container">
+        <h1 class="text-center mb-4">🎯 最终UI效果测试</h1>
+
+        <!-- 测试控制面板 -->
+        <div class="test-section">
+            <h3 class="mb-3">🎮 测试控制</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <button class="btn btn-primary test-btn" onclick="initTest()">
+                        🚀 初始化系统
+                    </button>
+                    <button class="btn btn-success test-btn" onclick="showModal()" id="show-modal-btn" disabled>
+                        📝 测试模态框居中
+                    </button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-info test-btn" onclick="testResponsive()">
+                        📱 测试响应式布局
+                    </button>
+                    <button class="btn btn-warning test-btn" onclick="clearResults()">
+                        🧹 清空结果
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 测试结果显示 -->
+        <div class="test-section">
+            <h3 class="mb-3">📋 测试结果</h3>
+            <div id="test-results" class="alert alert-info">
+                等待测试开始...
+            </div>
+        </div>
+
+        <!-- 统计卡片预览 -->
+        <div class="test-section">
+            <h3 class="mb-3">📊 统计卡片布局预览</h3>
+            <div class="preview-container">
+                <div id="stats-preview">
+                    <!-- 统计卡片将在这里显示 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 策略管理器容器 -->
+        <div id="strategy-manager-container">
+            <!-- 策略管理器将在这里显示 -->
+        </div>
+    </div>
+
+    <!-- 引入策略模块 -->
+    <script src="../public/js/components/strategy/strategy-forms-simple.js"></script>
+    <script src="../public/js/components/strategy/simple-y-manager.js"></script>
+
+    <script>
+        let strategyManager = null;
+        let testResults = [];
+
+        function logResult(type, message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const result = `[${timestamp}] ${message}`;
+            testResults.push(result);
+
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.className = `alert alert-${type}`;
+            resultsDiv.innerHTML = testResults.slice(-10).join('<br>');
+        }
+
+        function clearResults() {
+            testResults = [];
+            document.getElementById('test-results').innerHTML = '结果已清空...';
+            document.getElementById('test-results').className = 'alert alert-info';
+        }
+
+        async function initTest() {
+            try {
+                logResult('info', '🚀 开始初始化策略管理器...');
+
+                if (!window.SimpleYStrategyManager || !window.SimpleYStrategyForms) {
+                    throw new Error('策略模块未加载');
+                }
+
+                strategyManager = new SimpleYStrategyManager('strategy-manager-container');
+                const success = await strategyManager.init();
+
+                if (success) {
+                    logResult('success', '✅ 策略管理器初始化成功');
+                    document.getElementById('show-modal-btn').disabled = false;
+
+                    // 预览统计卡片
+                    previewStatsCards();
+                } else {
+                    throw new Error('初始化失败');
+                }
+
+            } catch (error) {
+                logResult('danger', '❌ 初始化失败: ' + error.message);
+            }
+        }
+
+        function previewStatsCards() {
+            const statsHtml = `
+                <div class="statistics-cards">
+                    <div class="stat-card" style="--card-gradient: #1e3a8a, #3b82f6;">
+                        <span class="stat-value">2</span>
+                        <div class="stat-label">总策略数</div>
+                    </div>
+                    <div class="stat-card" style="--card-gradient: #059669, #10b981;">
+                        <span class="stat-value">1</span>
+                        <div class="stat-label">运行中</div>
+                    </div>
+                    <div class="stat-card" style="--card-gradient: #059669, #10b981;">
+                        <span class="stat-value">+$7.44</span>
+                        <div class="stat-label">总盈亏</div>
+                    </div>
+                    <div class="stat-card" style="--card-gradient: #7c3aed, #a855f7;">
+                        <span class="stat-value">$600.00</span>
+                        <div class="stat-label">投入资金</div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('stats-preview').innerHTML = statsHtml;
+            logResult('success', '✅ 统计卡片预览已显示 - 4个卡片一行并排');
+        }
+
+        function showModal() {
+            try {
+                logResult('info', '📝 测试模态框居中显示...');
+
+                if (strategyManager && strategyManager.forms) {
+                    strategyManager.showCreateStrategyForm();
+
+                    // 检查模态框是否居中
+                    setTimeout(() => {
+                        const modal = document.getElementById('create-simple-y-modal');
+                        if (modal) {
+                            const modalStyle = window.getComputedStyle(modal);
+                            const isFlexCentered = modalStyle.display === 'flex' &&
+                                modalStyle.alignItems === 'center' &&
+                                modalStyle.justifyContent === 'center';
+
+                            if (isFlexCentered) {
+                                logResult('success', '✅ 模态框已完美居中显示');
+                            } else {
+                                logResult('warning', '⚠️ 模态框可能未完全居中');
+                            }
+                        } else {
+                            logResult('danger', '❌ 模态框元素未找到');
+                        }
+                    }, 500);
+                } else {
+                    throw new Error('策略管理器未初始化');
+                }
+
+            } catch (error) {
+                logResult('danger', '❌ 模态框测试失败: ' + error.message);
+            }
+        }
+
+        function testResponsive() {
+            logResult('info', '📱 测试响应式布局...');
+
+            const container = document.getElementById('stats-preview');
+            const originalWidth = container.style.width;
+
+            // 模拟移动端
+            container.style.width = '375px';
+            container.style.margin = '0 auto';
+            logResult('info', '📱 切换到移动端视图 (375px)');
+
+            setTimeout(() => {
+                // 模拟平板
+                container.style.width = '768px';
+                logResult('info', '📱 切换到平板视图 (768px)');
+
+                setTimeout(() => {
+                    // 恢复桌面端
+                    container.style.width = originalWidth;
+                    container.style.margin = '';
+                    logResult('success', '✅ 响应式布局测试完成');
+                }, 1500);
+            }, 1500);
+        }
+
+        // 页面加载完成
+        document.addEventListener('DOMContentLoaded', function () {
+            logResult('info', '📄 测试页面加载完成');
+
+            // 添加必要的CSS变量支持
+            const style = document.createElement('style');
+            style.textContent = `
+                .statistics-cards {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 16px;
+                    margin-bottom: 24px;
+                }
+                
+                @media (min-width: 768px) {
+                    .statistics-cards {
+                        grid-template-columns: repeat(4, 1fr);
+                    }
+                }
+                
+                .stat-card {
+                    background: linear-gradient(135deg, var(--card-gradient));
+                    border-radius: 12px;
+                    padding: 20px;
+                    text-align: center;
+                    color: white;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+                }
+                
+                .stat-card:hover {
+                    transform: translateY(-4px);
+                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                }
+                
+                .stat-value {
+                    font-size: 2.5rem;
+                    font-weight: 700;
+                    margin-bottom: 8px;
+                    display: block;
+                }
+                
+                .stat-label {
+                    font-size: 1rem;
+                    opacity: 0.9;
+                    font-weight: 500;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+
+</html>

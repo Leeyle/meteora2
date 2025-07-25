@@ -1,0 +1,700 @@
+/**
+ * 🏊 池爬虫监控器 - 实时监控池发现和过滤
+ * 使用Socket.IO进行实时通信
+ */
+class PoolCrawlerMonitor {
+    constructor(container, options = {}) {
+        this.container = typeof container === 'string' ? document.getElementById(container) : container;
+        this.options = {
+            autoConnect: true,
+            reconnectInterval: 3000,
+            maxReconnectAttempts: 5,
+            ...options
+        };
+
+        // Socket.IO连接
+        this.socket = null;
+        this.isConnected = false;
+        this.reconnectAttempts = 0;
+
+        // 池爬虫数据
+        this.crawlerStatus = {
+            isRunning: false,
+            nextCrawlTime: null,
+            lastCrawlTime: null,
+            dailyDiscoveries: 0,
+            totalDiscoveries: 0,
+            qualifiedPools: 0,
+            errorCount: 0
+        };
+
+        this.discoveredPools = new Map();
+        this.qualifiedPools = new Map();
+        this.crawlerConfig = null;
+
+        // UI状态
+        this.isRendered = false;
+        this.lastUpdateTime = null;
+
+        this.init();
+    }
+
+    /**
+     * 初始化监控器
+     */
+    async init() {
+        try {
+            console.log('🏊 初始化池爬虫监控器');
+
+            // 加载Socket.IO库
+            await this.loadSocketIO();
+
+            // 渲染UI
+            this.render();
+
+            // 连接Socket.IO
+            if (this.options.autoConnect) {
+                this.connect();
+            }
+
+            // 启动时间更新定时器
+            this.startTimeUpdateTimer();
+
+            console.log('✅ 池爬虫监控器初始化完成');
+        } catch (error) {
+            console.error('❌ 池爬虫监控器初始化失败:', error);
+        }
+    }
+
+    /**
+     * 动态加载Socket.IO库
+     */
+    async loadSocketIO() {
+        return new Promise((resolve, reject) => {
+            // 检查是否已经加载
+            if (window.io) {
+                resolve();
+                return;
+            }
+
+            // 动态加载Socket.IO脚本
+            const script = document.createElement('script');
+            script.src = '/socket.io/socket.io.js';
+            script.onload = () => {
+                console.log('✅ Socket.IO库加载完成');
+                resolve();
+            };
+            script.onerror = () => {
+                console.error('❌ Socket.IO库加载失败');
+                reject(new Error('Socket.IO库加载失败'));
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    /**
+     * 连接Socket.IO服务器
+     */
+    connect() {
+        try {
+            console.log('🔌 连接Socket.IO服务器...');
+
+            this.socket = io('http://localhost:7000', {
+                path: '/socket.io/',
+                transports: ['websocket', 'polling'],
+                timeout: 5000,
+                reconnection: true,
+                reconnectionAttempts: this.options.maxReconnectAttempts,
+                reconnectionDelay: this.options.reconnectInterval
+            });
+
+            this.setupSocketEvents();
+        } catch (error) {
+            console.error('❌ Socket.IO连接失败:', error);
+            this.updateConnectionStatus('error', '连接失败');
+        }
+    }
+
+    /**
+     * 设置Socket.IO事件监听
+     */
+    setupSocketEvents() {
+        // 连接成功
+        this.socket.on('connect', () => {
+            console.log('✅ Socket.IO连接成功');
+            this.isConnected = true;
+            this.reconnectAttempts = 0;
+            this.updateConnectionStatus('connected', '已连接');
+
+            // 订阅池爬虫监控
+            this.socket.emit('subscribe:pool-crawler', {
+                clientId: this.generateClientId(),
+                timestamp: Date.now()
+            });
+        });
+
+        // 连接断开
+        this.socket.on('disconnect', (reason) => {
+            console.log('🔌 Socket.IO连接断开:', reason);
+            this.isConnected = false;
+            this.updateConnectionStatus('disconnected', '连接断开');
+        });
+
+        // 订阅确认
+        this.socket.on('subscribed:pool-crawler', (data) => {
+            console.log('✅ 池爬虫监控订阅成功:', data);
+            this.updateConnectionStatus('subscribed', '监控中');
+
+            // 请求当前状态
+            this.requestCrawlerStatus();
+        });
+
+        // 🔥 池爬虫状态更新
+        this.socket.on('pool-crawler:status-update', (data) => {
+            console.log('📊 收到池爬虫状态更新:', data);
+            this.handleStatusUpdate(data);
+        });
+
+        // 🔥 池发现通知
+        this.socket.on('pool-crawler:pools-discovered', (data) => {
+            console.log('🏊 收到池发现通知:', data);
+            this.handlePoolsDiscovered(data);
+        });
+
+        // 🔥 合格池通知
+        this.socket.on('pool-crawler:pools-qualified', (data) => {
+            console.log('✅ 收到合格池通知:', data);
+            this.handlePoolsQualified(data);
+        });
+
+        // 🔥 过滤器配置更新
+        this.socket.on('pool-crawler:filters-updated', (data) => {
+            console.log('🔧 收到过滤器配置更新:', data);
+            this.handleFiltersUpdated(data);
+        });
+
+        // 🔥 爬虫错误通知
+        this.socket.on('pool-crawler:error', (data) => {
+            console.log('❌ 收到爬虫错误通知:', data);
+            this.handleCrawlerError(data);
+        });
+
+        // 连接错误
+        this.socket.on('connect_error', (error) => {
+            console.error('❌ Socket.IO连接错误:', error);
+            this.reconnectAttempts++;
+            this.updateConnectionStatus('error', `连接错误 (${this.reconnectAttempts}/${this.options.maxReconnectAttempts})`);
+        });
+
+        // 重连
+        this.socket.on('reconnect', (attemptNumber) => {
+            console.log(`🔄 Socket.IO重连成功 (第${attemptNumber}次尝试)`);
+            this.isConnected = true;
+            this.updateConnectionStatus('reconnected', '重连成功');
+        });
+
+        // 重连失败
+        this.socket.on('reconnect_failed', () => {
+            console.error('❌ Socket.IO重连失败');
+            this.updateConnectionStatus('failed', '重连失败');
+        });
+    }
+
+    /**
+     * 处理状态更新
+     */
+    handleStatusUpdate(socketData) {
+        const { data } = socketData;
+
+        // 更新爬虫状态
+        Object.assign(this.crawlerStatus, data);
+
+        // 更新UI
+        this.updateStatusDisplay();
+        this.updateLastUpdateTime();
+
+        // 显示通知
+        if (data.isRunning !== undefined) {
+            this.showNotification(
+                `池爬虫${data.isRunning ? '已启动' : '已停止'}`,
+                data.isRunning ? 'success' : 'info'
+            );
+        }
+    }
+
+    /**
+     * 处理池发现通知
+     */
+    handlePoolsDiscovered(socketData) {
+        const { data } = socketData;
+
+        if (data.pools && Array.isArray(data.pools)) {
+            data.pools.forEach(pool => {
+                this.discoveredPools.set(pool.poolAddress, pool);
+            });
+
+            // 更新发现池表格
+            this.updatePoolsTable();
+
+            // 显示通知
+            this.showNotification(
+                `发现 ${data.pools.length} 个新池`,
+                'info'
+            );
+        }
+    }
+
+    /**
+     * 处理合格池通知
+     */
+    handlePoolsQualified(socketData) {
+        const { data } = socketData;
+
+        if (data.pools && Array.isArray(data.pools)) {
+            data.pools.forEach(pool => {
+                this.qualifiedPools.set(pool.poolAddress, pool);
+            });
+
+            // 更新合格池表格
+            this.updateQualifiedPoolsTable();
+
+            // 显示通知
+            this.showNotification(
+                `发现 ${data.pools.length} 个合格池！`,
+                'success'
+            );
+        }
+    }
+
+    /**
+     * 处理过滤器配置更新
+     */
+    handleFiltersUpdated(socketData) {
+        const { data } = socketData;
+
+        this.crawlerConfig = data;
+
+        // 更新过滤器配置显示
+        this.updateFilterDisplay();
+
+        // 显示通知
+        this.showNotification('过滤器配置已更新', 'info');
+    }
+
+    /**
+     * 处理爬虫错误通知
+     */
+    handleCrawlerError(socketData) {
+        const { data } = socketData;
+
+        // 更新错误计数
+        this.crawlerStatus.errorCount++;
+
+        // 显示错误通知
+        this.showNotification(
+            `爬虫错误: ${data.error}`,
+            'error'
+        );
+
+        // 更新状态显示
+        this.updateStatusDisplay();
+    }
+
+    /**
+     * 请求爬虫状态
+     */
+    async requestCrawlerStatus() {
+        try {
+            const response = await fetch('/api/monitoring/crawler/status');
+            if (response.ok) {
+                const result = await response.json();
+                if (result.success) {
+                    this.crawlerStatus = result.data;
+                    this.updateStatusDisplay();
+                }
+            }
+        } catch (error) {
+            console.error('获取爬虫状态失败:', error);
+        }
+    }
+
+    /**
+     * 渲染UI
+     */
+    render() {
+        if (!this.container) return;
+
+        this.container.innerHTML = `
+            <div class="pool-crawler-monitor">
+                <!-- 连接状态 -->
+                <div class="status-bar">
+                    <div class="connection-status">
+                        <span class="status-indicator" id="connectionStatus"></span>
+                        <span class="status-text" id="connectionText">连接中...</span>
+                    </div>
+                    <div class="last-update">
+                        最后更新: <span id="lastUpdateTime">--</span>
+                    </div>
+                </div>
+
+                <!-- 爬虫状态面板 -->
+                <div class="crawler-status-panel">
+                    <h3>🏊 池爬虫状态</h3>
+                    <div class="status-grid">
+                        <div class="status-item">
+                            <label>运行状态:</label>
+                            <span id="crawlerRunning" class="status-value">--</span>
+                        </div>
+                        <div class="status-item">
+                            <label>下次爬取:</label>
+                            <span id="nextCrawlTime" class="status-value">--</span>
+                        </div>
+                        <div class="status-item">
+                            <label>今日发现:</label>
+                            <span id="dailyDiscoveries" class="status-value">--</span>
+                        </div>
+                        <div class="status-item">
+                            <label>合格池数:</label>
+                            <span id="qualifiedCount" class="status-value">--</span>
+                        </div>
+                    </div>
+                    <div class="crawler-controls">
+                        <button id="startCrawler" class="btn btn-success">启动爬虫</button>
+                        <button id="stopCrawler" class="btn btn-danger">停止爬虫</button>
+                        <button id="refreshStatus" class="btn btn-info">刷新状态</button>
+                    </div>
+                </div>
+
+                <!-- 过滤器配置 -->
+                <div class="filter-panel">
+                    <h3>🔧 过滤器配置</h3>
+                    <div class="filter-form" id="filterForm">
+                        <!-- 过滤器配置表单将在这里动态生成 -->
+                    </div>
+                </div>
+
+                <!-- 发现的池 -->
+                <div class="pools-panel">
+                    <h3>🏊 发现的池</h3>
+                    <div class="pools-table-container">
+                        <table class="pools-table" id="poolsTable">
+                            <thead>
+                                <tr>
+                                    <th>池地址</th>
+                                    <th>代币对</th>
+                                    <th>Meteor评分</th>
+                                    <th>流动性</th>
+                                    <th>池龄</th>
+                                    <th>24h涨跌</th>
+                                    <th>24h成交量</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="poolsTableBody">
+                                <!-- 池数据将在这里动态生成 -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 合格池推荐 -->
+                <div class="qualified-pools-panel">
+                    <h3>✅ 合格池推荐</h3>
+                    <div class="qualified-pools-container" id="qualifiedPoolsContainer">
+                        <!-- 合格池推荐将在这里动态生成 -->
+                    </div>
+                </div>
+
+                <!-- 通知区域 -->
+                <div class="notification-container" id="notificationContainer">
+                    <!-- 通知将在这里动态生成 -->
+                </div>
+            </div>
+        `;
+
+        this.isRendered = true;
+        this.bindEvents();
+    }
+
+    /**
+     * 绑定事件
+     */
+    bindEvents() {
+        // 爬虫控制按钮
+        document.getElementById('startCrawler')?.addEventListener('click', () => this.startCrawler());
+        document.getElementById('stopCrawler')?.addEventListener('click', () => this.stopCrawler());
+        document.getElementById('refreshStatus')?.addEventListener('click', () => this.requestCrawlerStatus());
+    }
+
+    /**
+     * 启动爬虫
+     */
+    async startCrawler() {
+        try {
+            const response = await fetch('/api/monitoring/crawler/start', {
+                method: 'POST'
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                this.showNotification('爬虫启动成功', 'success');
+            } else {
+                this.showNotification(`启动失败: ${result.message}`, 'error');
+            }
+        } catch (error) {
+            console.error('启动爬虫失败:', error);
+            this.showNotification('启动爬虫失败', 'error');
+        }
+    }
+
+    /**
+     * 停止爬虫
+     */
+    async stopCrawler() {
+        try {
+            const response = await fetch('/api/monitoring/crawler/stop', {
+                method: 'POST'
+            });
+            const result = await response.json();
+
+            if (result.success) {
+                this.showNotification('爬虫停止成功', 'success');
+            } else {
+                this.showNotification(`停止失败: ${result.message}`, 'error');
+            }
+        } catch (error) {
+            console.error('停止爬虫失败:', error);
+            this.showNotification('停止爬虫失败', 'error');
+        }
+    }
+
+    /**
+     * 更新状态显示
+     */
+    updateStatusDisplay() {
+        const runningElement = document.getElementById('crawlerRunning');
+        const nextCrawlElement = document.getElementById('nextCrawlTime');
+        const dailyElement = document.getElementById('dailyDiscoveries');
+        const qualifiedElement = document.getElementById('qualifiedCount');
+
+        if (runningElement) {
+            runningElement.textContent = this.crawlerStatus.isRunning ? '运行中' : '已停止';
+            runningElement.className = `status-value ${this.crawlerStatus.isRunning ? 'running' : 'stopped'}`;
+        }
+
+        if (nextCrawlElement) {
+            nextCrawlElement.textContent = this.crawlerStatus.nextCrawlTime
+                ? this.formatTime(this.crawlerStatus.nextCrawlTime)
+                : '--';
+        }
+
+        if (dailyElement) {
+            dailyElement.textContent = this.crawlerStatus.dailyDiscoveries || 0;
+        }
+
+        if (qualifiedElement) {
+            qualifiedElement.textContent = this.crawlerStatus.qualifiedPools || 0;
+        }
+    }
+
+    /**
+     * 更新过滤器显示
+     */
+    updateFilterDisplay() {
+        // TODO: 实现过滤器配置显示
+        console.log('更新过滤器显示', this.crawlerConfig);
+    }
+
+    /**
+     * 更新池表格
+     */
+    updatePoolsTable() {
+        const tableBody = document.getElementById('poolsTableBody');
+        if (!tableBody) return;
+
+        const pools = Array.from(this.discoveredPools.values());
+
+        tableBody.innerHTML = pools.map(pool => `
+            <tr>
+                <td>${this.formatAddress(pool.poolAddress)}</td>
+                <td>${pool.tokenPair}</td>
+                <td>${pool.meteorScore}</td>
+                <td>${this.formatCurrency(pool.liquidity)}</td>
+                <td>${pool.age}</td>
+                <td class="${pool.priceChange24h >= 0 ? 'positive' : 'negative'}">
+                    ${this.formatPercent(pool.priceChange24h)}
+                </td>
+                <td>${this.formatCurrency(pool.volume24h)}</td>
+                <td>
+                    <span class="status-badge ${pool.qualified ? 'qualified' : 'pending'}">
+                        ${pool.qualified ? '合格' : '待检查'}
+                    </span>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-primary" onclick="this.createStrategy('${pool.poolAddress}')">
+                        创建策略
+                    </button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    /**
+     * 更新合格池表格
+     */
+    updateQualifiedPoolsTable() {
+        const container = document.getElementById('qualifiedPoolsContainer');
+        if (!container) return;
+
+        const qualifiedPools = Array.from(this.qualifiedPools.values());
+
+        container.innerHTML = qualifiedPools.map(pool => `
+            <div class="qualified-pool-card">
+                <div class="pool-info">
+                    <h4>${pool.tokenPair}</h4>
+                    <p>Meteor评分: ${pool.meteorScore}</p>
+                    <p>流动性: ${this.formatCurrency(pool.liquidity)}</p>
+                    <p>24h涨跌: ${this.formatPercent(pool.priceChange24h)}</p>
+                </div>
+                <div class="pool-actions">
+                    <button class="btn btn-primary" onclick="this.createStrategy('${pool.poolAddress}')">
+                        创建策略
+                    </button>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    /**
+     * 创建策略
+     */
+    createStrategy(poolAddress) {
+        // TODO: 实现策略创建逻辑
+        console.log('创建策略:', poolAddress);
+        this.showNotification('策略创建功能开发中...', 'info');
+    }
+
+    /**
+     * 更新连接状态
+     */
+    updateConnectionStatus(status, text) {
+        const statusElement = document.getElementById('connectionStatus');
+        const textElement = document.getElementById('connectionText');
+
+        if (statusElement) {
+            statusElement.className = `status-indicator ${status}`;
+        }
+
+        if (textElement) {
+            textElement.textContent = text;
+        }
+    }
+
+    /**
+     * 更新最后更新时间
+     */
+    updateLastUpdateTime() {
+        this.lastUpdateTime = Date.now();
+        const element = document.getElementById('lastUpdateTime');
+        if (element) {
+            element.textContent = this.formatTime(this.lastUpdateTime);
+        }
+    }
+
+    /**
+     * 显示通知
+     */
+    showNotification(message, type = 'info') {
+        const container = document.getElementById('notificationContainer');
+        if (!container) return;
+
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span class="notification-message">${message}</span>
+                <button class="notification-close" onclick="this.parentElement.parentElement.remove()">×</button>
+            </div>
+        `;
+
+        container.appendChild(notification);
+
+        // 自动移除通知
+        setTimeout(() => {
+            if (notification.parentElement) {
+                notification.parentElement.removeChild(notification);
+            }
+        }, 5000);
+    }
+
+    /**
+     * 启动时间更新定时器
+     */
+    startTimeUpdateTimer() {
+        setInterval(() => {
+            this.updateLastUpdateTime();
+        }, 1000);
+    }
+
+    /**
+     * 生成客户端ID
+     */
+    generateClientId() {
+        return `pool-crawler-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    }
+
+    /**
+     * 格式化时间
+     */
+    formatTime(timestamp) {
+        if (!timestamp) return '--';
+        return new Date(timestamp).toLocaleString('zh-CN');
+    }
+
+    /**
+     * 格式化货币
+     */
+    formatCurrency(amount) {
+        if (!amount) return '--';
+        return new Intl.NumberFormat('zh-CN', {
+            style: 'currency',
+            currency: 'USD',
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(amount);
+    }
+
+    /**
+     * 格式化百分比
+     */
+    formatPercent(value) {
+        if (value === null || value === undefined) return '--';
+        return `${value >= 0 ? '+' : ''}${value.toFixed(2)}%`;
+    }
+
+    /**
+     * 格式化地址
+     */
+    formatAddress(address) {
+        if (!address) return '--';
+        return `${address.slice(0, 6)}...${address.slice(-4)}`;
+    }
+
+    /**
+     * 销毁监控器
+     */
+    destroy() {
+        if (this.socket) {
+            this.socket.emit('unsubscribe:pool-crawler');
+            this.socket.disconnect();
+        }
+
+        if (this.container) {
+            this.container.innerHTML = '';
+        }
+    }
+}
+
+// 全局暴露
+window.PoolCrawlerMonitor = PoolCrawlerMonitor; 

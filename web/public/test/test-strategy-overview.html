@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 策略概览测试 - DLMM</title>
+
+    <!-- CSS样式文件 -->
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/themes.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/strategy.css">
+
+    <style>
+        body {
+            background: var(--bg-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 2rem;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙 切换主题</button>
+
+    <div class="test-container">
+        <div class="test-header">
+            <h1>🧪 策略概览界面测试</h1>
+            <p>测试新的策略管理页面的概览界面显示效果</p>
+        </div>
+
+        <!-- 策略概览界面 -->
+        <div class="strategy-overview">
+            <!-- 策略类型卡片 -->
+            <div class="strategy-cards">
+                <!-- SimpleY策略卡片 -->
+                <div class="strategy-card">
+                    <div class="strategy-type-badge strategy-type-simple-y">简单Y策略</div>
+                    <h3>
+                        <span>📊</span>
+                        SimpleY流动性管理
+                    </h3>
+                    <p>经典的流动性提供策略，适合稳定币对和蓝筹代币对的流动性管理。</p>
+
+                    <ul class="feature-list">
+                        <li>自动价格区间调整</li>
+                        <li>风险控制机制</li>
+                        <li>收益最大化</li>
+                        <li>向后兼容支持</li>
+                    </ul>
+
+                    <div class="strategy-actions">
+                        <button class="btn btn-primary" onclick="showMessage('跳转到简单Y策略页面')">
+                            创建SimpleY策略
+                        </button>
+                        <button class="btn btn-secondary" onclick="showSimpleYHelp()">
+                            了解更多
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 网格交易策略卡片 -->
+                <div class="strategy-card coming-soon">
+                    <div class="strategy-type-badge strategy-type-grid">网格交易</div>
+                    <h3>
+                        <span>📈</span>
+                        智能网格交易
+                    </h3>
+                    <p>在价格波动中自动买低卖高，适合横盘震荡市场的套利策略。</p>
+
+                    <ul class="feature-list">
+                        <li>自动网格布局</li>
+                        <li>动态网格调整</li>
+                        <li>止盈止损控制</li>
+                        <li>多时间周期支持</li>
+                    </ul>
+
+                    <div class="strategy-actions">
+                        <button class="btn btn-primary" disabled>
+                            即将推出
+                        </button>
+                        <button class="btn btn-secondary" onclick="showGridHelp()">
+                            了解更多
+                        </button>
+                    </div>
+                </div>
+
+                <!-- DCA策略卡片 -->
+                <div class="strategy-card coming-soon">
+                    <div class="strategy-type-badge strategy-type-dca">定投策略</div>
+                    <h3>
+                        <span>📅</span>
+                        定期定额投资
+                    </h3>
+                    <p>通过定期购买降低平均成本，适合长期看好的资产积累策略。</p>
+
+                    <ul class="feature-list">
+                        <li>智能定投时机</li>
+                        <li>动态投资金额</li>
+                        <li>市场情绪分析</li>
+                        <li>长期收益优化</li>
+                    </ul>
+
+                    <div class="strategy-actions">
+                        <button class="btn btn-primary" disabled>
+                            即将推出
+                        </button>
+                        <button class="btn btn-secondary" onclick="showDCAHelp()">
+                            了解更多
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 策略管理器测试区域 -->
+        <div class="strategy-manager-container">
+            <h3>🎯 策略管理器状态</h3>
+            <div id="strategyManagerTest">
+                <div class="info-state"
+                    style="text-align: center; padding: 2rem; background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color);">
+                    <div class="info-icon" style="font-size: 48px; margin-bottom: 1rem;">🧪</div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 0.5rem;">测试模式</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1rem;">这是策略概览界面的测试页面</p>
+                    <button class="btn btn-primary" onclick="testStrategyManager()">
+                        测试策略管理器
+                    </button>
+                    <button class="btn btn-secondary" onclick="showMessage('这是测试页面，功能正在开发中')">
+                        查看详情
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 主题切换
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+
+            const btn = document.querySelector('.theme-toggle');
+            btn.textContent = newTheme === 'dark' ? '☀️ 切换主题' : '🌙 切换主题';
+        }
+
+        // 显示消息
+        function showMessage(message) {
+            alert(`📱 ${message}`);
+        }
+
+        // 帮助方法
+        function showSimpleYHelp() {
+            alert(`📊 SimpleY策略说明：
+
+SimpleY策略是一种智能的流动性管理策略，专为DLMM（动态流动性市场制造商）设计。
+
+主要特点：
+✓ 自动价格区间调整
+✓ 风险控制机制  
+✓ 收益最大化
+✓ 向后兼容支持
+
+适用场景：
+- 稳定币对流动性提供
+- 蓝筹代币对管理
+- 中低风险收益策略
+
+请在主页面的"简单Y策略"中创建您的策略。`);
+        }
+
+        function showGridHelp() {
+            alert(`📈 网格交易策略说明：
+
+网格交易策略通过在价格区间内布置买卖网格，实现自动化套利。
+
+主要特点：
+✓ 自动网格布局
+✓ 动态网格调整
+✓ 止盈止损控制
+✓ 多时间周期支持
+
+适用场景：
+- 横盘震荡市场
+- 高频交易策略
+- 短期套利机会
+
+该功能即将推出，敬请期待！`);
+        }
+
+        function showDCAHelp() {
+            alert(`📅 定期定额投资策略说明：
+
+DCA（Dollar Cost Averaging）策略通过定期投资降低平均成本。
+
+主要特点：
+✓ 智能定投时机
+✓ 动态投资金额
+✓ 市场情绪分析
+✓ 长期收益优化
+
+适用场景：
+- 长期投资策略
+- 降低波动风险
+- 积累优质资产
+
+该功能即将推出，敬请期待！`);
+        }
+
+        // 测试策略管理器
+        function testStrategyManager() {
+            const container = document.getElementById('strategyManagerTest');
+
+            container.innerHTML = `
+                <div class="loading-placeholder" style="text-align: center; padding: 2rem;">
+                    <div class="spinner" style="width: 40px; height: 40px; border: 4px solid var(--border-color); border-top: 4px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 1rem;"></div>
+                    <p>正在测试策略管理器...</p>
+                </div>
+            `;
+
+            // 模拟加载过程
+            setTimeout(() => {
+                container.innerHTML = `
+                    <div class="success-state" style="text-align: center; padding: 2rem; background: var(--success-color-light); border-radius: 12px; border: 1px solid var(--success-color);">
+                        <div class="success-icon" style="font-size: 48px; margin-bottom: 1rem;">✅</div>
+                        <h3 style="color: var(--success-color); margin-bottom: 0.5rem;">测试成功</h3>
+                        <p style="color: var(--text-secondary);">策略概览界面显示正常</p>
+                        <div style="margin-top: 1rem;">
+                            <button class="btn btn-primary" onclick="window.location.href='/'">返回主页面</button>
+                        </div>
+                    </div>
+                `;
+            }, 2000);
+        }
+
+        // 页面加载完成后的初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('🧪 策略概览测试页面加载完成');
+
+            // 检查样式是否正确加载
+            const styleCheck = getComputedStyle(document.querySelector('.strategy-card'));
+            if (styleCheck.borderRadius) {
+                console.log('✅ 策略卡片样式加载正常');
+            } else {
+                console.warn('⚠️ 策略卡片样式可能未正确加载');
+            }
+        });
+    </script>
+
+    <style>
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</body>
+
+</html>

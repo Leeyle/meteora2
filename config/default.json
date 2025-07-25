@@ -1,0 +1,123 @@
+{
+    "server": {
+        "port": 7000,
+        "host": "0.0.0.0",
+        "cors": {
+            "origin": "*",
+            "methods": [
+                "GET",
+                "POST",
+                "PUT",
+                "DELETE",
+                "OPTIONS"
+            ],
+            "allowedHeaders": [
+                "Content-Type",
+                "Authorization"
+            ]
+        }
+    },
+    "websocket": {
+        "port": 7002,
+        "cors": {
+            "origin": "*",
+            "methods": [
+                "GET",
+                "POST"
+            ]
+        }
+    },
+    "monitor": {
+        "port": 7003,
+        "healthCheckInterval": 60000,
+        "metricsRetention": 3600000
+    },
+    "solana": {
+        "network": "mainnet-beta",
+        "rpcEndpoints": [
+            "https://mainnet.helius-rpc.com/?api-key=13d60095-6323-4ef5-bf9a-2a39f0ca7f62",
+            "https://solana-rpc.publicnode.com",
+            "https://api.mainnet-beta.solana.com"
+        ],
+        "priorityFee": 10000,
+        "commitment": "confirmed",
+        "timeout": 30000,
+        "retries": {
+            "maxRetries": 3,
+            "retryDelayMs": 2000,
+            "backoffFactor": 2
+        }
+    },
+    "jupiter": {
+        "apiUrl": "https://quote-api.jup.ag/v6",
+        "defaultSlippageBps": 50,
+        "timeout": 15000,
+        "useV7": true
+    },
+    "meteora": {
+        "programId": "LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo",
+        "defaultSlippageBps": 100
+    },
+    "logging": {
+        "level": "info",
+        "maxFileSize": 2097152,
+        "maxFiles": 5,
+        "datePattern": "YYYY-MM-DD",
+        "zippedArchive": true,
+        "format": {
+            "timestamp": true,
+            "level": true,
+            "message": true,
+            "meta": true
+        },
+        "separate": {
+            "operation": {
+                "filename": "operation.log",
+                "showInConsole": true
+            },
+            "monitor": {
+                "filename": "monitor.log",
+                "showInConsole": false
+            },
+            "strategy": {
+                "filename": "strategy.log",
+                "showInConsole": true
+            }
+        }
+    },
+    "wallet": {
+        "encryption": {
+            "algorithm": "aes-256-gcm",
+            "keyDerivation": "pbkdf2",
+            "iterations": 100000
+        }
+    },
+    "strategy": {
+        "defaultTimeout": 1800000,
+        "monitorInterval": 30000,
+        "saveStateInterval": 10000,
+        "maxActiveStrategies": 10,
+        "defaultParams": {
+            "slippageBps": 100,
+            "binRange": 69,
+            "outOfRangeTimeoutMinutes": 30,
+            "stopLossBinOffset": 5
+        }
+    },
+    "position": {
+        "validationTimeout": 10000,
+        "feeHarvestThreshold": 0.001,
+        "batchSize": 5
+    },
+    "cache": {
+        "ttl": 300000,
+        "checkPeriod": 60000,
+        "maxKeys": 1000
+    },
+    "database": {
+        "dataDir": "./data",
+        "stateDir": "./data/states",
+        "backupInterval": 3600000,
+        "maxBackups": 24
+    }
+}
