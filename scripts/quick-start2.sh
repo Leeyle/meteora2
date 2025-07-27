@@ -476,7 +476,15 @@ start_all_services() {
     
     # 启动前端Web界面
     cd web 2>/dev/null || (log "ERROR" "❌ 未找到web目录"; return 1)
+    # 原来的代码
     start_service "Web" "npm run dev" "7001" "../.web.pid" "/"
+    
+    # 修改为
+    if [ "${NODE_ENV:-development}" = "production" ]; then
+        start_service "Web" "npm start" "7001" "../.web.pid" "/"
+    else
+        start_service "Web" "npm run dev" "7001" "../.web.pid" "/"
+    fi
     cd ..
     
     log "SUCCESS" "🎉 DLMM系统启动完成！"
@@ -607,4 +615,4 @@ if [ ! -f "package.json" ]; then
 fi
 
 # 执行主函数
-main "$@" 
+main "$@"
