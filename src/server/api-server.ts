@@ -1358,8 +1358,4 @@ export class DLMMAPIServer {
     }
 
 
-}
-
-// 移除主程序入口，避免重复启动
-// export default DLMMAPIServer;
-export { DLMMAPIServer }; 
+} 
