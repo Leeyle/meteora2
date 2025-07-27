@@ -123,7 +123,47 @@ check_typescript() {
     fi
 }
 
-# 检查已运行的服务
+# 自动清理端口并启动服务
+auto_kill_ports_and_start() {
+    log "INFO" "🔄 自动清理相关端口..."
+    
+    local ports=("7000" "7001" "7002" "7003")
+    local port_names=("后端API服务器" "前端Web界面" "WebSocket服务" "监控服务")
+    local killed_any=false
+    
+    for i in "${!ports[@]}"; do
+        local port="${ports[$i]}"
+        local service_name="${port_names[$i]}"
+        
+        if lsof -ti:$port >/dev/null 2>&1; then
+            log "WARN" "⚠️ 端口 $port ($service_name) 已被占用，正在清理..."
+            
+            # 获取占用端口的进程ID
+            local pids=$(lsof -ti:$port)
+            
+            for pid in $pids; do
+                if kill -9 $pid 2>/dev/null; then
+                    log "SUCCESS" "✅ 已清理端口 $port 的进程 (PID: $pid)"
+                    killed_any=true
+                else
+                    log "WARN" "⚠️ 无法清理端口 $port 的进程 (PID: $pid)"
+                fi
+            done
+        else
+            log "DEBUG" "端口 $port ($service_name) 可用"
+        fi
+    done
+    
+    if [ "$killed_any" = true ]; then
+        log "INFO" "等待端口释放..."
+        sleep 2
+        log "SUCCESS" "✅ 端口清理完成"
+    else
+        log "SUCCESS" "✅ 所有端口都可用"
+    fi
+}
+
+# 检查已运行的服务 (修改后的版本)
 check_running_services() {
     log "INFO" "🔍 检查已运行的服务..."
     
@@ -145,17 +185,8 @@ check_running_services() {
     done
     
     if [ "$any_running" = true ]; then
-        log "WARN" "发现服务已在运行，是否需要先停止？"
-        read -p "是否先停止现有服务? (y/N): " -n 1 -r
-        echo ""
-        if [[ $REPLY =~ ^[Yy]$ ]]; then
-            log "INFO" "正在停止现有服务..."
-            ./scripts/quick-stop.sh --force
-            sleep 3
-            log "INFO" "现有服务已停止，继续启动..."
-        else
-            log "WARN" "继续启动可能导致端口冲突"
-        fi
+        log "INFO" "🔄 自动清理所有占用的端口..."
+        auto_kill_ports_and_start
     else
         log "SUCCESS" "✅ 所有端口都可用"
     fi
@@ -476,15 +507,14 @@ start_all_services() {
     
     # 启动前端Web界面
     cd web 2>/dev/null || (log "ERROR" "❌ 未找到web目录"; return 1)
-    # 原来的代码
-    start_service "Web" "npm run dev" "7001" "../.web.pid" "/"
     
-    # 修改为
+    # 根据环境变量选择启动命令
     if [ "${NODE_ENV:-development}" = "production" ]; then
         start_service "Web" "npm start" "7001" "../.web.pid" "/"
     else
         start_service "Web" "npm run dev" "7001" "../.web.pid" "/"
     fi
+    
     cd ..
     
     log "SUCCESS" "🎉 DLMM系统启动完成！"
