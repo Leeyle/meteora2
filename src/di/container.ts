@@ -77,13 +77,13 @@ import { InstanceAwareServiceFactory } from '../services/business/InstanceAwareS
 import { StrategyHealthChecker } from '../services/strategy/StrategyHealthChecker';
 
 // 导入池爬虫服务
-import { PoolCrawlerService } from '../services/crawler/PoolCrawlerService';
-import { PuppeteerWebCrawlerService } from '../services/crawler/PuppeteerWebCrawlerService';
-import { PoolDataParser } from '../services/crawler/PoolDataParser';
-import { PoolFilterEngine } from '../services/crawler/PoolFilterEngine';
-import { TokenFilterManager } from '../services/crawler/TokenFilterManager';
-import { QualifiedPoolsManager } from '../services/crawler/QualifiedPoolsManager';
-import { PoolPushStorageManager } from '../services/crawler/PoolPushStorageManager';
+// import { PoolCrawlerService } from '../services/crawler/PoolCrawlerService';
+// import { PuppeteerWebCrawlerService } from '../services/crawler/PuppeteerWebCrawlerService';
+// import { PoolDataParser } from '../services/crawler/PoolDataParser';
+// import { PoolFilterEngine } from '../services/crawler/PoolFilterEngine';
+// import { TokenFilterManager } from '../services/crawler/TokenFilterManager';
+// import { QualifiedPoolsManager } from '../services/crawler/QualifiedPoolsManager';
+// import { PoolPushStorageManager } from '../services/crawler/PoolPushStorageManager';
 
 /**
  * 依赖注入容器配置类 (修复版)
@@ -257,13 +257,13 @@ export class DIContainer {
 
         // 第10层：池爬虫系统（模块化组件）
         console.log('📦 注册第10层：池爬虫系统...');
-        container.registerSingleton('WebCrawlerService', PuppeteerWebCrawlerService);
-        container.registerSingleton('PoolDataParser', PoolDataParser);
-        container.registerSingleton('PoolFilterEngine', PoolFilterEngine);
-        container.registerSingleton('TokenFilterManager', TokenFilterManager);
-        container.registerSingleton('QualifiedPoolsManager', QualifiedPoolsManager);
-        container.registerSingleton('PoolPushStorageManager', PoolPushStorageManager);
-        container.registerSingleton('PoolCrawlerService', PoolCrawlerService);
+        // container.registerSingleton('WebCrawlerService', PuppeteerWebCrawlerService);
+        // container.registerSingleton('PoolDataParser', PoolDataParser);
+        // container.registerSingleton('PoolFilterEngine', PoolFilterEngine);
+        // container.registerSingleton('TokenFilterManager', TokenFilterManager);
+        // container.registerSingleton('QualifiedPoolsManager', QualifiedPoolsManager);
+        // container.registerSingleton('PoolPushStorageManager', PoolPushStorageManager);
+        // container.registerSingleton('PoolCrawlerService', PoolCrawlerService);
 
         // 旧架构组件已全部移除，新架构已就绪
 
