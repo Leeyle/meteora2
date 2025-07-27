@@ -133,10 +133,10 @@ export class DLMMAPIServer {
                 healthChecker: getService(TYPES.StrategyHealthChecker),
 
                 // 池爬虫服务（使用字符串令牌）
-                poolCrawler: require('tsyringe').container.resolve('PoolCrawlerService'),
-                qualifiedPoolsManager: require('tsyringe').container.resolve('QualifiedPoolsManager'),
-                tokenFilterManager: require('tsyringe').container.resolve('TokenFilterManager'),
-                poolPushStorageManager: require('tsyringe').container.resolve('PoolPushStorageManager')
+                // poolCrawler: require('tsyringe').container.resolve('PoolCrawlerService'),
+                // qualifiedPoolsManager: require('tsyringe').container.resolve('QualifiedPoolsManager'),
+                // tokenFilterManager: require('tsyringe').container.resolve('TokenFilterManager'),
+                // poolPushStorageManager: require('tsyringe').container.resolve('PoolPushStorageManager')
             };
 
             // 立即设置logger引用，以便后续使用
