@@ -1360,15 +1360,6 @@ export class DLMMAPIServer {
 
 }
 
-// 主程序入口 - 检查是否直接运行
-const isMainModule = process.argv[1] && (process.argv[1].endsWith('api-server.ts') || process.argv[1].endsWith('api-server.js'));
-
-if (isMainModule) {
-    const server = new DLMMAPIServer();
-    server.start().catch(async (error) => {
-        console.error('❌ 服务器启动失败:', error);
-        process.exit(1);
-    });
-}
-
-export default DLMMAPIServer; 
+// 移除主程序入口，避免重复启动
+// export default DLMMAPIServer;
+export { DLMMAPIServer }; 
